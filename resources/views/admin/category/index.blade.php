@@ -171,7 +171,7 @@
                     <div class="container">
                         <form>
                             <div class="form-group">
-                                <label for="product-name">Category Name</label>
+                                <label for="product-name">Category  Name</label>
                                 <input type="text" class="form-control" id="product-name" name="product-name"
                                     placeholder="Enter product name" required>
                             </div>

@@ -240,27 +240,44 @@
             <!-- cart close -->
             <i class="bx bx-x" id="close-cart"></i>
         </div>
-        <h2>All categories</h2>
-        <div class="d-flex">
+        <h2 class="text-center">All categories</h2>
+
+            <div class="con ml-5">
             
             @foreach ($categories as $categoryItem)
                 
-          
-            <div class="col-2 col-md-3">
-                <div class="category-card rounded">
-                    <a href="{{ url('/collections/'.$categoryItem->slug) }}">
-                        <div class="category-card-img">
-                        <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="category-thumbnail" width="100px" height="220px">
-                        </div>
-                        <div class="category-card-body">
-                            <h5>{{$categoryItem->name}}</h5>
-                        </div>
-                    </a>
+            <!-- <div class="row">
+            <div class="col-sm-6">
+            <div class="card" style="width: 18rem; margin: 1%">
+            <a href="{{ url('/collections/'.$categoryItem->slug) }}">
+                <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$categoryItem->name}}</h5>
                 </div>
+            </a>
             </div>
+            </div>
+            </div> -->
+
+            <a class="text-decoration-none text-center " href="{{ url('/collections/'.$categoryItem->slug) }}">
+                    <div class="card m-3 float-left" style="width: 15.4rem; height:325px">
+                        <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="card-img-top"
+                            width="230px" height="230px" alt="{{ $category->name }}">
+                        <div class="card-body">
+                            <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="font-size:19  px">{{$categoryItem->name}}</h3>
+                            <!-- <div class="float-end d-flex justify-content-center">
+                                <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
+                                    class="btn btn-warning m-1">Edit</a>
+                                <a href="{{ url('admin/category/' . $category->id . '/delete') }}"
+                                    onclick="return confirm('Are you sure you want to delete this Category?')"
+                                    class="btn btn-danger m-1 ">Delete</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </a>
                 
             @endforeach
-        </div>
+            </div>
         </div>
     </header>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
