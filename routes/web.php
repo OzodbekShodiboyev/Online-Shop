@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SliderController;
 use  App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::get('/collections',[FrontendController::class,'categories']);
 Route::get('/collections/{category_slug}', [FrontendController::class,'products']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/collections/{category_slug}/{product_slug}',[FrontendController::class,'productView']);
+Route::middleware(['auth'])->group(function (){
+    Route::get('/wishlist',[WishlistController::class,'index']);
+});
+
+// Route::livewire('/product/view/{category}/{product}', 'frontend.product.view');
+
 Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     //DASHBOARD Route

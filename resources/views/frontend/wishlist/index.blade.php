@@ -259,11 +259,10 @@
                 <!-- cart close -->
                 <i class="bx bx-x" id="close-cart"></i>
             </div>
-            </div>
             <div>
-                <livewire:frontend.product.view :category="$category" :product="$product" />
+                <livewire:frontend.wishlist-show /> 
             </div>
-
+            </div>
         </header>
         <script>
             window.addEventListener('message',event=>{
@@ -271,6 +270,7 @@
                 alertify.notify(event.detail.text,event.detail.type);
             });
         </script>
+        @livewireScripts
         <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
