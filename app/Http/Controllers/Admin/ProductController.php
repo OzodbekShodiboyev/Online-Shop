@@ -140,15 +140,15 @@ class ProductController extends Controller
     
         $product->save();
     
-        if ($request->hasFile('image')) {
+        if($request->hasFile('image')){
             $uploadPath = 'uploads/products/';
-            $i = 1;
-            foreach ($request->file('image') as $imageFile) {
-                $extension = $imageFile->getClientOriginalExtension();
-                $filename = time().$i++.'.'.$extension;
-                $imageFile->move($uploadPath, $filename);
+            $i= 1;
+            foreach($request->file('image') as $imageFile){
+                $extention = $imageFile->getClientOriginalExtension();
+                $filename = time().$i++.'.'.$extention;
+                $imageFile->move($uploadPath,$filename);
                 $finalImagePathName = $uploadPath.$filename;
-    
+
                 $product->productImages()->create([
                     'product_id' => $product->id,
                     'image' => $finalImagePathName,

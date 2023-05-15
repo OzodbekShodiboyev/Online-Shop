@@ -144,27 +144,36 @@
                                             @if ($data->isEmpty())
                                                 <p class="text-center h3">No brand</p>
                                             @else
-                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <table class="table table-bordered" id="dataTable" width="100%"
+                                                    cellspacing="0">
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
                                                             <th>Nomi</th>
                                                             <th>Slag</th>
                                                             <th>Status</th>
+                                                            <th>Kategoriya</th>
                                                             <th>Holat</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @php
-                                                        $counter = 1; // Initialize the counter
+                                                            $counter = 1; // Initialize the counter
                                                         @endphp
-                                        
+
                                                         @foreach ($data as $dat)
                                                             <tr>
                                                                 <th scope="row">{{ $counter }}</th>
                                                                 <td>{{ $dat->name }}</td>
                                                                 <td>{{ $dat->slug }}</td>
                                                                 <td>{{ $dat->status }}</td>
+                                                                <td>
+                                                                    @if ($dat->category)
+                                                                    {{ $dat->category->name }}
+                                                                @else
+                                                                    No Category
+                                                                @endif
+                                                                </td>
                                                                 <td>
                                                                     <a href="{{ url('admin/brands/' . $dat->id . '/edit') }}"
                                                                         class="btn btn-warning">Edit</a>
@@ -174,7 +183,7 @@
                                                                 </td>
                                                             </tr>
                                                             @php
-                                                            $counter++; // Increment the counter
+                                                                $counter++; // Increment the counter
                                                             @endphp
                                                         @endforeach
                                                     </tbody>
@@ -182,10 +191,10 @@
                                             @endif
 
                                         </div>
-                                        
-                                    
-                                        
-                                        
+
+
+
+
 
                                     </div>
                                 </div>

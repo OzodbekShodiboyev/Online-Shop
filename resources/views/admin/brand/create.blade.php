@@ -140,6 +140,16 @@
                                         @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
                                     <div class="col-md-6 mb-3">
+                                        <label>Category</label>
+                                        <select name="category_id" class="form-control">
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
                                         <label for="">Slug</label>
                                         <input type="text" name="slug" class="form-control" id="">
                                         @error('slug') <small class="text-danger">{{ $message }}</small> @enderror

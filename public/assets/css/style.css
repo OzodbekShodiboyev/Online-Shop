@@ -9710,3 +9710,7 @@ a.text-dark:hover, a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+
+.hover-text-dec-none:hover{
+  text-decoration: none;
+}

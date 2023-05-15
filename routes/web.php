@@ -26,12 +26,10 @@ use  App\Http\Controllers\Frontend\FrontendController;
 
 Auth::routes();
 Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class,'index']);
-
+Route::get('/collections',[FrontendController::class,'categories']);
+Route::get('/collections/{category_slug}', [FrontendController::class,'products']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
 
     //DASHBOARD Route
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
@@ -41,7 +39,7 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('/category/create', [CategoryController::class, 'create']);
     Route::post('category', [CategoryController::class, 'store']);
     Route::get('/category/{category}/edit', [CategoryController::class, 'edit']);
-    Route::post('/category/{category}/update', [CategoryController::class, 'update']);
+    Route::put('/category/{category}/', [CategoryController::class, 'update']);
     Route::any('category/{category}/delete', [CategoryController::class, 'delete']);
 
 

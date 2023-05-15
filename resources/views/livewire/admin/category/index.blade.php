@@ -30,18 +30,18 @@
 
         <div class="con ml-5">
             @foreach ($categories as $category)
-                <a href="{{ url('admin/category/' . $category->id . '/edit') }}">
+                <a class="text-decoration-none text-center " href="{{ url('admin/category/' . $category->id . '/edit') }}">
                     <div class="card m-3 float-left" style="width: 17rem;">
                         <img src="{{ asset('Uploads/Category/' . $category->image) }}" class="card-img-top"
-                            width="55px" height="230px" alt="{{ $category->name }}">
+                            width="230px" height="230px" alt="{{ $category->name }}">
                         <div class="card-body">
-                            <h3 class="text-center">{{ $category->name }}</h3>
-                            <div class="float-end">
+                            <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="">{{ $category->name }}</h3>
+                            <div class="float-end d-flex justify-content-center">
                                 <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
-                                    class="btn btn-warning">Edit</a>
+                                    class="btn btn-warning m-1">Edit</a>
                                 <a href="{{ url('admin/category/' . $category->id . '/delete') }}"
                                     onclick="return confirm('Are you sure you want to delete this Category?')"
-                                    class="btn btn-danger ">Delete</a>
+                                    class="btn btn-danger m-1 ">Delete</a>
                             </div>
                         </div>
                     </div>
