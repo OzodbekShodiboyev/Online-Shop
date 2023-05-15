@@ -29,6 +29,7 @@ Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class,'index']
 Route::get('/collections',[FrontendController::class,'categories']);
 Route::get('/collections/{category_slug}', [FrontendController::class,'products']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/collections/{category_slug}/{product_slug}',[FrontendController::class,'productView']);
 Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     //DASHBOARD Route

@@ -38,24 +38,25 @@ class FrontendController extends Controller
             return redirect()->back();
         };
     }
-    // public function productView(string $category_slug, string $product_slug)
-    // {
-    //     $category = Category::where('slug',$category_slug)->first();
+    public function productView(string $category_slug, string $product_slug)
+    {
+        $categories_all = Category::get();
+        $category = Category::where('slug',$category_slug)->first();
 
-    //     if($category){
+        if($category){
 
-    //         $product = $category->products()->where('slug',$product_slug)->where('status','0')->first();
-    //         if($product)
-    //         {
-    //             return view('frontend.collections.products.view', compact('product','category'));
-    //         }else{
-    //             return redirect()->back();
-    //         };
+            $product = $category->products()->where('slug',$product_slug)->where('status','0')->first();
+            if($product)
+            {
+                return view('frontend.collections.products.view', compact('product','category','categories_all'));
+            }else{
+                return redirect()->back();
+            };
 
 
-    //     }else{
-    //         return redirect()->back();
-    //     };
-    // }
+        }else{
+            return redirect()->back();
+        };
+    }
 
 }
