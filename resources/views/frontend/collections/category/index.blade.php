@@ -28,6 +28,7 @@
 <body>
     <header>
 
+<<<<<<< HEAD
         <!-- Topbar Start -->
         <div class="container-fluid">
             <div class="row bg-secondary py-1 px-xl-5">
@@ -243,6 +244,11 @@
         <h2 class="text-center">All categories</h2>
 
             <div class="con ml-5">
+=======
+        @include('layouts.navbar')
+        <h2>All categories</h2>
+        <div class="d-flex">
+>>>>>>> 42e1cac1a6f1449f68e54de3b8773e697661040c
             
             @foreach ($categories as $categoryItem)
                 

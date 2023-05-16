@@ -40,7 +40,7 @@
    
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-6">
-            <a href="./index.html" class="text-decoration-none">
+            <a href="{{url('/')}}" class="text-decoration-none">
                 <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
                 <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
             </a>
