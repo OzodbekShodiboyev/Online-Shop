@@ -35,9 +35,6 @@
 </head>
 
 <body>
-    </head>
-
-    <body>
         <header>
 
             @include('layouts.navbar')
