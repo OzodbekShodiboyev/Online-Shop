@@ -54,7 +54,7 @@
                     <div class="col-md-3">
                         <livewire:frontend.product.index :category="$category" />
                     </div>
-
+                    
                     <div class="col-md-9">
                         <div class="row">
                             @forelse ($products as $productItem)
