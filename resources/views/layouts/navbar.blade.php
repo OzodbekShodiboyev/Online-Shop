@@ -98,10 +98,6 @@
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <i class=" btn px-0 ml-3 bx bx-shopping-bag text-white" id="cart-icon"></i>
-                        <span class="badge border border-secondary rounded-circle bg-danger text-white mr-4"
-                            id="cart-icon-span" style="padding-bottom: 2px; margin-left: -12%;">0</span>
-
                         @if (Route::has('login'))
                             @auth
                                 <a href="{{ url('/') }}"
