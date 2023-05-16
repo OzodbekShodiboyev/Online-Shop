@@ -32,18 +32,28 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
+    <style>
+        .sticky-div {
+            position: sticky;
+            top: 20px; /* Adjust the value according to your needs */
+        }
+    </style>
     <title>Our Products</title>
+
 </head>
+
 
 <body>
     <header>
         @include('layouts.navbar')
         <section class="py-5 bg-light">
-            <div class="container">
+            <div class="container-xxl">
                 <h4 class="text-center mb-4">Our Products</h4>
 
                 <div class="row">
-                    <livewire:frontend.product.index :category="$category" />
+                    <div class="col-md-3">
+                        <livewire:frontend.product.index :category="$category" />
+                    </div>
 
                     <div class="col-md-9">
                         <div class="row">
