@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CartCount extends Component
 {
+<<<<<<< HEAD
     public $cartCount, $quantityCount;
 
     protected $listener = ['CartAddedUpdated' => 'checkCartCount'];
+=======
+    public $cartCount;
+>>>>>>> 268f1b759dba8fbea1ff75ca421e2f37060aa52a
     protected $listeners = ['CartAddedUpdated' => 'checkCartCount',];
 
     public function checkCartCount()

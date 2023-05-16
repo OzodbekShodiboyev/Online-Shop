@@ -140,8 +140,8 @@
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <a href="{{ url('admin/brands/create') }}" style="background-color: rgb(22 163 74) ;">
-                                                <button type="button" class="btn w-25 mb-2 btn text-white" style="background-color: rgb(22 163 74) ;">
-                                                    📂 Add Brand
+                                                <button type="button" class="btn mb-2 btn text-white" style="background-color: rgb(22 163 74) ;">
+                                                    🏘 Add Brand
                                                 </button>
                                             </a>
                                             @if ($data->isEmpty())
