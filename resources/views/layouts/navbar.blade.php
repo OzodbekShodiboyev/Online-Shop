@@ -98,20 +98,18 @@
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-<<<<<<< HEAD
-=======
-                        <i class=" btn px-0 ml-3 bx bx-shopping-bag text-white" id="cart-icon"></i>
-                        <a href="{{ url('cart') }}" class="badge border border-secondary rounded-circle bg-danger text-white mr-4"
-                            id="cart-icon-span" style="padding-bottom: 2px; margin-left: -12%;"><livewire:frontend.cart.cart-count/></a>
-
->>>>>>> 0338baed1f8b7a140c701991b198fbe06bdf6ea4
+                        <a href="{{ url('cart') }}" class="login-link text-light text-decoration-none mr-4">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Savat
+                            <span class="badge bg-secondary bg-success p-2"><livewire:frontend.cart.cart-count /></span>
+                        </a>
                         @if (Route::has('login'))
                             @auth
                                 <a href="{{ url('/') }}"
                                     class="dashboard-link text-light text-decoration-none">Home</a>
                             @else
                                 <a href="{{ route('login') }}" class="login-link text-light text-decoration-none">
-                                    <span class="fas fa-user fa-lg text-white"></span>
+                                    <i class="fa-solid fa-user"></i>
                                     Log in
                                 </a>
                             @endauth

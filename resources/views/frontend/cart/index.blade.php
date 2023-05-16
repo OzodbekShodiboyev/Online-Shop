@@ -43,9 +43,9 @@
         
     </header>
     <script>
-        window.addEventListener('message', event => {
+        window.addEventListener('message',event=>{
             alertify.set('notifier', 'position', 'top-right');
-            alertify.notify(event.detail.text, event.detail.type);
+            alertify.notify(event.detail.text,event.detail.type);
         });
     </script>
     @livewireScripts

@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col-md-2 col-7 my-auto">
                                             @if ($cartItem ->productColor)
-                                                {{ $cartItem->productColor->color->id }}
+                                                {{ $cartItem->productColor->color->name }}
                                             @else
                                                 <div>No Color!</div>
                                             @endif
