@@ -60,7 +60,7 @@
     <hr class="sidebar-divider d-none d-md-block">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/sldr') }}">
-            <i style="color: black;" class="fas fa-fw fa-shopping-cart"></i>
+            <i style="color: black;" class='fas fa-sliders-h'></i>
             <span style="color: black;">Slider</span></a>
     </li>
 

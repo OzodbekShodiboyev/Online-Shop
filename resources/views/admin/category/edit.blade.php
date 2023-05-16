@@ -127,7 +127,7 @@
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Edit Category
                                 <a href="{{ url('admin/category') }}"
-                                    class="btn btn-outline-success text-white float-end" style="background-color: rgb(22 163 74) ;">BACK</a>
+                                    class="text-white float-end" style="background-color: rgb(22 163 74); text-decoration:none; font-size:30px">🔙</a>
                             </h3>
 
 
@@ -137,70 +137,47 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-                                    <div class=" col-md-6 mb-3">
+                                    <div class=" col-md-6 mb-3 d-block" style="display: block">
                                         <label for="Name">Name</label>
                                         <input type="text" name="name" value="{{ $category->name }}" id="name" class="form-control">
                                         @error('name') <small class="text-danger">{{ $message }}</small>@enderror
+
+                                        <div class=" mt-5">
+                                            <label for="slug">Slug</label>
+                                            <input type="text" name="slug" value="{{ $category->slug }}" id="slug" class="form-control">
+                                             @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
+                                        </div>
                                     </div>
-                                    <div class=" col-md-6 mb-3">
-                                        <label for="slug">Slug</label>
-                                        <input type="text" name="slug" value="{{ $category->slug }}" id="slug" class="form-control">
-                                         @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
-                                    </div>
-                                    <div class=" col-md-12 mb-3">
-                                        <label for="description">Description</label>
-                                        <textarea type="text" name="description" rows="3" id="description" class="form-control">{{ $category->description }}</textarea>
-                                        @error('description') <small class="text-danger">{{ $message }}</small>@enderror
-                                    </div>
-                                    {{-- <div class=" col-md-6 mb-3">
-                                        <label for="image">Image</label>
-                                        <input type="file" name="image" id="image" class="form-control">
-                                        <img src="{{ asset("$category->image") }}" alt="">
-                                    </div> --}}
-                                    <div class=" col-md-6 mb-3">
-                                        <label for="image">Change Image</label>
+
+                                    <div class=" col-md-3 mb-0">
                                         <div class="image-preview">
-                                            <img class="img-responsive mt-2" style="width:300px; height:200px;"
+                                            <img class="img-responsive ml-5" style="width:200px; height:200px;"
                                                 alt="image" src="/Uploads/Category/{{ $category->image }}">
                                             <input type="file" name="image" id="image"
                                                 class="form-control d-none">
+                                            <label for="image" class="text-center mt-1" style="margin-left: 25%">Change Image</label>
                                         </div>
                                         @error('image')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-
-                                    <script>
-                                        // Add event listener to the image element
-                                        document.querySelector('.image-preview img').addEventListener('click', function() {
-                                            // Trigger a click event on the file input element
-                                            document.querySelector('.image-preview input[type=file]').click();
-                                        });
-// Preview selected image
-                                        document.querySelector('.image-preview input[type=file]').addEventListener('change', function() {
-                                            var reader = new FileReader();
-                                            reader.onload = function(e) {
-                                                document.querySelector('.image-preview img').setAttribute('src', e.target.result);
-                                            };
-                                            reader.readAsDataURL(this.files[0]);
-                                        });
-                                    </script>
-                                    <div class=" col-md-6 mb-3">
-                                        <label for="status">Status</label><br />
-                                        <input type="checkbox" name="status" id="status">
-                                        @error('status') <small class="text-danger">{{ $message }}</small>@enderror
-                                    </div>
-                                    <div class="col-md-12 mb-5 mt-5">
-                                        <h3>SEO Tags</h3>
-                                    </div>
+                                 
                                     <div class=" col-md-12 mb-3">
+                                        <label for="description">Description</label>
+                                        <textarea type="text" name="description" rows="3" id="description" class="form-control">{{ $category->description }}</textarea>
+                                        @error('description') <small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    <div class="col-md-12 mb-1 mt-1">
+                                        <h4>SEO Tags</h4>
+                                    </div>
+                                    <div class=" col-md-6 mb-3">
                                         <label for="meta_title">Meta_title</label>
                                         <input type="text" value="{{ $category->meta_title }}" name="meta_title" id="meta_title" class="form-control">
                                         @error('meta_title') <small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
-                                    <div class=" col-md-12 mb-3">
+                                    <div class=" col-md-6 mb-3">
                                         <label for="meta_keyword">Meta_Keyword</label>
-                                        <textarea type="text" name="meta_keyword" id="meta_keyword" rows="3" class="form-control">{{ $category->name }}</textarea>
+                                        <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value={{ $category->name }} >
                                         @error('meta_keyword') <small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class=" col-md-12 mb-3">
@@ -208,6 +185,12 @@
                                         <textarea type="text" name="meta_description" id="meta_description" rows="3" class="form-control">{{ $category->name }}</textarea>
                                         @error('meta_description') <small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
+                                    <div class="col-md-6 mb-2 mt-2" style="font-size:18px">
+                                        <input type="checkbox" {{ $category->status == '1' ? 'checked' : '' }} name="status" id="status" style="width: 18px; height:18px">
+                                        <label for="status">Status</label>
+                                        @error('status') <small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    
                                     <div class="col-md-12 mb-3">
                                         <button type="submit" class="btn text-white float-end" style="background-color: rgb(22 163 74) ;">Update</button>
                                     </div>
@@ -296,6 +279,20 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+        // Add event listener to the image element
+        document.querySelector('.image-preview img').addEventListener('click', function() {
+            // Trigger a click event on the file input element
+            document.querySelector('.image-preview input[type=file]').click();
+        });
+        document.querySelector('.image-preview input[type=file]').addEventListener('change', function() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.querySelector('.image-preview img').setAttribute('src', e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
 </body>
 
 </html>

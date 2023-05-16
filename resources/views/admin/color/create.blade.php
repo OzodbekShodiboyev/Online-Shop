@@ -16,6 +16,11 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     @livewireStyles
 </head>
@@ -29,8 +34,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar position-fixed mb-4 static-top shadow"
-                    style="width: 86%">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -45,7 +49,7 @@
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                    <i class="fas fa-search fa-fw" style="color: white;"></i>
                                 </button>
                             </div>
                         </div>
@@ -69,8 +73,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;"
+                                                type="button">
+                                                <i class="fas fa-search fa-fw" style="color: white;"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -120,38 +125,44 @@
                     </ul>
 
                 </nav>
-                <div class="row">
-                    <div class="col-md-12">
+
+
+
+                <div class="col-md-12">
+                    <div class="">
                         @if (session('message'))
                             <div class="alert alert-success">{{ session('message') }}</div>
                         @endif
                     </div>
-                    <div class="card" style="margin-top: 8%; margin-left: 4%; width:93%">
-                        <div class="card-header" style="padding-bottom: 10px">
-                            <h3 style="display: flex">Add Color
-                                <a href="{{ url('admin/colors/') }}" class=" btn btn-primary"
-                                    style="margin-left: 84%">Back</a>
+                    <div class="card m-5" style="">
+                        <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
+                            <h3 style="">Add Color 
+                                <a href="{{ url('admin/colors/') }}" class="text-decoration-none float-end"
+                                style="background-color: rgb(22 163 74) ; font-size:30px">🔙</a>
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{url('admin/colors/')}}" method="POST">
+                            <form  action="{{ url('admin/colors/') }}" method="POST">
                                 @csrf
-
-                                <div class="mb-3">
+                                
+                                <div class="row d-flex justify-content-center ">
+                                <div class="col-md-10 mb-3">
                                     <label for="">Color Name</label>
-                                    <input type="text" name="name" class="form-control">
+                                    <input type="text" name="name" class="form-control ">
                                 </div>
-                                <div class="mb-3">
+                                <div class="col-md-10 mb-3">
                                     <label for="">Color Code</label>
                                     <input type="text" name="code" class="form-control">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="">Status</label></br>
-                                    <input type="checkbox" name="status">
+                                <div class="col-md-10 mb-3 mt-2 " style="font-size:18px">
+                                    <input type="checkbox" name="status" style="width: 18px; height:18px">
+                                    <label for="" class="ml-2">Status</label>
+
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-success float-end  ">Save</button>
                                 </div>
+                            </div>
                             </form>
                         </div>
                     </div>

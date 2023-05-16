@@ -16,6 +16,9 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
     @livewireStyles
 </head>
@@ -29,8 +32,8 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar position-fixed mb-4 static-top shadow"
-                    style="width: 86%">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
+                    style="">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -125,20 +128,23 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="row">
-                    <div class="col-md-12">
-                        @if (session('message'))
+
+                <div class="m-5">
+
+                    @if (session('message'))
                             <div class="alert alert-success">{{ session('message') }}</div>
                         @endif
-                    </div>
-                    <div class="card" style="margin-top: 8%; margin-left: 4%; width:93%">
-                        <div class="card-header" style="padding-bottom: 10px">
-                            <h3 style="display: flex">Color Lists
-                                <a href="{{ url('admin/colors/create') }}" class=" btn btn-primary"
-                                    style="margin-left: 80%">Add Color</a>
-                            </h3>
+        
+                    <div class="card">
+                        <div class="card-header" style="background-color: rgb(22 163 74) ;">
+                            <div class="d-flex justify-content-between text-white">
+                                <h3>Color Lists</h3>
+                                
+                            </div>
                         </div>
                         <div class="card-body">
+                            <a href="{{ url('admin/colors/create') }}"
+                                    class="btn btn btn-md text-white float-start mb-3" style="background-color: rgb(22 163 74) ;" >🎨 Add Color</a>
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -168,7 +174,6 @@
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- End of Main Content -->

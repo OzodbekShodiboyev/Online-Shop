@@ -84,7 +84,7 @@ class CategoryController extends Controller
             $category['meta_description'] = $valid['meta_description'];
             $category['description'] = $valid['description'];
             $category->update();
-            return redirect('admin/category')->with('success', 'Category updated successfully');
+            return redirect('admin/category')->with('message', 'Category updated successfully');
         }
     }
     public function delete($id)
