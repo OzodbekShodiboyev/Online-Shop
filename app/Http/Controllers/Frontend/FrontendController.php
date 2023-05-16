@@ -27,20 +27,23 @@ class FrontendController extends Controller
    
     public function products($category_slug)
     {
-        $categories_all = Category::get();
         $category = Category::where('slug',$category_slug)->first();
 
         if($category){
 
             $products = $category->products()->get();
-            return view('frontend.collections.products.index', compact('category','categories_all','products'));
+            return view('frontend.collections.products.index', compact('category','products'));
+            
         }else{
             return redirect()->back();
         };
     }
+    public function navbar(){
+        $categories_all = Category::get();
+        return view('layouts.navbar',compact('categories_all'));
+    }
     public function productView(string $category_slug, string $product_slug)
     {
-        $categories_all = Category::get();
         $category = Category::where('slug',$category_slug)->first();
 
         if($category){
@@ -48,7 +51,7 @@ class FrontendController extends Controller
             $product = $category->products()->where('slug',$product_slug)->where('status','0')->first();
             if($product)
             {
-                return view('frontend.collections.products.view', compact('product','category','categories_all'));
+                return view('frontend.collections.products.view', compact('product','category'));
             }else{
                 return redirect()->back();
             };
