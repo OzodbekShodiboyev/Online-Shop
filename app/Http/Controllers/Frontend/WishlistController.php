@@ -10,7 +10,7 @@ class WishlistController extends Controller
 {
     public function index()
     {
-        $categories_all = Category::get();
-        return view('frontend.wishlist.index',compact('categories_all'));
+        $categories = Category::get();
+        return view('frontend.wishlist.index',compact('categories'));
     }
 }

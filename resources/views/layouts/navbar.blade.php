@@ -70,7 +70,7 @@
                 id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
                     <a href="{{ url('/collections') }}" class="nav-item nav-link">Barcha kategoriyalar</a>
-                    @foreach ($categories_all as $category)
+                    @foreach ($categories as $category)
                         <a href="/shop.html" class="nav-item nav-link">{{ $category->name }}</a>
                     @endforeach
                 </div>
