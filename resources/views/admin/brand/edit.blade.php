@@ -16,6 +16,8 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     @livewireStyles
 </head>
@@ -45,8 +47,9 @@
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn" style="background-color: #1cc88a" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                 </button>
                             </div>
                         </div>
@@ -70,8 +73,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: #1cc88a" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                             </button>
                                         </div>
                                     </div>

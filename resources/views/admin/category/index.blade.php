@@ -45,8 +45,8 @@
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn" style="background-color: #1cc88a" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                <i class="fas fa-search fa-fw" style="color: white;"></i>
                                 </button>
                             </div>
                         </div>
@@ -70,8 +70,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: #1cc88a" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                             </button>
                                         </div>
                                     </div>
@@ -156,44 +157,7 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Modal -->
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Add Category</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form>
-                            <div class="form-group">
-                                <label for="product-name">Category  Name</label>
-                                <input type="text" class="form-control" id="product-name" name="product-name"
-                                    placeholder="Enter product name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="product-image">Category Image</label>
-                                <input type="file" class="form-control-file" id="product-image"
-                                    name="product-image" accept="image/*" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Add Product</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-
-
+    
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
