@@ -54,7 +54,7 @@
                     <div class="col-md-3">
                         <livewire:frontend.product.index :category="$category" />
                     </div>
-                    
+
                     <div class="col-md-9">
                         <div class="row">
                             @forelse ($products as $productItem)
@@ -62,14 +62,14 @@
                                     <div class="card product-card">
                                         <div class="product-card-img">
                                             @if ($productItem->quantity > 0)
-                                                <span class="stock-badge in-stock">In Stock</span>
+                                                <button class="btn-sm outline-none border-none btn-success m-1">In Stock</button>
                                             @else
-                                                <span class="stock-badge out-of-stock">Out of Stock</span>
+                                                <button class="btn-sm outline-none border-none btn-danger m-1">Out of Stock</button>
                                             @endif
                                             @if ($productItem->productImages->count() > 0)
                                                 <a href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                                     <img src="{{ asset($productItem->productImages[0]->image) }}"
-                                                        alt="{{ $productItem->name }}" class="product-img">
+                                                        alt="{{ $productItem->name }}" class="product-img" height="250px" height="250px">
                                                 </a>
                                             @endif
                                         </div>

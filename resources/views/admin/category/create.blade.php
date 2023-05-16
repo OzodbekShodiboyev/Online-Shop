@@ -47,8 +47,9 @@
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn" style="background-color: #1cc88a" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                 </button>
                             </div>
                         </div>
@@ -61,7 +62,7 @@
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
+                                <i class="fas fa-search fa-fw" style="color: white;"></i>
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
@@ -72,8 +73,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: #1cc88a" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                             </button>
                                         </div>
                                     </div>
@@ -124,7 +126,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="col-md-12" style="">
-                    <div class="card">
+                    <div class="card m-5 mt-0">
                         <div style="background-color: rgb(22 163 74);" class="card-header text-white    ">
                             <h3>Add Category
                                 <a href="{{ url('admin/category/') }}"
@@ -136,32 +138,31 @@
                                 @csrf
                                 
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Name</label>
                                         <input type="text" name="name" class="form-control" id="">
                                         @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Slug</label>
                                         <input type="text" name="slug" class="form-control" id="">
                                         @error('slug') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-12 mb-2">
                                         <label for="">Description</label>
                                         <textarea  name="description" class="form-control" rows="3"></textarea>
                                         @error('description') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Image</label>
                                         <div>
                                             <i class="" id="uploadIcon" style="cursor:pointer;">
                                             
                                                     <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                                    <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                                                        viewBox="0 0 512.001 512.001" xml:space="preserve">
-                                                    <path style="fill:#EC5565;" d="M512.001,256.006c0,141.395-114.606,255.998-255.996,255.994
+                                                <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve">
+                                                    <path style="fill:#16A34A;" d="M512.001,256.006c0,141.395-114.606,255.998-255.996,255.994
                                                         C114.606,512.004,0.001,397.402,0.001,256.006C-0.007,114.61,114.606,0,256.005,0C397.395,0,512.001,114.614,512.001,256.006z"/>
-                                                    <path style="fill:#D94453;" d="M498.97,336.634L310.696,148.357c-0.001-0.001-0.002-0.001-0.002-0.001l-1.666-1.667l-1.668-1.668
+                                                    <path style="fill:#16A34A;" d="M498.97,336.634L310.696,148.357c-0.001-0.001-0.002-0.001-0.002-0.001l-1.666-1.667l-1.668-1.668
                                                         l-46.714-46.713l-1.666-1.667l-1.668-1.668l-0.002-0.001l-1.666-1.667c-0.001-0.001-0.001-0.001-0.001-0.001l-1.667-1.668
                                                         c-0.636-0.637-1.394-1.146-2.237-1.498c-0.837-0.349-1.743-0.538-2.671-0.538H96.534c-3.833,0-6.933,3.105-6.933,6.933v291.2
                                                         c0,2.347,1.241,4.32,3.025,5.574c0.463,0.659,112.783,112.978,113.441,113.441c0.117,0.167,0.295,0.272,0.426,0.426
@@ -180,36 +181,36 @@
                                                             s6.933-3.104,6.933-6.933v-58.866l18.417,18.417c1.355,1.355,3.129,2.031,4.902,2.031s3.548-0.677,4.902-2.031
                                                             c2.708-2.708,2.708-7.095,0-9.804L337.231,289.618z"/>
                                                     </g>
-                                                    </svg>
+                                                </svg>
                                     </i>
                                             <input type="file" name="image" class="form-control" id="fileInput" style="display:none;">
                                         </div>
                                         @error('image') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
 
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Status</label></br>
                                         <input type="checkbox" name="status">
                                     </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-12 mb-2">
                                         <h4>SEO Tags</h4>
                                     </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Meta Title</label>
                                         <input type="text" name="meta_title" class="form-control">
                                         @error('meta_title') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
-                                    <div class="col-md-12 mb-3">
-                                        <label for="">Meta Keyword</label>
-                                        <textarea name="meta_keyword" class="form-control" rows="3"></textarea>
-                                        @error('meta_keyword') <small class="text-danger">{{ $message }}</small> @enderror
-                                    </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-2">
                                         <label for="">Meta Description</label>
                                         <input  name="meta_description" class="form-control" rows="3">
                                         @error('meta_description') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="">Meta Keyword</label>
+                                        <textarea name="meta_keyword" class="form-control" rows="3"></textarea>
+                                        @error('meta_keyword') <small class="text-danger">{{ $message }}</small> @enderror
+                                    </div>
+                                    <div class="col-md-12 mb-2">
                                             <button type="submit"  class="btn btn-primary float-end" style="background-color: rgb(22 163 74);">Save</button>
                                     </div>
                                 </div>

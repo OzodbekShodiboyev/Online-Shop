@@ -55,8 +55,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: #1cc88a" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                             </button>
                                         </div>
                                     </div>

@@ -43,8 +43,9 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Qidiruv..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-success" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn btn-success" style="background-color: rgb(22 163 74) ;" type="button">
+                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+
                                 </button>
                             </div>
                         </div>
@@ -68,8 +69,8 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-succes" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn btn-succes" style="background-color: rgb(22 163 74) ;" type="button">
+                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
                                             </button>
                                         </div>
                                     </div>

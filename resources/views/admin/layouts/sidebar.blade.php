@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-success accordion btn-success" style="background-color: rgb(22 163 74) ;"
+<ul class="navbar-nav sidebar sidebar-success accordion btn-success position-absolute§" style="background-color: rgb(22 163 74);"
     id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center m-1 justify-content-center" href="{{ url('/admin/dashboard') }}">
         <div class="sidebar-brand-icon">
@@ -47,23 +47,6 @@
             <span style="color: black;">Products</span></a>
     </li>
 
-    <hr class="sidebar-divider">
-    <!-- Nav Item - Pages Collapse Menu -->
-
-    <li class="nav-item">
-        <a class="nav-link" href="Royxat.html">
-            <i style="color: black;" class="fas fa-fw fa-users"></i>
-            <span style="color: black;">Admins</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i style="color: black;" class="fas fa-fw fa-chart-area"></i>
-            <span style="color: black;">Statistika</span></a>
-    </li>
 
     <hr class="sidebar-divider">
 
