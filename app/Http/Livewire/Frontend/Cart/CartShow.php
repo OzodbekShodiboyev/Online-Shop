@@ -11,126 +11,128 @@ class CartShow extends Component
 
     public function decrementQuantity(int $cartId)
     {
-        $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
+        $cartData = Cart::where('id',$cartId)->where('user_id', auth()->user()->id)->first();
+        if($cartData)
+        {
+            if($cartData->productColor()->where('id',$cartData->product_color_id)->exists()){
 
-        if ($cartData) {
-            if ($cartData->productColor()->where('id', $cartData->product_color_id)->exists()) {
-                $productColor = $cartData->productColor()->where('id', $cartData->product_color_id)->first();
-                if ($productColor->quantity > $cartData->quantity) {
+                $productColor = $cartData->productColor()->where('id',$cartData->product_color_id)->first();
+                if(($productColor->quantity >= $cartData->quantity)&&($cartData->quantity > 1)){
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
-                        'type' => 'success',
-                        'status' =>  200
-                    ]);
-                } else {
-                    $cartData->decrement('quantity');
+                    'text' => 'Quantity Updated',
+                    'type' => 'warning',
+                    'status' => 200
+                ]);
+                }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only' . $productColor->quantity . 'Quantity Avialable',
-                        'type' => 'success',
-                        'status' =>  200
+                        'text' => 'Minimum Quantity Reached',
+                        'type' => 'error',
+                        'status' => 200
                     ]);
                 }
-            } else {
-                if ($cartData->product->quantity > $cartData->quantity) {
+            }else{
+                if(($cartData->product->quantity >= $cartData->quantity)&&($cartData->quantity > 1))
+                {
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
                         'text' => 'Quantity Updated',
-                        'type' => 'success',
-                        'status' =>  200
+                        'type' => 'warning',
+                        'status' => 200
                     ]);
-                } else {
-                    $cartData->decrement('quantity');
+                }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only' . $cartData->product->quantity . 'Quantity Avialable',
-                        'type' => 'success',
-                        'status' =>  200
+                        'text' => 'Minimum Quantity Reached',
+                        'type' => 'error',
+                        'status' => 200
                     ]);
                 }
             }
-        } else {
+    
+        }
+        else{
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Something Went wrong',
+                'text' => 'Something Went Wrong!',
                 'type' => 'error',
-                'status' =>  404
+                'status' => 404
             ]);
         }
     }
 
     public function incrementQuantity(int $cartId)
     {
-        $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
-
-        if ($cartData) {
-            if ($cartData->productColor()->where('id', $cartData->product_color_id)->exists()) {
-                $productColor = $cartData->productColor()->where('id', $cartData->product_color_id)->first();
-                if ($productColor->quantity > $cartData->quantity) {
+        $cartData = Cart::where('id',$cartId)->where('user_id', auth()->user()->id)->first();
+        if($cartData)
+        {
+            if($cartData->productColor()->where('id',$cartData->product_color_id)->exists()){
+                $productColor = $cartData->productColor()->where('id',$cartData->product_color_id)->first();
+                if($productColor->quantity > $cartData->quantity){
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
-                        'type' => 'success',
-                        'status' =>  200
-                    ]);
-                } else {
-                    $cartData->increment('quantity');
+                    'text' => 'Quantity Updated',
+                    'type' => 'warning',
+                    'status' => 200
+                ]);
+                }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only' . $productColor->quantity . 'Quantity Avialable',
-                        'type' => 'success',
-                        'status' =>  200
+                        'text' => 'Only '.$productColor->quantity.' Quantity Available',
+                        'type' => 'error',
+                        'status' => 200
                     ]);
                 }
-            } else {
-                if ($cartData->product->quantity > $cartData->quantity) {
+            }else{
+                if($cartData->product->quantity > $cartData->quantity)
+                {
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
                         'text' => 'Quantity Updated',
-                        'type' => 'success',
-                        'status' =>  200
+                        'type' => 'warning',
+                        'status' => 200
                     ]);
-                } else {
-                    $cartData->increment('quantity');
+                }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only' . $cartData->product->quantity . 'Quantity Avialable',
-                        'type' => 'success',
-                        'status' =>  200
+                        'text' => 'Only '.$cartData->product->quantity.' Quantity Available',
+                        'type' => 'error',
+                        'status' => 200
                     ]);
                 }
             }
-        } else {
+    
+        }
+        else{
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Something Went wrong',
+                'text' => 'Something Went Wrong!',
                 'type' => 'error',
-                'status' =>  404
+                'status' => 404
             ]);
         }
+        
     }
 
     public function removeCartItem(int $cartId)
     {
-        $cartRemoveData = Cart::where('user_id', auth()->user()->id)->where('id', $cartId)->first();
-        if ($cartRemoveData) {
+        $cartRemoveData = Cart::where('user_id',auth()->user()->id)->where('id',$cartId)->first();
+        if($cartRemoveData){
             $cartRemoveData->delete();
-
             $this->emit('CartAddedUpdated');
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Cart item Removed',
-                'type' => 'success',
-                'status' => 200,
+                'text' => 'Cart Item Removed Successfully',
+                'type' => 'info',
+                'status' => 200
             ]);
-        } else {
-            
+        }else{
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Something went wrong',
+                'text' => 'Something Went Wrong!',
                 'type' => 'error',
-                'status' => 500,
+                'status' => 500
             ]);
         }
     }
-
+    
     public function render()
     {
         $this->cart = Cart::where('user_id', auth()->user()->id)->get();
-        return view('livewire.frontend.cart.cart-show', [
+        return view('livewire.frontend.cart.cart-show',[
             'cart' => $this->cart
         ]);
     }
