@@ -29,6 +29,7 @@
     <header>
 
         @include('layouts.navbar')
+<<<<<<< HEAD
         <h2>All categories</h2>
         <div class="d-flex">
             
@@ -39,11 +40,38 @@
                             width="230px" height="230px" alt="{{ $categoryItem->name }}">
                         <div class="card-body">
                             <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="font-size:19  px">{{$categoryItem->name}}</h3>
+=======
+        <div class="container">
+            <h2>All categories</h2>
+            <div class="col-md-12">
+                <div class="row">
+                    @forelse ($categories as $categoryItem)
+                    <a class="text-decoration-none text-center " href="{{ url('/collections/'.$categoryItem->slug) }}">
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card">
+                                <div class="product-card-img">
+                                            <img src="{{ asset("Uploads/Category/$categoryItem->image") }}"
+                                                alt="{{ $categoryItem->name }}" class="product-img">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="product-name">
+                                        <a href="{{ url('/collections/'.$categoryItem->slug) }}">
+                                            {{ $categoryItem->name }}
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                
-            @endforeach
+                    </a>
+                    @empty
+                        <div class="col-md-12">
+                            <div class="p-2">
+                                <h4 class="text-center">No Products for {{ $category->name }}</h4>
+                            </div>
+>>>>>>> 8a77e8c75771fdae86b1073a1552b950448e3617
+                        </div>
+                    @endforelse
+                </div>
             </div>
         </div>
     </header>
