@@ -98,16 +98,14 @@
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-<<<<<<< HEAD
-=======
-                        <i class=" btn px-0 ml-3 bx bx-shopping-bag text-white" id="cart-icon"></i>
-                        <a href="{{ url('cart') }}"
-                            class="badge border border-secondary rounded-circle bg-danger text-white mr-4"
-                            id="cart-icon-span" style="padding-bottom: 2px; margin-left: -12%;">
-                            <livewire:frontend.cart.cart-count />
+                        <a href="{{ url('cart') }}">
+                            <i class=" btn px-0 ml-3 bx bx-shopping-bag text-white" id="cart-icon"></i>
+                            <a class="badge border border-secondary rounded-circle bg-danger text-white mr-4"
+                                id="cart-icon-span" style="padding-bottom: 2px; margin-left: -12%;">
+                                <livewire:frontend.cart.cart-count />
+                            </a>
                         </a>
 
->>>>>>> 0338baed1f8b7a140c701991b198fbe06bdf6ea4
                         @if (Route::has('login'))
                             @auth
                                 <a href="{{ url('/') }}"
