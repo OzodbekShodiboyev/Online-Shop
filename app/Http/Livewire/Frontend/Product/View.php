@@ -65,18 +65,15 @@ class View extends Component
     public function addToCart(int $productId)
     {
         if (Auth::check()) {
-
             if ($this->product->where('id', $productId)->where('status', '0')->exists()) {
-
                 // Check for Product Color Quantity and add to Cart
                 if ($this->product->productColors()->count() > 1) {
-
                     if ($this->prodColorSelectedQuantity != NULL) {
-
                         if (Cart::where('user_id', auth()->user()->id)
                             ->where('product_id', $productId)
                             ->where('product_color_id', $this->productColorId)
                             ->exists()
+                            ->session()
                         ) {
                             $this->dispatchBrowserEvent('message', [
                                 'text' => 'Product Already Added!',
@@ -86,9 +83,7 @@ class View extends Component
                         } else {
                             $productColor = $this->product->productColors()->where('id', $this->productColorId)->first();
                             if ($productColor->quantity > 0) {
-
                                 if ($productColor->quantity > $this->quantityCount) {
-
                                     // Insert Product to Cart
                                     Cart::create([
                                         'user_id' => auth()->user()->id,
@@ -96,13 +91,14 @@ class View extends Component
                                         'product_color_id' => $this->productColorId,
                                         'quantity' => $this->quantityCount
                                     ]);
-
-                                    $this->emit('cartAddedUpdated');
+                                    $this->emit('CartAddedUpdated');
                                     $this->dispatchBrowserEvent('message', [
                                         'text' => 'Product Added to Cart.',
                                         'type' => 'success',
                                         'status' => 200
                                     ]);
+                                    // Increase the cart count
+                                    $this->emit('updateCartCount', $this->quantityCount);
                                 } else {
                                     $this->dispatchBrowserEvent('message', [
                                         'text' => 'Only ' . $productColor->quantity . ' Products Available in Stock!',
@@ -126,34 +122,29 @@ class View extends Component
                         ]);
                     }
                 } else {
-
                     if (Cart::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) {
-
                         $this->dispatchBrowserEvent('message', [
                             'text' => 'Product Already Added!',
                             'type' => 'warning',
                             'status' => 404
                         ]);
-
                     } else {
-
                         if ($this->product->quantity > 0) {
-
                             if ($this->product->quantity > $this->quantityCount) {
-
                                 // Insert Product to Cart
                                 Cart::create([
                                     'user_id' => auth()->user()->id,
                                     'product_id' => $productId,
                                     'quantity' => $this->quantityCount
                                 ]);
-
-                                $this->emit('cartAddedUpdated');
+                                $this->emit('CartAddedUpdated');
                                 $this->dispatchBrowserEvent('message', [
                                     'text' => 'Product Added to Cart.',
                                     'type' => 'success',
                                     'status' => 200
                                 ]);
+                                // Increase the cart count
+                                $this->emit('CartAddedUpdated', $this->quantityCount);
                             } else {
                                 $this->dispatchBrowserEvent('message', [
                                     'text' => 'Only ' . $this->product->quantity . ' Products Available in Stock!',
@@ -185,6 +176,8 @@ class View extends Component
             ]);
         }
     }
+
+
 
     public function colorSelected($productColorId)
     {

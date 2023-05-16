@@ -10,7 +10,11 @@ class CartCount extends Component
 {
     public $cartCount;
 
+<<<<<<< HEAD
     protected $listener = ['CartAddedUpdated' => 'checkCartCount'];
+=======
+    protected $listeners = ['CartAddedUpdated' => 'checkCartCount',];
+>>>>>>> 50c06c31621adb8f86ce8f6812edea1651fd3052
 
     public function checkCartCount()
     {
@@ -27,5 +31,7 @@ class CartCount extends Component
         return view('livewire.frontend.cart.cart-count',[
             'cartCount' => $this->cartCount
         ]);
+
+        
     }
 }
