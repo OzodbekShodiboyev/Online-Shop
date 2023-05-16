@@ -16,6 +16,8 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     @livewireStyles
 </head>
@@ -45,8 +47,8 @@
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn" style="background-color: #1cc88a" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                                    <i class="fas fa-search fa-sm" style="background-color: rgb(22 163 74) ;"></i>
                                 </button>
                             </div>
                         </div>
@@ -70,8 +72,8 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: #1cc88a" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;"  type="button">
+                                                <i style="background-color: rgb(22 163 74) ;" class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -122,10 +124,10 @@
 <!-- Begin Page Content -->
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Edit Category
                                 <a href="{{ url('admin/category') }}"
-                                    class="btn btn-primary btn-md text-white float-end">BACK</a>
+                                    class="btn btn-outline-success text-white float-end" style="background-color: rgb(22 163 74) ;">BACK</a>
                             </h3>
 
 
@@ -207,7 +209,7 @@
                                         @error('meta_description') <small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="col-md-12 mb-3">
-                                        <button type="submit" class="btn btn-primary text-white float-end">Update</button>
+                                        <button type="submit" class="btn text-white float-end" style="background-color: rgb(22 163 74) ;">Update</button>
                                     </div>
                                 </div>
                             </form>

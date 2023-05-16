@@ -22,6 +22,8 @@
 
 <body id="page-top">
     <div id="wrapper">
+
+    
         @include('admin.layouts.sidebar')
         <div class="col-md-10 mt-4">
 
@@ -53,7 +55,7 @@
                         <tbody>
                             @forelse ($products as $product)
                                 <tr>
-                                    <td>{{ $product->id }}</td>
+                                    <td>{{$product->id}}</td>
                                     <td>
                                         @if ($product->category)
                                             {{ $product->category->name }}
