@@ -35,7 +35,7 @@
     <style>
         .sticky-div {
             position: sticky;
-            top: 20px; /* Adjust the value according to your needs */
+            top: 50px; /* Adjust the value according to your needs */
         }
     </style>
     <title>Our Products</title>

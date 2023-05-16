@@ -8,13 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CartCount extends Component
 {
-    public $cartCount;
+    public $cartCount, $quantityCount;
 
-<<<<<<< HEAD
     protected $listener = ['CartAddedUpdated' => 'checkCartCount'];
-=======
     protected $listeners = ['CartAddedUpdated' => 'checkCartCount',];
->>>>>>> 50c06c31621adb8f86ce8f6812edea1651fd3052
 
     public function checkCartCount()
     {
@@ -24,7 +21,19 @@ class CartCount extends Component
             return $this->cartCount = 0;
         }
     }
+    public function incrementQuantity()
+    {
+        if ($this->quantityCount < 10) {
+            $this->quantityCount++;
+        }
+    }
 
+    public function decrementQuantity()
+    {
+        if ($this->quantityCount > 1) {
+            $this->quantityCount--;
+        }
+    }
     public function render()
     {
         $this->cartCount = $this->checkCartCount();

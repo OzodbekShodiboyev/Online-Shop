@@ -73,7 +73,6 @@ class View extends Component
                             ->where('product_id', $productId)
                             ->where('product_color_id', $this->productColorId)
                             ->exists()
-                            ->session()
                         ) {
                             $this->dispatchBrowserEvent('message', [
                                 'text' => 'Product Already Added!',
