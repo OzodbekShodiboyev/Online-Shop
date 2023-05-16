@@ -63,4 +63,9 @@ class FrontendController extends Controller
             return redirect()->back();
         };
     }
+
+    public function thankyou() {
+        $categories = Category::get();
+        return view('frontend.thank-you', compact('categories'));
+    }
 }
