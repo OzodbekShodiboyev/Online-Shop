@@ -1,6 +1,5 @@
-<div class="col-md-3">
+<div class="sticky-div">
     @if ($category->brands)
-
         <div class="card">
             <div class="card-header">
                 <h4>Brands</h4>
@@ -29,5 +28,4 @@
             </label>
         </div>
     </div>
-
 </div>
