@@ -12,37 +12,32 @@ class View extends Component
 
     public function addToWishList(int $productId)
     {
-        if(Auth::check())
-        {
-            if(Wishlist::where('user_id',auth()->user()->id)->where('product_id',$productId)->exists())
-            {
-                session()->flash('message','Product is already in your wishlist');
+        if (Auth::check()) {
+            if (Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) {
+                session()->flash('message', 'Product is already in your wishlist');
                 $this->dispatchBrowserEvent('message', [
                     'text' => 'Already in your wishlist',
                     'type' => 'warning',
                     'status' => 409
                 ]);
-                
-            return false;
-            }
-            else{
+
+                return false;
+            } else {
                 Wishlist::create([
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId
-    
+
                 ]);
                 $this->emit('wishlistAddedUpdated');
-                session()->flash('message','Product added to your wishlist successfully');
+                session()->flash('message', 'Product added to your wishlist successfully');
                 $this->dispatchBrowserEvent('message', [
                     'text' => 'Added to wishlist successfully',
                     'type' => 'info',
                     'status' => 200
                 ]);
             }
-        }
-        else
-        {
-            session()->flash('message','Please login to continue');
+        } else {
+            session()->flash('message', 'Please login to continue');
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Please login to continue',
                 'type' => 'info',
@@ -66,13 +61,70 @@ class View extends Component
         }
     }
 
+    public function addToCart(int $productId)
+    {
+        if (Auth::check()) {
+            if ($this->product->where('id', $productId)->where('status', '0')->exists()) {
+                if ($this->product->productColors()->count() > 1) {
+                    dd('am product color inside');
+                } else {
+                    if ($this->product->quantity > 0) {
+                        if ($this->product->quantity > $this->quantityCount) {
+                            
+                        } else {
+                            $this->dispatchBrowserEvent('message', [
+                                'text' => 'Only ' . $this->product->quantity . 'quantity Avialable',
+                                'type' => 'warning',
+                                'status' => 404
+                            ]);
+                        }
+                    } else {
+                        $this->dispatchBrowserEvent('message', [
+                            'text' => 'Out of stock',
+                            'type' => 'warning',
+                            'status' => 404
+                        ]);
+                    }
+                }
+                if ($this->product->quantity > 0) {
+                    if ($this->product->quantity > $this->quantityCount) {
+                    } else {
+                        $this->dispatchBrowserEvent('message', [
+                            'text' => 'Only ' . $this->product->quantity . 'quantity Avialable',
+                            'type' => 'warning',
+                            'status' => 404
+                        ]);
+                    }
+                } else {
+                    $this->dispatchBrowserEvent('message', [
+                        'text' => 'Out of stock',
+                        'type' => 'warning',
+                        'status' => 404
+                    ]);
+                }
+            } else {
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Product Does not exists',
+                    'type' => 'warning',
+                    'status' => 404
+                ]);
+            }
+        } else {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Please Login add to cart',
+                'type' => 'info',
+                'status' => 401
+            ]);
+        }
+    }
+
     public function colorSelected($productColorId)
     {
         $this->productColorId = $productColorId;
-        $productColor = $this->product->productColors()->where('id',$productColorId)->first();
+        $productColor = $this->product->productColors()->where('id', $productColorId)->first();
         $this->prodColorSelectedQuantity = $productColor->quantity;
 
-        if($this->prodColorSelectedQuantity == 0){
+        if ($this->prodColorSelectedQuantity == 0) {
             $this->prodColorSelectedQuantity = 'outOfStock';
         }
     }
