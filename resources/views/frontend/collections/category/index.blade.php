@@ -33,20 +33,6 @@
         <div class="d-flex">
             
             @foreach ($categories as $categoryItem)
-                
-            <!-- <div class="row">
-            <div class="col-sm-6">
-            <div class="card" style="width: 18rem; margin: 1%">
-            <a href="{{ url('/collections/'.$categoryItem->slug) }}">
-                <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{$categoryItem->name}}</h5>
-                </div>
-            </a>
-            </div>
-            </div>
-            </div> -->
-
             <a class="text-decoration-none text-center " href="{{ url('/collections/'.$categoryItem->slug) }}">
                     <div class="card m-3 float-left" style="width: 15.4rem; height:325px">
                         <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="card-img-top"
