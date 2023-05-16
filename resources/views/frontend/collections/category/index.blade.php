@@ -29,27 +29,37 @@
     <header>
 
         @include('layouts.navbar')
-        <h2>All categories</h2>
-        <div class="d-flex">
-            
-            @foreach ($categories as $categoryItem)
-                
-          
-            <div class="col-2 col-md-3">
-                <div class="category-card rounded">
-                    <a href="{{ url('/collections/'.$categoryItem->slug) }}">
-                        <div class="category-card-img">
-                        <img src="{{ asset("Uploads/Category/$categoryItem->image") }}" class="category-thumbnail" width="100px" height="220px">
-                        </div>
-                        <div class="category-card-body">
-                            <h5>{{$categoryItem->name}}</h5>
+        <div class="container">
+            <h2>All categories</h2>
+            <div class="col-md-12">
+                <div class="row">
+                    @forelse ($categories as $categoryItem)
+                    <a class="text-decoration-none text-center " href="{{ url('/collections/'.$categoryItem->slug) }}">
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card">
+                                <div class="product-card-img">
+                                            <img src="{{ asset("Uploads/Category/$categoryItem->image") }}"
+                                                alt="{{ $categoryItem->name }}" class="product-img">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="product-name">
+                                        <a href="{{ url('/collections/'.$categoryItem->slug) }}">
+                                            {{ $categoryItem->name }}
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
                         </div>
                     </a>
+                    @empty
+                        <div class="col-md-12">
+                            <div class="p-2">
+                                <h4 class="text-center">No Products for {{ $category->name }}</h4>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
-                
-            @endforeach
-        </div>
         </div>
     </header>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

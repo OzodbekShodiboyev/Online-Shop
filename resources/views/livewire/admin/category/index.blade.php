@@ -23,7 +23,7 @@
 
     <div class="container-fluid">
         <a href="{{ url('admin/category/create') }}">
-            <button type="button" class="btn btn-primary ml-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn ml-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74) ;">
                 📂 Add Category
             </button>
         </a>
@@ -31,11 +31,11 @@
         <div class="con ml-5">
             @foreach ($categories as $category)
                 <a class="text-decoration-none text-center " href="{{ url('admin/category/' . $category->id . '/edit') }}">
-                    <div class="card m-3 float-left" style="width: 17rem;">
+                    <div class="card m-3 float-left" style="width: 17rem; height:380px">
                         <img src="{{ asset('Uploads/Category/' . $category->image) }}" class="card-img-top"
                             width="230px" height="230px" alt="{{ $category->name }}">
                         <div class="card-body">
-                            <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="">{{ $category->name }}</h3>
+                            <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="width: 15rem; height:60px">{{ $category->name }}</h3>
                             <div class="float-end d-flex justify-content-center">
                                 <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
                                     class="btn btn-warning m-1">Edit</a>

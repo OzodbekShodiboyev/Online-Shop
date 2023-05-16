@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-success accordion" style=" background-color: #1cc88a!important"
+<ul class="navbar-nav sidebar sidebar-success accordion btn-success" style="background-color: rgb(22 163 74) ;"
     id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center m-1 justify-content-center" href="{{ url('/admin/dashboard') }}">
         <div class="sidebar-brand-icon">
