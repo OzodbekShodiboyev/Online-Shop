@@ -198,17 +198,3 @@
     </ul>
 </div>
 </nav>
-<div class="cart">
-    <h2 class="cart-title">Your Cart</h2>
-    <div class="cart-content">
-    </div>
-    <!--Total-->
-    <div class="total">
-        <div class="total-title">Total</div>
-        <div class="total-price">$0</div>
-    </div>
-    <!--buy button-->
-    <a href="/profil.html"><button type="button" class="btn-buy">Buy Now</button></a>
-    <!-- cart close -->
-    <i class="bx bx-x" id="close-cart"></i>
-</div>
