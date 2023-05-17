@@ -84,7 +84,7 @@
         <thead>
             <tr>
                 <th width="50%" colspan="2">
-                    <h2 class="text-start">BADDOM SHOP</h2>
+                    <h2 class="text-start">BADOMM SHOP</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
                     <span>Invoice Id: #{{ $order->id }}</span> <br>
@@ -115,7 +115,7 @@
             </tr>
             <tr>
                 <td>Ordered Date:</td>
-                <td>{{ $order->created_at->format('d-m-Y h:i A') }}</td>
+                <td>{{ $order->created_at->format('d-m-Y H:i:s') }}</td>
 
                 <td>Phone:</td>
                 <td>{{ $order->phone }}</td>
