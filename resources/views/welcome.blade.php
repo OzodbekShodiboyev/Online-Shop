@@ -240,16 +240,19 @@
                                                     <div class="card-img-top">
                                                         <label class="stock bg-success">New</label>
                                                         @if ($productItem->productImages->count() > 0)
-                                                            <a href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                            <a
+                                                                href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                                                 <img src="{{ asset($productItem->productImages[0]->image) }}"
-                                                                    alt="{{ $productItem->name }}" class="product-image">
+                                                                    alt="{{ $productItem->name }}"
+                                                                    class="product-image">
                                                             </a>
                                                         @endif
                                                     </div>
                                                     <div class="card-body">
                                                         <p class="card-text">{{ $productItem->brand }}</p>
                                                         <h5 class="card-title">
-                                                            <a href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                            <a
+                                                                href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                                                 {{ $productItem->name }}
                                                             </a>
                                                         </h5>
@@ -282,7 +285,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     <!-- Products Start -->
@@ -360,9 +363,11 @@
                 <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
                     dolor. Rebum tempor no vero est magna amet no</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>Namangan, O'zbekiston</p>
-                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram: @Ssuleiymann</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>+998 99-315-30-90</p>
+                <p class="mb-2"><i
+                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}</p>
+                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram: {{ $appSetting->telegram }}</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
+                </p>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
@@ -390,10 +395,19 @@
                     </div>
                     <div class="col-md-4 mb-5">
                         <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
-                        <div class="d-flex">
-                            <a class="btn btn-success btn-square mr-2" href="#"><i
-                                    class="fab fa-telegram"></i></a>
-                            <a class="btn btn-success btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                        <div class="d-flex m-3">
+                            @if ($appSetting->telegram)
+                                <a class="btn btn-success  btn-square" href="{{ $appSetting->telegram }}"><i
+                                        class="fab fa-telegram"></i></a>
+                            @endif
+
+
+                        </div>
+                        <div class="d-flex m-3">
+                            @if ($appSetting->instagram)
+                                <a class="btn btn-success btn-square" href="{{ $appSetting->instagram }}"><i
+                                        class="fab fa-instagram"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -26,8 +26,8 @@ class FrontendController extends Controller
         $categories = Category::get();
         $slider = Slider::where('status', '0')->get();
         $trendingProducts = Product::where('trending','1')->latest()->take(15)->get();
-        $newArrialsProducts = Product::latest()->take(15)->get();
-        return view('frontend.pages.new-arrival', compact('slider', 'categories','trendingProducts'));
+        $newArrivalsProducts = Product::latest()->take(15)->get();
+        return view('frontend.pages.new-arrival', compact('slider', 'categories','trendingProducts', 'newArrivalsProducts'));
     }
     public function categories()
     {
@@ -37,9 +37,13 @@ class FrontendController extends Controller
 
     public function featuredProducts()
     {
+        $categories = Category::get();
+        $slider = Slider::where('status', '0')->get();
+        $trendingProducts = Product::where('trending','1')->latest()->take(15)->get();
         $featuredProducts = Product::where('featured','1')->latest()->get();
-        return view('frontend.pages.featured-products', compact('featuredProducts'));
+        return view('frontend.pages.featured-products', compact('featuredProducts', 'slider', 'categories','trendingProducts'));
     }
+
     public function products($category_slug)
     {
         $categories = Category::get();

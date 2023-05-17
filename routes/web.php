@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use  App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections/{category_slug}/{product_slug}','productView');
    
     Route::get('/new-arrivals','newArrival');
+    Route::get('/featured-products','featuredProducts');
 });
 
 Route::middleware(['auth'])->group(function (){
@@ -54,6 +56,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     //DASHBOARD Route
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
+    Route::get('settings', [SettingController::class, 'index']);
+    Route::post('settings', [SettingController::class, 'store']);
 
     // CATEGORY Routes
     Route::get('/category', [CategoryController::class, 'index']);

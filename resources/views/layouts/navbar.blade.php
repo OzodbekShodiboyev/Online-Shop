@@ -52,7 +52,7 @@
         </div>
         <div class="col-lg-4 col-6 text-right">
             <p class="m-0">Telephone Number:</p>
-            <h5 class="m-0">+998 99-315-30-90</h5>
+            <h5 class="m-0">{{ $appSetting->phone1 ?? 'phone' }}</h5>
         </div>
     </div>
 </div>

@@ -43,11 +43,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>New Arrival Products</h4>
+                        <h4>Featured Products</h4>
                         <div class="underline mb-4"></div>
                     </div>
         
-                        @forelse ($newArrivalsProducts as $productItem)
+                        @forelse ($featuredProducts as $productItem)
                         <div class="col-md-3">
                             <div class="product-card">
                                 <div class="product-card-img">
@@ -67,7 +67,7 @@
                                     </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">$ {{ number_format($productItem->selling_price) }}</span>
+                                        <span class="selling-price">${{ number_format($productItem->selling_price) }}</span>
                                         <span class="original-price">$ {{ number_format($productItem->original_price) }}</span>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                         </div>
                          @empty
                                 <div class="col-md-12 p-2">
-                                    <h5>No Products Available</h5>
+                                    <h5>No Featured Products Available</h5>
                                 </div>
                         @endforelse
         

@@ -48,7 +48,7 @@
         </div>
         <div class="col-lg-6 col-6 text-right">
             <p class="m-0">Telephone Number:</p>
-            <h5 class="m-0">+998 99-315-30-90</h5>
+            <h5 class="m-0">{{ $appSetting->phone1 ?? 'phone' }}</h5>
         </div>
     </div>
 </div>
@@ -145,7 +145,7 @@
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>Namangan, O'zbekiston</p>
                 <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram: @Ssuleiymann</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>+998 99-315-30-90</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}</p>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">

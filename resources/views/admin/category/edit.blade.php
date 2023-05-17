@@ -16,8 +16,11 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     @livewireStyles
 </head>
@@ -33,122 +36,43 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                    <i class="fas fa-search fa-sm" style="background-color: rgb(22 163 74) ;"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn" style="background-color: rgb(22 163 74) ;"  type="button">
-                                                <i style="background-color: rgb(22 163 74) ;" class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-<!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAB5CAMAAADCiAkVAAAAY1BMVEX///9APz9EQ0MxMDA3NjY7Ojo0MzP6+vq6urosKyskIyOdnZ0oJychICDv7+9oaGjLy8vi4uLV1dWUlJRhYWGJiYlTUlJbWlqurq5OTU1vbm7AwMB4d3cdGxukpKSCgoIXFRW8QGGdAAADl0lEQVRoge2ai5aiMAyGKW2hRahcBeTivP9TLujsDjpIG23onD3zv4CfaRKSv/W8X72s0FNZKpouzTMVugBQh+7SxlHs91UxitwBhKCBZGQW5yyQ0RCURZPtSTB+kEdxRiNZpXsR5Mk3gpsCehK7EIQX9gRhCoasc/Tfb/r6KcAVIm5wCRopOd9EICS6IAKoY6z5+atoj4eQt7oI3CQLNITj8zy8V4JVnWlkSECIj9Que7NjmEUrFILQKBc/xVDadXg0jwIJcMJQAhAIUQgE4QAhoBhN8unXaVXcR0AQEoJAEoSEHCkIAeMkigCEwBBqooIh8NI+AjAKhNlv0gcgwmAfoYGlI/mwj9DBihIDAdaaUBBgDZqQGGFm8GEILQICYGSZxI/2CbwRVJUY3dHLIWMTztfaA1VlhDK6bSyTK0IwHdJTCyHw/bNthrAGxWDSYHuhUcC2gLBTKVBXmMRb20O0AmXCJGZ9uQVtMrMS+37LATgvRPaLUpkv1rMwZkevAlUlw/B7UlCDDg4ICLCZRaI4LSdITSQYBF4DOAmGY7tlgChQJMfrYtwaeI1DMDVpaRYIHycZZ2XCpE3zMsM0w01mWJSW8KXUIB1oh4oQmiAgX1XpkwFliVlKv2BL9NshbZv2MVzPOwnNUkXxbiP+KtSEge9wYbnt+KCMKo9KN08CPxm1CNEeV7bbCBje809E2LbkdzmIbUuejjsgaJwOecbujtlZ16CZj5sODdPvVBznivBThZELbN9aWBAYrrasxppaKuNdhvkYtRmmJ4D9yoNSWM4I1dQxzGbhkvSdvfPIKma4xNxTRH5hJRShKAeo5/hPwVCLd0ORV5S+EIBFKCit3liusqZmwIu51VCwWrzUKVTX81cyYE08bitwVnQXDiwBjYLkCFj0lOgHW/9/IR5TswIJ0/ObCbihgJbaXqGak3y5Ak3E5emwGQph6qO8A0Fp/xQiOyboAFexZ9uGsFsCm4pWL/BG4L34e1ozxDqY0/6uVp78ZBYaMUjy27Tfo5bimvjDZyPfNRGuegwD8L2ODfGHGdfwTalVybsxIndA8OBKAR+w2RFvHafCrOWnonZxEEQuZxgX5zAlw8KyV6A3Ita0NAgzN1FY3qE56I2z+PkLweSiAwNhcW3QuUcQ7hGgbxkxENw0xyUC7PmaPYTzL8J9a4K+7v2PEC7uESrnCEHxi/AjEJZTkyuE8WchcN+FgpvP8QdK9z1yRhl2GgAAAABJRU5ErkJggg==">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Log Out') }}
-                                </a>
-                            </form>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
+                @include('admin.layouts.navbar')
                 <!-- End of Topbar -->
 
-<!-- Begin Page Content -->
+                <!-- Begin Page Content -->
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Edit Category
                                 <a href="{{ url('admin/category') }}"
-                                class="btn btn-outline-success text-white float-end"
-                                style="font-size:12px">
-                                BACK
-                            </a>
+                                    class="btn btn-outline-success text-white float-end" style="font-size:12px">
+                                    BACK
+                                </a>
                             </h3>
 
 
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('admin/category/'.$category->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('admin/category/' . $category->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
                                     <div class=" col-md-6 mb-3 d-block" style="display: block">
                                         <label for="Name">Name</label>
-                                        <input type="text" name="name" value="{{ $category->name }}" id="name" class="form-control">
-                                        @error('name') <small class="text-danger">{{ $message }}</small>@enderror
+                                        <input type="text" name="name" value="{{ $category->name }}"
+                                            id="name" class="form-control">
+                                        @error('name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
 
                                         <div class=" mt-5">
                                             <label for="slug">Slug</label>
-                                            <input type="text" name="slug" value="{{ $category->slug }}" id="slug" class="form-control">
-                                             @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
+                                            <input type="text" name="slug" value="{{ $category->slug }}"
+                                                id="slug" class="form-control">
+                                            @error('slug')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -158,49 +82,64 @@
                                                 alt="image" src="/Uploads/Category/{{ $category->image }}">
                                             <input type="file" name="image" id="image"
                                                 class="form-control d-none">
-                                            <label for="image" class="text-center mt-1" style="margin-left: 25%">Change Image</label>
+                                            <label for="image" class="text-center mt-1"
+                                                style="margin-left: 25%">Change Image</label>
                                         </div>
                                         @error('image')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                 
+
                                     <div class=" col-md-12 mb-3">
                                         <label for="description">Description</label>
                                         <textarea type="text" name="description" rows="3" id="description" class="form-control">{{ $category->description }}</textarea>
-                                        @error('description') <small class="text-danger">{{ $message }}</small>@enderror
+                                        @error('description')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="col-md-12 mb-1 mt-1">
                                         <h4>SEO Tags</h4>
                                     </div>
                                     <div class=" col-md-6 mb-3">
                                         <label for="meta_title">Meta_title</label>
-                                        <input type="text" value="{{ $category->meta_title }}" name="meta_title" id="meta_title" class="form-control">
-                                        @error('meta_title') <small class="text-danger">{{ $message }}</small>@enderror
+                                        <input type="text" value="{{ $category->meta_title }}" name="meta_title"
+                                            id="meta_title" class="form-control">
+                                        @error('meta_title')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class=" col-md-6 mb-3">
                                         <label for="meta_keyword">Meta_Keyword</label>
-                                        <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value={{ $category->name }} >
-                                        @error('meta_keyword') <small class="text-danger">{{ $message }}</small>@enderror
+                                        <input type="text" name="meta_keyword" id="meta_keyword"
+                                            class="form-control" value={{ $category->name }}>
+                                        @error('meta_keyword')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class=" col-md-12 mb-3">
                                         <label for="meta_description">Meta_description</label>
                                         <textarea type="text" name="meta_description" id="meta_description" rows="3" class="form-control">{{ $category->name }}</textarea>
-                                        @error('meta_description') <small class="text-danger">{{ $message }}</small>@enderror
+                                        @error('meta_description')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6 mb-2 mt-2" style="font-size:18px">
-                                        <input type="checkbox" {{ $category->status == '1' ? 'checked' : '' }} name="status" id="status" style="width: 18px; height:18px">
+                                        <input type="checkbox" {{ $category->status == '1' ? 'checked' : '' }}
+                                            name="status" id="status" style="width: 18px; height:18px">
                                         <label for="status">Status</label>
-                                        @error('status') <small class="text-danger">{{ $message }}</small>@enderror
+                                        @error('status')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
-                                    
+
                                     <div class="col-md-12 mb-3">
-                                        <button type="submit" class="btn text-white float-end" style="background-color: rgb(22 163 74) ;">Update</button>
+                                        <button type="submit" class="btn text-white float-end"
+                                            style="background-color: rgb(22 163 74) ;">Update</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-               
+
                     </div>
                 </div>
             </div>
@@ -216,7 +155,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-<!-- Logout Modal-->
+    <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
