@@ -16,6 +16,13 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     @livewireStyles
 </head>
@@ -29,8 +36,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar position-fixed mb-4 static-top shadow"
-                    style="width: 86%">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar shadow" style="">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -45,7 +51,7 @@
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                    <i class="fas fa-search fa-fw" style="color: white;"></i>
 
                                 </button>
                             </div>
@@ -70,8 +76,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;"
+                                                type="button">
+                                                <i class="fas fa-search fa-fw" style="color: white;"></i>
 
                                             </button>
                                         </div>
@@ -125,63 +132,75 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="row">
-                    <div class="col-md-12">
-                        @if (session('message'))
-                            <div class="alert alert-success">{{ session('message') }}</div>
-                        @endif
-                    </div>
-                    <div class="card" style="margin-top: 8%; margin-left: 4%; width:93%">
-                        <div class="card-header" style="padding-bottom: 10px">
-                            <h3 style="display: flex">Slider Lists
-                                <a href="{{ url('admin/sliders/create') }}" class=" btn btn-primary"
-                                    style="margin-left: 80%">Add Slider</a>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($sliders as $slider)
-                                        <tr>
-                                            <td>{{ $slider->id }}</td>
-                                            <td class="text-center">{{ $slider->title }}</td>
-                                            <td class="text-center">{{ $slider->description }}</td>
-                                            <td>
-                                                @if ($slider->image)
-                                                    <img src="{{ asset($slider->image) }}"
-                                                        style="width: 55px; height: 60px; margin-left: 35%"
-                                                        alt="">
-                                                @else
-                                                    <h6 class="text-center">No image</h6>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $slider->status == '0' ? 'Visible' : 'Hidden' }}</td>
-                                            <td>
-                                                <a href="{{ url('admin/sldr/' . $slider->id . '/edit') }}"
-                                                    class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="{{ url('admin/sldr/' . $slider->id . '/delete') }}"
-                                                    onclick="return confirm('Are you sure, you want to delete this data')"
-                                                    class="btn btn-sm btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
 
-                            </table>
+                <div>
+                    <div>
+                        <div class="container-fluid">
+
+
+                            <div class="con m-5">
+
+
+                                @if (session('message'))
+                                    <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                                @endif
+
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
+                                        <h5 class="m-0 font-weight-bold text-white">Slider Lists</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="{{ url('admin/sliders/create') }}" class=" btn mb-3 text-white"
+                                        style="background-color: rgb(22 163 74) ;">🎚 Add Slider</a>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+                                                    <th>Image</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($sliders as $slider)
+                                                    <tr class="table-secondary">
+                                                        <td class="table-secondary">{{ $slider->id }}</td>
+                                                        <td class="text-center table-secondary">{{ $slider->title }}</td>
+                                                        <td class="text-center w-25 mt-4 table-secondary">{{ $slider->description }}
+                                                        </td>
+                                                        <td class="table-secondary">
+                                                            @if ($slider->image)
+                                                                <img src="{{ asset($slider->image) }}"
+                                                                    style="width: 400px; height: 200px;"
+                                                                    alt="">
+                                                            @else
+                                                                <h6 class="text-center table-secondary">No image</h6>
+                                                            @endif
+                                                        </td>
+                                                        <td class="text-center">
+                                                            {{ $slider->status == '0' ? 'Visible' : 'Hidden' }}</td>
+                                                        <td class="table-secondary">
+                                                            <a href="{{ url('admin/sldr/' . $slider->id . '/edit') }}"
+                                                                class="btn btn-sm btn-warning">Edit</a>
+                                                            <a href="{{ url('admin/sldr/' . $slider->id . '/delete') }}"
+                                                                onclick="return confirm('Are you sure, you want to delete this data')"
+                                                                class="btn btn-sm btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
             <!-- End of Main Content -->
 

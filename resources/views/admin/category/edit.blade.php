@@ -127,7 +127,10 @@
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Edit Category
                                 <a href="{{ url('admin/category') }}"
-                                    class="text-white float-end" style="background-color: rgb(22 163 74); text-decoration:none; font-size:30px">🔙</a>
+                                class="btn btn-outline-success text-white float-end"
+                                style="font-size:12px">
+                                BACK
+                            </a>
                             </h3>
 
 
