@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Frontend\OrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
@@ -38,6 +39,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/wishlist',[WishlistController::class,'index']);
     Route::get('/cart', [CartController::class, 'index']);
     Route::get('/checkout', [CheckoutController::class, 'index']);
+    Route::get('orders',[OrderController::class, 'index']);
+    Route::get('/orders/{orderId}',[OrderController::class, 'show']);
 });
 
 Route::get('thank-you', [FrontendController::class, 'thankyou']);

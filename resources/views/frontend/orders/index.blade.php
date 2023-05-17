@@ -38,22 +38,45 @@
 
 <body>
     <header>
-
         @include('layouts.navbar')
-
-
-        <div class="py-3  pyt-md-4" style="margin-top: 12%">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        @if (session('message'))
-                        <h5 class="alert alert-success">
-                          {{session('message')}}
-                        </h5>
-                        @endif
-                        <h3>Thank you for Shopping</h3>
-                        <a href="{{url('collections')}}" class="btn btn-primary">Shop now</a>
-                    </div>
+        <div>
+            <h4 class="mb-4">
+                Mening buyurtmalarim
+            </h4>
+            <hr>
+            <div class="container-xxl table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Buyurtma raqami</th>
+                        <th>Tracking No</th>
+                        <th>Username</th>
+                        <th>Payment mode</th>
+                        <th>Ordered date</th>
+                        <th>Status message</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        @forelse ($orders as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->tracking_no}}</td>
+                                <td>{{$item->fullname}}</td>
+                                <td>{{$item->payment_mode}}</td>
+                                <td>vaqti ishlamadi</td>
+                                <td>{{$item->status_message}}</td>
+                                <td>
+                                    <a href="{{url('orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7">Buyurtmalar yo'q</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+                <div>
+                    {{$orders->links()}}
                 </div>
             </div>
         </div>

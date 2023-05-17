@@ -98,10 +98,6 @@
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-<<<<<<< HEAD
-=======
-
->>>>>>> 268f1b759dba8fbea1ff75ca421e2f37060aa52a
                         <a href="{{ url('cart') }}" class="login-link text-light text-decoration-none mr-4">
                             <i class="fa-solid fa-cart-shopping"></i>
                             Savat

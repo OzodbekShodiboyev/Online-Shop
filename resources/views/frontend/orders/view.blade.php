@@ -38,24 +38,38 @@
 
 <body>
     <header>
-
         @include('layouts.navbar')
-
-
-        <div class="py-3  pyt-md-4" style="margin-top: 12%">
-            <div class="container">
+        <div class="container-xxl shadow bg-white p-3">
+            <h4 class="text-success">
+                <i class="fa fa-shopping-cart text-dark"></i>Mening Buyurtmalarim
+                <a href="" class="float-right text-decoration-none btn-sm btn-danger text-light">Orqaga qaytish</a>
+            </h4>
+                <hr>
                 <div class="row">
-                    <div class="col-md-12 text-center">
-                        @if (session('message'))
-                        <h5 class="alert alert-success">
-                          {{session('message')}}
-                        </h5>
-                        @endif
-                        <h3>Thank you for Shopping</h3>
-                        <a href="{{url('collections')}}" class="btn btn-primary">Shop now</a>
+                    <div class="col-md-6">
+                        <h5>Order Details</h5>
+                        <hr>
+                        <h6>Order Id:</h6>
+                        <h6>Tracking No:</h6>
+                        <h6>Order date:</h6>
+                        <h6>Payment Mode:</h6>
+                        <h6 class="border p-2 text-success">
+                            Order status message: <span class="text-uppercase">In progress</span>
+                        </h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>User Details</h5>
+                        <hr>
+                        <h6>Full name:</h6>
+                        <h6>Email Id:</h6>
+                        <h6>Phone:</h6>
+                        <h6>Address:</h6>
+                        <h6>Payment Mode:</h6>
                     </div>
                 </div>
-            </div>
+            <br>
+            <h5>Order Items</h5>
+            h4
         </div>
     </header>
     <script>

@@ -314,8 +314,8 @@
                                                             <tr>
                                                                 <th>Soni</th>
                                                                 <th>Color</th>
-                                                                <th>Quantity</th>
                                                                 <th>Status</th>
+                                                                <th>Quantity</th>
                                                                 {{-- <th>Action</th> --}}
                                                             </tr>
                                                         </thead>
