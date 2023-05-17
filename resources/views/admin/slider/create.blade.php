@@ -162,12 +162,13 @@
                                             <label for="">Image</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="">Status</label></br>
-                                            <input type="checkbox" name="status">
+                                        <div class="mb-0">
+                                               
+                                            <input style="width: 15px; height: 15px" type="checkbox" name="status">
+                                            <label style="font-size: 18px" for="">Status</label>
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn float-end" style="background-color: rgb(22 163 74); color:#fff">Save</button>
                                         </div>
                                     </form>
                                 </div>
