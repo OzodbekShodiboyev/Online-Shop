@@ -105,8 +105,37 @@
                         </a>
                         @if (Route::has('login'))
                             @auth
-                                <a href="{{ url('/') }}"
-                                    class="dashboard-link text-light text-decoration-none">Home</a>
+                                <a class="login-link text-light text-decoration-none mr-4" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user fa-sm fa-fw text-gray-400"></i>
+                                    {{ Auth::user()->name }}
+                                   
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Settings
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Activity Log
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                    <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
+                                </div>
                             @else
                                 <a href="{{ route('login') }}" class="login-link text-light text-decoration-none">
                                     <i class="fa-solid fa-user"></i>

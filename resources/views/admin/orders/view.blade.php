@@ -1,50 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/img/b.png" rel="icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Custom Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/kabinet.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
     @livewireStyles
 </head>
 
-<body>
-    <header>
-        @include('layouts.navbar')
-        <div class="py-3 py-md-5">
+
+<body id="page-top">
+    <div id="wrapper">
+        @include('admin.layouts.sidebar')
+        <div class="py-3 col-md-10">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="shadow bg-white p-3">
                             <h4>
                                 <i class="fa fa-shopping-cart text-success"></i> My Order Details
-                                <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">Back</a>
+                                <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end">Back</a>
+                                <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-primary btn-sm float-end">Download Invoice</a>
+                                <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end">View Invoice</a>
                             </h4>
                             <hr>
     
@@ -136,9 +128,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="card border mt-3">
+                    <div class="card-body">
+                        <h4>Order Process (Order Status Updates)</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <form action="{{ url('admin/orders/'.$order->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+    
+                                    <label style="margin-bottom: 5px;">Update Your Order Status</label>
+                                    <div class="input-group">
+                                        <select name="order_status" class="form-select">
+                                            <option value="in Progress" {{ Request::get('status') == 'in progress' ? 'selected':'' }}>In Progress</option>
+                                            <option value="completed" {{ Request::get('status') == 'completed' ? 'selected':'' }}>Completed</option>
+                                            <option value="pending" {{ Request::get('status') == 'pending' ? 'selected':'' }}>Pending</option>
+                                            <option value="cancelled" {{ Request::get('status') == 'cancelled' ? 'selected':''}}>Cancelled</option>
+                                            <option value="out-for-delivery" {{ Request::get('status') == 'out-for-delivery' ? 'selected':'' }}>Out for delivery</option>
+                                        </select>
+    
+                                        <button type="submit" class="btn btn-primary text-white">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <br/>
+                                <h4 class="mt-3" >Current Order Status: <span class="text-uppercase">{{ $order->status_message }} </span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
     <script>
         window.addEventListener('message', event => {
             alertify.set('notifier', 'position', 'top-right');

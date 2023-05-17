@@ -18,6 +18,12 @@
             <i style="color: black;" class="fas fa-fw fa-tachometer-alt"></i>
             <span style="color: black;">Dashboard</span></a>
     </li>
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('/admin/orders')}}">
+            <i style="color: black;" class="fas fa-fw fa-table"></i>
+            <span style="color: black;">Buyurtmalar</span></a>
+    </li>
 
     <hr class="sidebar-divider">
 
@@ -46,17 +52,6 @@
             <i style="color: black;" class="fas fa-fw fa-shopping-cart"></i>
             <span style="color: black;">Products</span></a>
     </li>
-
-
-    <hr class="sidebar-divider">
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i style="color: black;" class="fas fa-fw fa-table"></i>
-            <span style="color: black;">Buyurtmalar</span></a>
-    </li>
-
     <hr class="sidebar-divider d-none d-md-block">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/sldr') }}">

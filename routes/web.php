@@ -29,7 +29,7 @@ use App\Http\Controllers\Frontend\WishlistController;
 // });
 
 Auth::routes();
-Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class,'index']);
+Route::get('/',[App\Http\Controllers\Frontend\FrontendControwller::class,'index']);
 Route::get('/collections',[FrontendController::class,'categories']);
 Route::get('/collections/{category_slug}', [FrontendController::class,'products']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -99,6 +99,13 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('/colors/{color}/edit', [ColorController::class, 'edit']);
     Route::put('/colors/{color_id}/update', [ColorController::class, 'update']);
     Route::get('/colors/{color_id}/delete', [ColorController::class, 'destroy']); 
+
+    //orders routes
+    Route::get('/orders',[App\Http\Controllers\Admin\OrderController::class, 'index']);
+    Route::get('/orders/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'show']);
+    Route::put('/orders/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'updateOrderStatus']);
+    Route::get('/invoice/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'viewInvoice']);
+    Route::get('/invoice/{orderId}/generate',[App\Http\Controllers\Admin\OrderController::class, 'generateInvoice']);
 });
 
 

@@ -8,9 +8,23 @@
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border">
+                    <div class="bg-white border" wire:ignore>
                         @if ($product->productImages)
-                            <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img">
+                            {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
+                            <div class="exzoom" id="exzoom">
+                                <div class="exzoom_img_box">
+                                  <ul class='exzoom_img_ul'>
+                                    @foreach ($product->productImages as $itemImg)
+                                    <li><img src="{{ asset($itemImg->image) }}"/></li>
+                                    @endforeach
+                                  </ul>
+                                </div>
+                                <div class="exzoom_nav"></div>
+                                <p class="exzoom_btn">
+                                    <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+                                    <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                                </p>
+                              </div>
                         @else
                             Mo image added
                         @endif
@@ -42,12 +56,6 @@
                                                 style="background-color: {{ $colorItem->color->code }}"
                                                 for="btnradio{{ $colorItem->id }}" id="colorButton"><span
                                                     style="color: black; text-shadow: 1px 1px 2px white;">{{ $colorItem->color->name }}</span></label>
-
-                                            {{-- <label class="colorSelectionLabel"
-                                style="background-color: {{ $colorItem->color->code }}"
-                                wire:click="colorSelected({{ $colorItem->id }})">
-                                
-                            </label> --}}
                                         @endforeach
                                     </div>
 
@@ -118,3 +126,23 @@
     </div>
 </div>
 @livewireScripts
+@push('scripts')
+<script>
+$(function(){
+
+    $("#exzoom").exzoom({
+  
+      // thumbnail nav options
+      "navWidth": 60,
+      "navHeight": 60,
+      "navItemNum": 5,
+      "navItemMargin": 7,
+      "navBorder": 1,
+      "autoPlay": false, 
+      "autoPlayTimeout": 2000
+      
+    });
+  
+  });
+</script>
+@endpush
