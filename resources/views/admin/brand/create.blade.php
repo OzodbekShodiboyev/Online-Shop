@@ -132,11 +132,13 @@
 
                 <!-- Begin Page Content -->
                 <div class="col-md-12 ">
-                    <div class="card m-5">
+                    <div class="card shadow m-5 mb-4">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Add Brand
-                                <a href="{{ url('admin/brands/') }}" class="float-end text-decoration-none"
-                                    style="background-color: rgb(22 163 74) ; font-size:30px">🔙</a>
+                                <a href="{{ url('admin/brands/') }}" class="btn btn-outline-success text-white float-end"
+                                style="font-size:12px">
+                                BACK
+                            </a>
                             </h3>
                         </div>
                         <div class="card-body">

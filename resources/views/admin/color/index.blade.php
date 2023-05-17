@@ -16,8 +16,11 @@
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 
     @livewireStyles
@@ -32,8 +35,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
-                    style="">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow" style="">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -48,7 +50,7 @@
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                    <i class="fas fa-search fa-fw" style="color: white;"></i>
 
                                 </button>
                             </div>
@@ -73,8 +75,9 @@
                                             placeholder="Search for..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
-                                            <i class="fas fa-search fa-fw" style="color: white;"></i>
+                                            <button class="btn" style="background-color: rgb(22 163 74) ;"
+                                                type="button">
+                                                <i class="fas fa-search fa-fw" style="color: white;"></i>
 
                                             </button>
                                         </div>
@@ -129,52 +132,65 @@
 
                 <!-- Begin Page Content -->
 
-                <div class="m-5">
+                <div>
+                    <div>
+                        <div class="container-fluid">
 
-                    @if (session('message'))
-                            <div class="alert alert-success">{{ session('message') }}</div>
-                        @endif
-        
-                    <div class="card">
-                        <div class="card-header" style="background-color: rgb(22 163 74) ;">
-                            <div class="d-flex justify-content-between text-white">
-                                <h3>Color Lists</h3>
-                                
+
+                            <div class="con m-5">
+
+                                    @if (session('message'))
+                                        <div class="alert alert-success">{{ session('message') }}</div>
+                                    @endif
+                                    
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
+                                            <h5 class="m-0 font-weight-bold text-white"> Color Lists </h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ url('admin/colors/create') }}"
+                                                class="btn btn btn-md text-white float-start mb-3"
+                                                style="background-color: rgb(22 163 74) ;">🎨 Add Color</a>
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Color Name</th>
+                                                        <th>Color Code</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @foreach ($colors as $color)
+                                                        <tr>
+                                                            <td>{{ $color->id }}</td>
+                                                            <td>{{ $color->name }}</td>
+                                                            <td>{{ $color->code }}</td>
+                                                            <td>{{ $color->status == '1' ? 'Hidden' : 'Visible' }}</td>
+                                                            <td>
+                                                                <a href="{{ url('admin/colors/' . $color->id . '/edit') }}"
+                                                                    class="btn btn-warning btn-sm">Edit</a>
+                                                                <a href="{{ url('admin/colors/' . $color->id . '/delete') }}"
+                                                                    onclick="return confirm('Are you sure, you want to delete this data')"
+                                                                    class="btn btn-danger btn-sm">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{{ url('admin/colors/create') }}"
-                                    class="btn btn btn-md text-white float-start mb-3" style="background-color: rgb(22 163 74) ;" >🎨 Add Color</a>
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Color Name</th>
-                                        <th>Color Code</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    @foreach ($colors as $color)
-                                        <tr>
-                                            <td>{{ $color->id }}</td>
-                                            <td>{{ $color->name }}</td>
-                                            <td>{{ $color->code }}</td>
-                                            <td>{{ $color->status  == '1' ? 'Hidden':'Visible'  }}</td>
-                                            <td>
-                                                <a href="{{url('admin/colors/'.$color->id.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="{{url('admin/colors/'.$color->id.'/delete')}}" onclick="return confirm('Are you sure, you want to delete this data')" class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
+
+
             </div>
             <!-- End of Main Content -->
 

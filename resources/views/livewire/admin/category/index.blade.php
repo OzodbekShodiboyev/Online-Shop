@@ -22,8 +22,8 @@
     </div>
 
     <div class="container-fluid">
-        <a href="{{ url('admin/category/create') }}">
-            <button type="button" class="btn ml-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74) ;">
+        <a style="margin-left:1%" href="{{ url('admin/category/create') }}">
+            <button type="button" class="btn ml-5 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74);">
                 📂 Add Category
             </button>
         </a>
@@ -38,10 +38,14 @@
                             <h3 class="text-center text-decoration-none text-dark hover-text-dec-none" style="width: 15rem; height:60px">{{ $category->name }}</h3>
                             <div class="float-end d-flex justify-content-center">
                                 <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
-                                    class="btn btn-warning m-1">Edit</a>
+                                    class="btn btn-warning m-1">
+                                    <i class="fa fa-solid fa-pen"></i>
+                                </a>
                                 <a href="{{ url('admin/category/' . $category->id . '/delete') }}"
                                     onclick="return confirm('Are you sure you want to delete this Category?')"
-                                    class="btn btn-danger m-1 ">Delete</a>
+                                    class="btn btn-danger m-1 ">
+                                    <i class="fa fa-sharp fa-regular fa-trash"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

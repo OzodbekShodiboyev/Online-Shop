@@ -130,8 +130,10 @@
                         <div class="card-header text-white" style="background-color: rgb(22 163 74)">
                             <h3>Edit Brands
                                 <a href="{{ url('admin/brands') }}"
-                                class="float-end text-decoration-none"
-                                style="background-color: rgb(22 163 74) ; font-size:30px">🔙</a>
+                                class="btn btn-outline-success text-white float-end"
+                                        style="font-size:12px">
+                                        BACK
+                                    </a>
                             </h3>
 
 

@@ -136,8 +136,10 @@
                     <div class="card m-5 mt-0">
                         <div style="background-color: rgb(22 163 74);" class="card-header text-white">
                             <h3>Add Category
-                                <a href="{{ url('admin/category/') }}" class="float-end text-decoration-none"
-                                    style="background-color: rgb(22 163 74) ; font-size:30px">🔙</a>
+                                <a href="{{ url('admin/category/') }}" class="btn btn-outline-success text-white float-end"
+                                style="font-size:12px">
+                                BACK
+                            </a>
                             </h3>
                         </div>
                         <div class="card-body">

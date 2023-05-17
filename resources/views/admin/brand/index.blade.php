@@ -135,7 +135,7 @@
                             <div class="con m-5">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
-                                        <h6 class="m-0 font-weight-bold text-white">Brendlar</h6>
+                                        <h5 class="m-0 font-weight-bold text-white">Brendlar</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
