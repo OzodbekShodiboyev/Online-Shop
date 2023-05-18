@@ -204,7 +204,7 @@
         </div>
     </section>
     <!-- Products End -->
-
+    <!-- Trending Products -->
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -212,78 +212,277 @@
                     <h4>Trending Products</h4>
                     <div class="underline mb-4"></div>
                 </div>
-                <div class="col-12">
-                    <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            @php
-                                $totalProducts = count($trendingProducts);
-                                $numColumns = 4;
-                                $numRows = ceil($totalProducts / $numColumns);
-                            @endphp
-                            @for ($i = 0; $i < $numRows; $i++)
-                                <li data-target="#trendingCarousel" data-slide-to="{{ $i }}"
-                                    class="{{ $i === 0 ? 'active' : '' }}"></li>
-                            @endfor
-                        </ol>
-                        <div class="carousel-inner">
-                            @php $counter = 0; @endphp
-                            @for ($row = 0; $row < $numRows; $row++)
-                                <div class="carousel-item{{ $row === 0 ? ' active' : '' }}">
-                                    <div class="row">
-                                        @for ($col = 0; $col < $numColumns; $col++)
-                                            @php
-                                                $index = ($row * $numColumns + $col) % $totalProducts;
-                                                $productItem = $trendingProducts[$index];
-                                            @endphp
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <div class="card-img-top">
-                                                        <label class="stock bg-success">New</label>
-                                                        @if ($productItem->productImages->count() > 0)
-                                                            <a
-                                                                href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                                <img src="{{ asset($productItem->productImages[0]->image) }}"
-                                                                    alt="{{ $productItem->name }}"
-                                                                    class="product-image">
-                                                            </a>
-                                                        @endif
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <p class="card-text">{{ $productItem->brand }}</p>
-                                                        <h5 class="card-title">
-                                                            <a
-                                                                href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                                {{ $productItem->name }}
-                                                            </a>
-                                                        </h5>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="selling-price">
-                                                                ${{ number_format($productItem->selling_price) }}
-                                                            </span>
-                                                            <span class="original-price">
-                                                                ${{ number_format($productItem->original_price) }}
-                                                            </span>
+                @if ($trendingProducts)
+                    <div class="col-12">
+                        <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @php
+                                    $totalProducts = count($trendingProducts);
+                                    $numColumns = 4;
+                                    $numRows = ceil($totalProducts / $numColumns);
+                                @endphp
+                                @for ($i = 0; $i < $numRows; $i++)
+                                    <li data-target="#trendingCarousel" data-slide-to="{{ $i }}"
+                                        class="{{ $i === 0 ? 'active' : '' }}"></li>
+                                @endfor
+                            </ol>
+                            <div class="carousel-inner">
+                                @php $counter = 0; @endphp
+                                @for ($row = 0; $row < $numRows; $row++)
+                                    <div class="carousel-item{{ $row === 0 ? ' active' : '' }}">
+                                        <div class="row">
+                                            @for ($col = 0; $col < $numColumns; $col++)
+                                                @php
+                                                    $index = ($row * $numColumns + $col) % $totalProducts;
+                                                    $productItem = $trendingProducts[$index];
+                                                @endphp
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img-top">
+                                                            <label class="stock bg-success">New</label>
+                                                            @if ($productItem->productImages->count() > 0)
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
+                                                                        alt="{{ $productItem->name }}"
+                                                                        class="product-image">
+                                                                </a>
+                                                            @endif
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $productItem->brand }}</p>
+                                                            <h5 class="card-title">
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    {{ $productItem->name }}
+                                                                </a>
+                                                            </h5>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="selling-price">
+                                                                    ${{ number_format($productItem->selling_price) }}
+                                                                </span>
+                                                                <span class="original-price">
+                                                                    ${{ number_format($productItem->original_price) }}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endfor
+                                            @endfor
+                                        </div>
                                     </div>
-                                </div>
-                            @endfor
+                                @endfor
+                            </div>
+                            <a class="carousel-control-prev" href="#trendingCarousel" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#trendingCarousel" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#trendingCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#trendingCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
-                </div>
+                @else
+                    <div col-md-12>
+                        <div class="p-2">
+                            <h4>No New Arrival Avialable</h4>
+                        </div>
+                    </div>
+                @endif
+
             </div>
         </div>
+    </div>
+
+    {{-- New arrivals --}}
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>New Arrival
+                        <a class="btn btn-warning float-end" href="{{url('new-arrivals')}}">View more</a>
+                    </h4>
+                    <div class="underline mb-4"></div>
+                </div>
+                @if ($newArrivalsProducts)
+                    <div class="col-12">
+                        <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @php
+                                    $totalProducts = count($newArrivalsProducts);
+                                    $numColumns = 4;
+                                    $numRows = ceil($totalProducts / $numColumns);
+                                @endphp
+                                @for ($i = 0; $i < $numRows; $i++)
+                                    <li data-target="#trendingCarousel" data-slide-to="{{ $i }}"
+                                        class="{{ $i === 0 ? 'active' : '' }}"></li>
+                                @endfor
+                            </ol>
+                            <div class="carousel-inner">
+                                @php $counter = 0; @endphp
+                                @for ($row = 0; $row < $numRows; $row++)
+                                    <div class="carousel-item{{ $row === 0 ? ' active' : '' }}">
+                                        <div class="row">
+                                            @for ($col = 0; $col < $numColumns; $col++)
+                                                @php
+                                                    $index = ($row * $numColumns + $col) % $totalProducts;
+                                                    $productItem = $newArrivalsProducts[$index];
+                                                @endphp
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img-top">
+                                                            <label class="stock bg-success">New</label>
+                                                            @if ($productItem->productImages->count() > 0)
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
+                                                                        alt="{{ $productItem->name }}"
+                                                                        class="product-image">
+                                                                </a>
+                                                            @endif
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $productItem->brand }}</p>
+                                                            <h5 class="card-title">
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    {{ $productItem->name }}
+                                                                </a>
+                                                            </h5>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="selling-price">
+                                                                    ${{ number_format($productItem->selling_price) }}
+                                                                </span>
+                                                                <span class="original-price">
+                                                                    ${{ number_format($productItem->original_price) }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+                            <a class="carousel-control-prev" href="#trendingCarousel" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#trendingCarousel" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    @else
+                        <div col-md-12>
+                            <div class="p-2">
+                                <h4>No New Arrival Avialable</h4>
+                            </div>
+                        </div>
+                @endif
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Featured Products
+                        <a class="btn btn-warning float-end" href="{{url('featured-products')}}">View more</a>
+                    </h4>
+                    <div class="underline mb-4"></div>
+                </div>
+                @if ($featuredProducts)
+                    <div class="col-12">
+                        <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @php
+                                    $totalProducts = count($featuredProducts);
+                                    $numColumns = 4;
+                                    $numRows = ceil($totalProducts / $numColumns);
+                                @endphp
+                                @for ($i = 0; $i < $numRows; $i++)
+                                    <li data-target="#trendingCarousel" data-slide-to="{{ $i }}"
+                                        class="{{ $i === 0 ? 'active' : '' }}"></li>
+                                @endfor
+                            </ol>
+                            <div class="carousel-inner">
+                                @php $counter = 0; @endphp
+                                @for ($row = 0; $row < $numRows; $row++)
+                                    <div class="carousel-item{{ $row === 0 ? ' active' : '' }}">
+                                        <div class="row">
+                                            @for ($col = 0; $col < $numColumns; $col++)
+                                                @php
+                                                    $index = ($row * $numColumns + $col) % $totalProducts;
+                                                    $productItem = $featuredProducts[$index];
+                                                @endphp
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img-top">
+                                                            <label class="stock bg-success">New</label>
+                                                            @if ($productItem->productImages->count() > 0)
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
+                                                                        alt="{{ $productItem->name }}"
+                                                                        class="product-image">
+                                                                </a>
+                                                            @endif
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $productItem->brand }}</p>
+                                                            <h5 class="card-title">
+                                                                <a
+                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                                    {{ $productItem->name }}
+                                                                </a>
+                                                            </h5>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="selling-price">
+                                                                    ${{ number_format($productItem->selling_price) }}
+                                                                </span>
+                                                                <span class="original-price">
+                                                                    ${{ number_format($productItem->original_price) }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+                            <a class="carousel-control-prev" href="#trendingCarousel" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#trendingCarousel" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    @else
+                        <div col-md-12>
+                            <div class="p-2">
+                                <h4>No Featured Product Avialable</h4>
+                            </div>
+                        </div>
+                @endif
+            </div>
+        </div>
+    </div>
     </div>
 
 
@@ -364,8 +563,11 @@
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
                     dolor. Rebum tempor no vero est magna amet no</p>
                 <p class="mb-2"><i
-                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}</p>
-                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram: {{ $appSetting->telegram }}</p>
+                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}
+                </p>
+                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
+                    {{ $appSetting->telegram }}
+                </p>
                 <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
                 </p>
             </div>
@@ -397,16 +599,16 @@
                         <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
                         <div class="d-flex m-3">
                             @if ($appSetting->telegram)
-                                <a class="btn btn-success  btn-square" href="{{ $appSetting->telegram }}"><i
-                                        class="fab fa-telegram"></i></a>
+                                <a class="btn btn-primary  btn-square" href="{{ $appSetting->telegram }}"><i
+                                        class="fab fa-telegram">Telegram</i></a>
                             @endif
 
 
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->instagram)
-                                <a class="btn btn-success btn-square" href="{{ $appSetting->instagram }}"><i
-                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-danger btn-square" href="{{ $appSetting->instagram }}"><i
+                                        class="fab fa-instagram">Instagram</i></a>
                             @endif
                         </div>
                     </div>
@@ -441,7 +643,8 @@
                 <
                 script src = "{{ asset('assets/js/owl.carousel.js') }}" > < script >
                 <
-                script >
+                script
+            script >
                 $('.four-carousel').owlCarousel({
                     loop: true,
                     margin: 10,
