@@ -39,13 +39,13 @@
 
         </div>
         <div class="col-lg-4 col-6 text-left">
-            <form action="">
+            <form action="{{url('search')}}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Mahsulotlarni qidirish">
+                    <input type="search" name="search" class="form-control"  value="{{ Request::get('search')}}" placeholder="Mahsulotlarni qidirish"> 
                     <div class="input-group-append">
-                        <span class="input-group-text bg-transparent text-success">
+                        <button type="submit" class="input-group-text bg-transparent text-success">
                             <i class="fa fa-search"></i>
-                        </span>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -114,7 +114,7 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/profile">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>
@@ -152,16 +152,6 @@
             <div class=" align-items-center bg-white d-block d-lg-none">
                 <nav class="navbar navbar-expand-lg bg-white navbar-white py-1 py-lg-0 px-0">
                     <div class="col-lg-3 col-10 text-left">
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Mahsulotlarni qidirish">
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent text-success">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                     <i class=" btn px-0 ml-3 bx bx-shopping-bag text-success" id="cart-icon2"></i>
                 </nav>

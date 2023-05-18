@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
@@ -19,17 +20,42 @@ class FrontendController extends Controller
     {
         $categories = Category::get();
         $slider = Slider::where('status', '0')->get();
-        $trendingProducts = Product::where('trending','1')->latest()->take(15)->get();
+        $trendingProducts = Product::where('trending', '1')->latest()->take(15)->get();
         $newArrivalsProducts = Product::latest()->take(14)->get();
         $featuredProducts = Product::where('featured', '1')->latest()->take(14)->get();
-        return view('welcome', compact('slider', 'categories','trendingProducts', 'newArrivalsProducts', 'featuredProducts'));
+        return view('welcome', compact('slider', 'categories', 'trendingProducts', 'newArrivalsProducts', 'featuredProducts'));
     }
-    public function newArrival(){
+
+    public function searchProducts(Request $request)
+    {
+        $searchQuery = $request->search;
+    
+        if ($searchQuery) {
+            $categories = Category::where('name', 'LIKE', '%' . $searchQuery . '%')->get();
+            $brands = Brand::where('name', 'LIKE', '%' . $searchQuery . '%')->get();
+    
+            $searchProducts = Product::where('name', 'LIKE', '%' . $searchQuery . '%')
+                ->orWhereHas('category', function ($query) use ($searchQuery) {
+                    $query->where('name', 'LIKE', '%' . $searchQuery . '%');
+                })
+                ->latest()
+                ->paginate(1);
+    
+            return view('frontend.pages.search', compact('searchProducts', 'categories', 'brands'));
+        } else {
+            return redirect()->back()->with('message', 'No results found.');
+        }
+    }    
+
+
+
+    public function newArrival()
+    {
         $categories = Category::get();
         $slider = Slider::where('status', '0')->get();
-        $trendingProducts = Product::where('trending','1')->latest()->take(15)->get();
+        $trendingProducts = Product::where('trending', '1')->latest()->take(15)->get();
         $newArrivalsProducts = Product::latest()->take(15)->get();
-        return view('frontend.pages.new-arrival', compact('slider', 'categories','trendingProducts', 'newArrivalsProducts'));
+        return view('frontend.pages.new-arrival', compact('slider', 'categories', 'trendingProducts', 'newArrivalsProducts'));
     }
 
 
@@ -43,9 +69,9 @@ class FrontendController extends Controller
     {
         $categories = Category::get();
         $slider = Slider::where('status', '0')->get();
-        $trendingProducts = Product::where('trending','1')->latest()->take(15)->get();
-        $featuredProducts = Product::where('featured','1')->latest()->get();
-        return view('frontend.pages.featured-products', compact('featuredProducts', 'slider', 'categories','trendingProducts'));
+        $trendingProducts = Product::where('trending', '1')->latest()->take(15)->get();
+        $featuredProducts = Product::where('featured', '1')->latest()->get();
+        return view('frontend.pages.featured-products', compact('featuredProducts', 'slider', 'categories', 'trendingProducts'));
     }
 
     public function products($category_slug)
@@ -66,7 +92,7 @@ class FrontendController extends Controller
         $categories_all = Category::get();
         return view('layouts.navbar', compact('categories_all'));
     }
-    
+
     public function productView(string $category_slug, string $product_slug)
     {
         $categories = Category::get();
@@ -85,7 +111,8 @@ class FrontendController extends Controller
         };
     }
 
-    public function thankyou() {
+    public function thankyou()
+    {
         $categories = Category::get();
         return view('frontend.thank-you', compact('categories'));
     }

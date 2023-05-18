@@ -12,8 +12,10 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use  App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\SettingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
    
     Route::get('/new-arrivals','newArrival');
     Route::get('/featured-products','featuredProducts');
+    Route::get('search', 'searchProducts');
 });
 
 Route::middleware(['auth'])->group(function (){
@@ -48,6 +51,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/checkout', [CheckoutController::class, 'index']);
     Route::get('orders',[OrderController::class, 'index']);
     Route::get('/orders/{orderId}',[OrderController::class, 'show']);
+
+    Route::get('profile', [ProfileController::class, 'index']);
+    Route::post('profile', [ProfileController::class, 'updateUserDetails']);
 });
 
 Route::get('thank-you', [FrontendController::class, 'thankyou']);
