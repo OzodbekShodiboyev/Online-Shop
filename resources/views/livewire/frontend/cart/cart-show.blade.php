@@ -80,7 +80,7 @@
                                         <div class="col-md-2 col-5 my-auto">
                                             <div class="remove">
                                                 <button type="button" wire:click="removeCartItem({{ $cartItem->id }})"
-                                                    class="btn btn-danger btn-sm">
+                                                    class="btn btn-outline-danger btn-sm">
                                                     <span wire:loading.remove
                                                         wire:target="removeCartItem({{ $cartItem->id }})">
                                                         <i class="fa fa-trash"></i> Remove

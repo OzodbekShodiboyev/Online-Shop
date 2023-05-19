@@ -43,8 +43,7 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con">
-                                    <div class="con shadow m-5">
+                                    <div class="con card shadow m-5">
                                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                                             <h3 style="">Update Products
                                                 <a href="{{ url('admin/products') }}"
@@ -255,13 +254,13 @@
                                                             @if ($product->productImages)
                                                                 <div class="row">
                                                                     @foreach ($product->productImages as $image)
-                                                                        <div class="col-md-2">
-                                                                            <img src="{{ asset($image->image) }}"
-                                                                                class="me-4 border"
-                                                                                style="width: 240px; height: 240px;">
-                                                                            <a class="d-block btn btn-outline-danger"
+                                                                        <div class="card m-2" style="width: 18rem;">
+                                                                            <img src="{{ asset($image->image) }}" class="card-img-top" alt="...">
+                                                                            <div class="card-body">
+                                                                                <a class="d-block btn btn-outline-danger"
                                                                                 href="{{ url('admin/product-image/' . $image->id . '/delete') }}">Delete</a>
-                                                                        </div>
+                                                                            </div>
+                                                                          </div>
                                                                     @endforeach
                                                                 </div>
                                                             @else
@@ -346,14 +345,12 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <button type="submit" class="btn float-end mt-3 text-white"
+                                                    <button type="submit" class="btn mt-3 float-end text-white"
                                                         style="background-color: rgb(22 163 74) ;">Update</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
-
-                                </div>
                             </div>
                     </div>
 

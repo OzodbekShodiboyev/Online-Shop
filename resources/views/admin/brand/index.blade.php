@@ -40,8 +40,6 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-
-
                             <div class="con m-5">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
@@ -57,7 +55,7 @@
                                             @if ($data->isEmpty())
                                                 <p class="text-center h3">No brand</p>
                                             @else
-                                                <table class="table table-bordered" id="dataTable" width="100%"
+                                                <table class="table table-bordered table-striped" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
                                                         <tr>
@@ -69,14 +67,14 @@
                                                             <th>Holat</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody style="border: none">
                                                         @php
                                                             $counter = 1; // Initialize the counter
                                                         @endphp
 
                                                         @foreach ($data as $dat)
-                                                            <tr>
-                                                                <th scope="row">{{ $counter }}</th>
+                                                            <tr style="border: none">
+                                                                <td >{{ $counter }}</td>
                                                                 <td>{{ $dat->name }}</td>
                                                                 <td>{{ $dat->slug }}</td>
                                                                 <td>{{ $dat->status }}</td>
@@ -102,19 +100,11 @@
                                                     </tbody>
                                                 </table>
                                             @endif
-
                                         </div>
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>

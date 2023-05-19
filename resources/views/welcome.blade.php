@@ -33,8 +33,6 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -75,7 +73,7 @@
                                             {{ $sliderItem->title }}</h3>
                                         <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
                                             {{ $sliderItem->description }}</p>
-                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                                        <a class="btn py-2 px-4 mt-3 btn-outline-light " id="buybtn"
                                             href="#">BUY Now</a>
                                     </div>
                                 </div>
@@ -240,7 +238,7 @@
                                                 <div class="col-md-3">
                                                     <div class="card">
                                                         <div class="card-img-top">
-                                                            <label class="stock bg-success">New</label>
+                                                            <label class="bg-success p-1 m-1" style="border-radius: 5px">New</label>
                                                             @if ($productItem->productImages->count() > 0)
                                                                 <a
                                                                     href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">

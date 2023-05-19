@@ -26,74 +26,109 @@
 <body id="page-top">
     <div id="wrapper">
         @include('admin.layouts.sidebar')
-        
-        <div class="container">
-            <h4 class="mb-4 mt-4">
-                Mening buyurtmalarim
-            </h4>
-            <hr>
-            <form action="" method="GET">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label>Filter by date</label>
-                        <input type="date" name="date" value="{{Request::get('date')}}" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label>Filter by Status</label>
-                        <select name="status" class="form-select">
-                            <option value="">Selet Status</option>
-                            <option value="in_progress" {{Request::get('status')=='in_progress' ? 'selected': '' }}>In Progress</option>
-                            <option value="completed" {{Request::get('status')=='completed'? 'selected': '' }}>Completed</option>
-                            <option value="pending" {{Request::get('status')=='pending'? 'selected': '' }}>Pending</option>
-                            <option value="cancelled" {{Request::get('status')=='cancelled'? 'selected': '' }}>Cancelled</option>
-                            <option value="out-for-delivery" {{Request::get('status')=='out-for-delivery' ? 'selected': ''}}>Out for delivery</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <br>
-                        <button type="submit" class="btn btn-success">Filter</button>
-                    </div>
-                </div>
-            </form>
-            <hr>
-        
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <th>Buyurtma raqami</th>
-                        <th>Tracking No</th>
-                        <th>Username</th>
-                        <th>Payment mode</th>
-                        <th>Ordered date</th>
-                        <th>Status message</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        @forelse ($orders as $item)
-                            <tr>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->tracking_no}}</td>
-                                <td>{{$item->fullname}}</td>
-                                <td>{{$item->payment_mode}}</td>
-                                <td>vaqti ishlamadi</td>
-                                <td>{{$item->status_message}}</td>
-                                <td>
-                                    <a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7">Buyurtmalar yo'q</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                @include('admin.layouts.navbar')
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
                 <div>
-                    {{$orders->links()}}
+                    <div>
+                        <div class="container-fluid">
+                            <div class="con m-5">
+                                <div class="card shadow mb-4">
+                                        <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
+                                            <h5 class="m-0 font-weight-bold text-white">Mening buyurtmalarim</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="" method="GET">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Filter by date</label>
+                                                        <input type="date" name="date" value="{{Request::get('date')}}" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>Filter by Status</label>
+                                                        <select name="status" class="form-select">
+                                                            <option value="">Selet Status</option>
+                                                            <option value="in_progress" {{Request::get('status')=='in_progress' ? 'selected': '' }}>In Progress</option>
+                                                            <option value="completed" {{Request::get('status')=='completed'? 'selected': '' }}>Completed</option>
+                                                            <option value="pending" {{Request::get('status')=='pending'? 'selected': '' }}>Pending</option>
+                                                            <option value="cancelled" {{Request::get('status')=='cancelled'? 'selected': '' }}>Cancelled</option>
+                                                            <option value="out-for-delivery" {{Request::get('status')=='out-for-delivery' ? 'selected': ''}}>Out for delivery</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <br>
+                                                        <button type="submit" class="btn btn-success">Filter</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <hr>
+
+                                            <div class="table-responsive mt-3">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <th>Buyurtma raqami</th>
+                                                        <th>Tracking No</th>
+                                                        <th>Username</th>
+                                                        <th>Payment mode</th>
+                                                        <th>Ordered date</th>
+                                                        <th>Status message</th>
+                                                        <th>Action</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse ($orders as $item)
+                                                            <tr>
+                                                                <td>{{$item->id}}</td>
+                                                                <td>{{$item->tracking_no}}</td>
+                                                                <td>{{$item->fullname}}</td>
+                                                                <td>{{$item->payment_mode}}</td>
+                                                                <td>vaqti ishlamadi</td>
+                                                                <td>{{$item->status_message}}</td>
+                                                                <td>
+                                                                    <a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a>
+                                                                </td>
+                                                            </tr>
+                                                        @empty
+                                                            <tr>
+                                                                <td colspan="7">Buyurtmalar yo'q</td>
+                                                            </tr>
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                                <div>
+                                                    {{$orders->links()}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                       
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- End of Main Content -->
         </div>
+
+        
     </div>
+
+
+
+
+
+
+
     <script>
         window.addEventListener('message', event => {
             alertify.set('notifier', 'position', 'top-right');
