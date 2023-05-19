@@ -63,10 +63,15 @@
                                     </div>
 
                                 @endif
+<<<<<<< HEAD
 
                                     <form action="{{ url('admin/products/store') }}" method="POST"
                                         enctype="multipart/form-data">
 
+=======
+                                <form action="{{ url('admin/products/store') }}" method="POST"
+                                    enctype="multipart/form-data">
+>>>>>>> c7a5f65877cfefb9750ded9038240ec304dd7ced
                                         @csrf
 
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
