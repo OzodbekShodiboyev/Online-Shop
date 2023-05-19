@@ -63,8 +63,6 @@
                                     </div>
 
                                 @endif
-                                <form action="{{ url('admin/products/store') }}" method="POST"
-                                    enctype="multipart/form-data">
 
                                     <form action="{{ url('admin/products/store') }}" method="POST"
                                         enctype="multipart/form-data">

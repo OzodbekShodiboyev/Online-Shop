@@ -567,7 +567,7 @@
                         class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}
                 </p>
                 <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
-                    {{ $appSetting->telegram }}
+                    {{-- {{ $appSetting->telegram }} --}}
                 </p>
                 <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
                 </p>
@@ -599,18 +599,18 @@
                     <div class="col-md-4 mb-5">
                         <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
                         <div class="d-flex m-3">
-                            @if ($appSetting->telegram)
+                            {{-- @if ($appSetting->telegram)
                                 <a class="btn btn-primary  btn-square" href="{{ $appSetting->telegram }}"><i
                                         class="fab fa-telegram">Telegram</i></a>
-                            @endif
+                            @endif --}}
 
 
                         </div>
                         <div class="d-flex m-3">
-                            @if ($appSetting->instagram)
+                            {{-- @if ($appSetting->instagram)
                                 <a class="btn btn-danger btn-square" href="{{ $appSetting->instagram }}"><i
                                         class="fab fa-instagram">Instagram</i></a>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                 </div>

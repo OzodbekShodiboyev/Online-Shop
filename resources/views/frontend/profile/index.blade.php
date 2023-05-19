@@ -52,7 +52,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         @if (session('message'))
-                            <p class="alert alert-success">{{ session('message') }}</p>
+ <p class="alert alert-success">{{ session('message') }}</p>
                         @endif
                         <div class="card shadow">
                             <div class="card-header bg-primary">
