@@ -48,7 +48,7 @@
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                placeholder="Qidiruv..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
                                     <i class="fas fa-search fa-fw" style="color: white;"></i>
@@ -73,7 +73,7 @@
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
+                                            placeholder="Qidiruv..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn" style="background-color: rgb(22 163 74) ;"
@@ -140,10 +140,10 @@
                             </div>
                             <div class="card shadow mb-4" style="">
                                 <div class="card-header py-3" style="background-color: rgb(22 163 74);">
-                                    <h5 class="m-0 font-weight-bold text-white float-left">Add Slider</h5>
+                                    <h5 class="m-0 font-weight-bold text-white float-left">Slayder qo'shing</h5>
                                     <a href="{{ url('admin/sldr/') }}" class="btn btn-outline-success text-white float-end"
                                     style="font-size:12px">
-                                    BACK
+                                    Qaytish
                                 </a>
                                 </div>
                                 <div class="card-body">
@@ -151,24 +151,24 @@
                                         @csrf
         
                                         <div class="mb-3">
-                                            <label for="">Title</label>
+                                            <label for="">Sarlavha</label>
                                             <input type="text" name="title" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="">Description</label>
+                                            <label for="">Tavsif</label>
                                             <input type="text" name="description" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="">Image</label>
+                                            <label for="">Rasm qo'shish</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                         <div class="mb-0">
                                                
                                             <input style="width: 15px; height: 15px" type="checkbox" name="status">
-                                            <label style="font-size: 18px" for="">Status</label>
+                                            <label style="font-size: 18px" for="">Holat</label>
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" class="btn float-end" style="background-color: rgb(22 163 74); color:#fff">Save</button>
+                                            <button type="submit" class="btn float-end" style="background-color: rgb(22 163 74); color:#fff">Saqlash</button>
                                         </div>
                                     </form>
                                 </div>

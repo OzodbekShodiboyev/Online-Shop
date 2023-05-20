@@ -15,7 +15,14 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     @livewireStyles
 </head>
 
@@ -47,36 +54,36 @@
 
                                 {{-- Website Details --}}
                                 <div class="card mb-3">
-                                    <div class="card-header bg-primary">
-                                        <h3 class="text-white mb-0">Website Details</h3>
+                                    <div class="card-header" style="background-color: rgb(22 163 74) ;">
+                                        <h3 class="text-white mb-0">Veb-sayt tafsilotlari</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
-                                                <label>Website Name</label>
+                                                <label>Veb-sayt nomi</label>
                                                 <input type="text" name="website_name"
                                                     value="{{ $setting->website_name ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Website URL</label>
+                                                <label>Veb-sayt URL</label>
                                                 <input type="text" name="website_url"
                                                     value="{{ $setting->website_url ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Page Title</label>
+                                                <label>Sahifa sarlavhasi</label>
                                                 <input type="text" name="page_title"
                                                     value="{{ $setting->page_title ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Meta Keywords</label>
+                                                <label>Meta kalit so'zlar</label>
                                                 <textarea name="meta_keyword" class="form-control" rows="3">{{ $setting->meta_keyword ?? '' }}</textarea>
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Meta Description</label>
+                                                <label>Meta tavsifi</label>
                                                 <textarea name="meta_description" class="form-control" rows="3">{{ $setting->meta_description ?? '' }}</textarea>
                                             </div>
                                         </div>
@@ -85,36 +92,36 @@
 
                                 {{-- Website Information --}}
                                 <div class="card mb-3">
-                                    <div class="card-header bg-primary">
-                                        <h3 class="text-white mb-0">Website Information</h3>
+                                    <div class="card-header" style="background-color: rgb(22 163 74) ;">
+                                        <h3 class="text-white mb-0">Veb-sayt ma'lumotlari</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
-                                                <label>Address</label>
+                                                <label>Manzil</label>
                                                 <textarea type="text" name="address" class="form-control" rows="3">{{ $setting->address ?? '' }}</textarea>
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Phone 1 *</label>
+                                                <label>Telefon raqami 1</label>
                                                 <input type="text" name="phone1"
                                                     value="{{ $setting->phone1 ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Phone No. 2</label>
+                                                <label>Telefon raqami 2</label>
                                                 <input type="text" name="phone2"
                                                     value="{{ $setting->phone2 ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Email Id 1 *</label>
+                                                <label>Elektron pochta 1 *</label>
                                                 <input type="text" name="email1"
                                                     value="{{ $setting->email1 ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Email Id 2</label>
+                                                <label>Elektron pochta 2</label>
                                                 <input type="text" name="email2"
                                                     value="{{ $setting->email2 ?? '' }}" class="form-control" />
                                             </div>
@@ -124,31 +131,31 @@
 
                                 {{-- Social Media Links --}}
                                 <div class="card mb-3">
-                                    <div class="card-header bg-primary">
-                                        <h3 class="text-white mb-0">Website - Social Media</h3>
+                                    <div class="card-header" style="background-color: rgb(22 163 74) ;">
+                                        <h3 class="text-white mb-0">Veb-sayt - Ijtimoiy tarmoqlar</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
-                                                <label>Facebook (Optional)</label>
+                                                <label>Facebook (ixtiyoriy)</label>
                                                 <input type="text" name="facebook"
                                                     value="{{ $setting->facebook ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Telegram (Optional)</label>
+                                                <label>Telegram (ixtiyoriy)</label>
                                                 <input type="text" name="telegram"
                                                     value="{{ $setting->telegram ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Instagram (Optional)</label>
+                                                <label>Instagram (ixtiyoriy)</label>
                                                 <input type="text" name="instagram"
                                                     value="{{ $setting->instagram ?? '' }}" class="form-control" />
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label>Youtube (Optional)</label>
+                                                <label>Youtube (ixtiyoriy)</label>
                                                 <input type="text" name="youtube"
                                                     value="{{ $setting->youtube ?? '' }}" class="form-control" />
                                             </div>
@@ -157,7 +164,8 @@
                                 </div>
 
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary text-white">Save Setting</button>
+                                    <button type="submit" class="btn text-white mb-5 float-end"
+                                        style="background-color: rgb(22 163 74) ;">Saqlash</button>
                                 </div>
 
                             </form>

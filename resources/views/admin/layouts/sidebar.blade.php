@@ -30,33 +30,33 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/category') }}">
             <i style="color: black;" class="fas fa-fw fa-cog"></i>
-            <span style="color: black;">Categoriya</span></a>
+            <span style="color: black;">Kategoriya</span></a>
     </li>
     <!-- Divider -->
 
     <hr class="sidebar-divider">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/brands') }}">
-            <i class="fab fa-bandcamp" style="color: black;"></i>
-            <span style="color: black;">Brand</span></a>
+            <i class="fas fa-copyright" style="color: black;"></i>
+            <span style="color: black;">Brend</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/colors') }}">
-            <i class="fab fa-bandcamp" style="color: black;"></i>
-            <span style="color: black;">Color</span></a>
+             <i class="fas fa-tint" style="color: black;"></i>
+            <span style="color: black;">Rang</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/products') }}">
             <i style="color: black;" class="fas fa-fw fa-shopping-cart"></i>
-            <span style="color: black;">Products</span></a>
+            <span style="color: black;">Mahsulotlar</span></a>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/sldr') }}">
             <i style="color: black;" class='fas fa-sliders-h'></i>
-            <span style="color: black;">Slider</span></a>
+            <span style="color: black;">Slayder</span></a>
     </li>
 
     <hr class="sidebar-divider d-none d-md-block">

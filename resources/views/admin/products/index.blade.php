@@ -53,22 +53,22 @@
 
                                 <div class="card shadow mb 4">
                                     <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
-                                        <h5 class="m-0 font-weight-bold text-white">Products page</h5>
+                                        <h5 class="m-0 font-weight-bold text-white">Mahsulotlar sahifasi</h5>
                                     </div>
                                     <div class="card-body">
                                         <a href="{{ url('admin/products/create') }}"
                                             class="btn btn-md text-white mb-3 "
-                                            style="background-color: rgb(22 163 74) ;">🛍️ Add Products</a>
+                                            style="background-color: rgb(22 163 74) ;">🛍️ Mahsulotlarni qo'shish</a>
                                         <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Category</th>
-                                                    <th>Product</th>
-                                                    <th>Price</th>
-                                                    <th>Quantity</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
+                                                    <th>Kategory</th>
+                                                    <th>Mahsulot</th>
+                                                    <th>Narxi</th>
+                                                    <th>Miqdori</th>
+                                                    <th>Holate</th>
+                                                    <th>Harakat</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -79,7 +79,7 @@
                                                             @if ($product->category)
                                                                 {{ $product->category->name }}
                                                             @else
-                                                                No Category
+                                                                Kategory yo'q
                                                             @endif
 
                                                         </td>
@@ -90,10 +90,10 @@
                                                         <td>
 
                                                             <a href="{{ url('admin/products/' . $product->id . '/edit') }}"
-                                                                class="btn btn-sm btn-warning">Edit</a>
+                                                                class="btn btn-sm btn-warning"><i class="fa fa-solid fa-pen"></i></a>
                                                             <a href="{{ url('admin/products/' . $product->id . '/delete') }}"
                                                                 onclick="return confirm('Are you sure, you want to delete this data')"
-                                                                class="btn btn-sm btn-danger">Delete</a>
+                                                                class="btn btn-sm btn-danger"><i class="fa fa-sharp fa-regular fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 @empty

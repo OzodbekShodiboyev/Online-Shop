@@ -45,11 +45,11 @@
                         <div class="container-fluid">
                                     <div class="con card shadow m-5">
                                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
-                                            <h3 style="">Update Products
+                                            <h3 style="">Mahsulotni yangilash
                                                 <a href="{{ url('admin/products') }}"
                                                     class="btn btn-outline-success text-white float-end"
                                                     style="font-size:12px">
-                                                    BACK
+                                                    Qaytish
                                                 </a>
                                             </h3>
                                         </div>
@@ -74,7 +74,7 @@
                                                             data-bs-toggle="tab" data-bs-target="#home-tab-pane"
                                                             type="button" role="tab"
                                                             aria-controls="home-tab-pane" aria-selected="true">
-                                                            Home
+                                                            Asosiy
                                                         </button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
@@ -82,7 +82,7 @@
                                                             data-bs-toggle="tab" data-bs-target="#seotag-tab-pane"
                                                             type="button" role="tab"
                                                             aria-controls="seotag-tab-pane" aria-selected="false">
-                                                            SEO Tags
+                                                            SEO teglari
                                                         </button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
@@ -90,7 +90,7 @@
                                                             data-bs-toggle="tab" data-bs-target="#details-tab-pane"
                                                             type="button" role="tab"
                                                             aria-controls="details-tab-pane" aria-selected="false">
-                                                            Details
+                                                            Tafsilotlar
                                                         </button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
@@ -98,7 +98,7 @@
                                                             data-bs-toggle="tab" data-bs-target="#image-tab-pane"
                                                             type="button" role="tab"
                                                             aria-controls="image-tab-pane" aria-selected="false">
-                                                            Image
+                                                            Rasm
                                                         </button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
@@ -106,7 +106,7 @@
                                                             data-bs-toggle="tab" data-bs-target="#color-tab-pane"
                                                             type="button" role="tab"
                                                             aria-controls="color-tab-pane" aria-selected="false">
-                                                            Color
+                                                            Mahsulot rangi
                                                         </button>
                                                     </li>
                                                 </ul>
@@ -116,7 +116,7 @@
                                                         tabindex="0">
                                                         <div class="row d-flex justify-content-center">
                                                             <div class="mb-3 mt-2 col-md-11">
-                                                                <label>Category</label>
+                                                                <label>Kategory</label>
                                                                 <select name="category_id" class="form-control">
                                                                     @foreach ($categories as $category)
                                                                         <option value="{{ $category->id }}"
@@ -128,19 +128,19 @@
                                                                 </select>
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Product Name</label>
+                                                                <label for="">Mahsulot nomi</label>
                                                                 <input type="text" name="name"
                                                                     value="{{ $product->name }}"
                                                                     class="form-control">
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Product Slug</label>
+                                                                <label for="">Mahsulot Slug</label>
                                                                 <input type="text" name="slug"
                                                                     value="{{ $product->slug }}"
                                                                     class="form-control">
                                                             </div>
                                                             <div class="mb-3 mt-2 col-md-11">
-                                                                <label>Select Brand</label>
+                                                                <label>Brendni tanlang</label>
                                                                 <select name="brand" class="form-control">
                                                                     @foreach ($brands as $brand)
                                                                         <option value="{{ $brand->name }}"
@@ -152,13 +152,13 @@
                                                                 </select>
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Small Description</label>
+                                                                <label for="">Kichik tavsif</label>
                                                                 <input type="text"
                                                                     value="{{ $product->small_description }}"
                                                                     name="small_description" class="form-control">
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Description</label>
+                                                                <label for="">Tavsif</label>
                                                                 <input type="text"
                                                                     value="{{ $product->description }}"
                                                                     name="description" class="form-control">
@@ -169,19 +169,19 @@
                                                         role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
                                                         <div class="row d-flex justify-content-center">
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Meta Title</label>
+                                                                <label for="">Meta sarlavhasi</label>
                                                                 <input type="text"
                                                                     value="{{ $product->meta_title }}"
                                                                     name="meta_title" class="form-control">
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Meta Description</label>
+                                                                <label for="">Meta tavsifi</label>
                                                                 <input type="text"
                                                                     value="{{ $product->meta_description }}"
                                                                     name="meta_description" class="form-control">
                                                             </div>
                                                             <div class="mb-3 col-md-11">
-                                                                <label for="">Meta Keyword</label>
+                                                                <label for="">Meta kalit so'z</label>
                                                                 <input type="text" name="meta_keyword"
                                                                     value="{{ $product->meta_keyword }}"
                                                                     class="form-control">
@@ -193,7 +193,7 @@
                                                         <div class="row d-flex justify-content-center">
                                                             <div class="col-md-4">
                                                                 <div class="mb-3">
-                                                                    <label for="">Original Price</label>
+                                                                    <label for="">Asl narxi</label>
                                                                     <input type="text" name="original_price"
                                                                         value="{{ $product->original_price }}"
                                                                         class="form-control">
@@ -201,7 +201,7 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="mb-3">
-                                                                    <label for="">Selling Price</label>
+                                                                    <label for="">Sotish narxi</label>
                                                                     <input type="text" name="selling_price"
                                                                         value="{{ $product->selling_price }}"
                                                                         class="form-control">
@@ -209,7 +209,7 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="mb-3">
-                                                                    <label for="">Quantity</label>
+                                                                    <label for="">Miqdori</label>
                                                                     <input type="number" name="quantity"
                                                                         value="{{ $product->quantity }}"
                                                                         class="form-control">
@@ -221,7 +221,7 @@
                                                                         class=""
                                                                         {{ $product->trending == '1' ? 'checked' : '' }}
                                                                         style="width: 18px; height: 18px;">
-                                                                    <label for="">Trending</label>
+                                                                    <label for="">Trendda</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-0">
@@ -230,7 +230,7 @@
                                                                         class=""
                                                                         {{ $product->featured == '1' ? 'checked' : '' }}
                                                                         style="width: 18px; height: 18px;">
-                                                                    <label for="">Featured</label>
+                                                                    <label for="">Tavsiya etilgan</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-0">
@@ -238,7 +238,7 @@
                                                                     <input type="checkbox" name="status"
                                                                         {{ $product->status == '1' ? 'checked' : '' }}
                                                                         style="width: 18px; height: 18px;">
-                                                                    <label for="">Status</label>
+                                                                    <label for="">Holat</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -246,7 +246,7 @@
                                                     <div class="tab-pane fade border p-4" id="image-tab-pane"
                                                         role="tabpanel" aria-labelledby="image-tab" tabindex="0">
                                                         <div class="mb-3">
-                                                            <label>Upload Product Images</label>
+                                                            <label>Mahsulot rasmlarini yuklang</label>
                                                             <input name="image[]" type="file" multiple
                                                                 class="form-control">
                                                         </div>
@@ -258,13 +258,13 @@
                                                                             <img src="{{ asset($image->image) }}" class="card-img-top" alt="...">
                                                                             <div class="card-body">
                                                                                 <a class="d-block btn btn-outline-danger"
-                                                                                href="{{ url('admin/product-image/' . $image->id . '/delete') }}">Delete</a>
+                                                                                href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i class="fa fa-solid fa-pen"></i></a>
                                                                             </div>
                                                                           </div>
                                                                     @endforeach
                                                                 </div>
                                                             @else
-                                                                <h5>NO Image</h5>
+                                                                <h5>Rasm topilmadi!</h5>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -272,28 +272,28 @@
                                                         role="tabpanel" aria-labelledby="color-tab" tabindex="0">
                                                         <div class="mb-3">
 
-                                                            <h4>Add product Color</h4>
-                                                            <label>Select Color</label>
+                                                            <h4>Mahsulot rangini qo'shing</h4>
+                                                            <label>Rangni tanlang</label>
                                                             <hr />
 
                                                             <div class="row">
                                                                 @forelse ($colors as $color)
                                                                     <div class="col-md-3">
                                                                         <div class="p-2 border m-2">
-                                                                            Color: <input
+                                                                            Rang: <input
                                                                                 name="colors[{{ $color->id }}]"
                                                                                 type="checkbox"
                                                                                 value="{{ $color->id }}"
                                                                                 class="p-2 border m-2">{{ $color->name }}
                                                                             <br />
-                                                                            Quantity: <input type="number"
+                                                                            Miqdori: <input type="number"
                                                                                 name="colorquantity[{{ $color->id }}]"
                                                                                 style="width: 70px; border:1px solid ">
                                                                         </div>
                                                                     </div>
                                                                 @empty
                                                                     <div class="col-md-12">
-                                                                        <h3>Colors Not found</h3>
+                                                                        <h3>Ranglar topilmadi</h3>
                                                                     </div>
                                                                 @endforelse
 
@@ -304,9 +304,9 @@
                                                             <table class="table table-sm table-bordered">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Color name</th>
+                                                                        <th>Rang nomi</th>
                                                                         <th>Quantity</th>
-                                                                        <th>Delete</th>
+                                                                        <th>O'chirish</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -316,7 +316,7 @@
                                                                                 @if ($productColor->color)
                                                                                     {{ $productColor->color->name }}
                                                                                 @else
-                                                                                    Color Not Found
+                                                                                Ranglar topilmadi!
                                                                                 @endif
 
                                                                             </td>
@@ -328,12 +328,12 @@
                                                                                         class="updateProductColorQty form-control form-control-sm" />
                                                                                     <button type="button"
                                                                                         value="{{ $productColor->id }}"
-                                                                                        class="updateProductColorBtn btn btn-primary btn-sm text-white">Update</button>
+                                                                                        class="updateProductColorBtn btn btn-primary btn-sm text-white">♻</button>
                                                                                 </div>
                                                                             </td>
                                                                             <td>
                                                                                 <button type="button"
-                                                                                    value="{{ $productColor->id }}"class="deleteProductColorBtn btn btn-danger btn-sm text-white">Delete</button>
+                                                                                    value="{{ $productColor->id }}"class="deleteProductColorBtn btn btn-danger btn-sm text-white"><i class="fa fa-sharp fa-regular fa-trash"></i></button>
 
                                                                             </td>
 
@@ -346,7 +346,7 @@
                                                 </div>
                                                 <div>
                                                     <button type="submit" class="btn mt-3 float-end text-white"
-                                                        style="background-color: rgb(22 163 74) ;">Update</button>
+                                                        style="background-color: rgb(22 163 74) ;">Yangilash</button>
                                                 </div>
                                             </form>
                                         </div>

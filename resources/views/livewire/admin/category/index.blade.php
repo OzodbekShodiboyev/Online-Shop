@@ -14,7 +14,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" type="button"
                             data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-solid fa-pen"></i></button>
                     </div>
                 </form>
             </div>
@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <a style="margin-left:1%" href="{{ url('admin/category/create') }}">
             <button type="button" class="btn ml-5 text-white shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74);">
-                📂 Add Category
+                📂 Kategoriya qo'shish
             </button>
         </a>
 
@@ -42,7 +42,7 @@
                                     <i class="fa fa-solid fa-pen"></i>
                                 </a>
                                 <a href="{{ url('admin/category/' . $category->id . '/delete') }}"
-                                    onclick="return confirm('Are you sure you want to delete this Category?')"
+                                    onclick="return confirm('Haqiqatan ham ushbu turkumni oʻchirib tashlamoqchimisiz?')"
                                     class="btn btn-danger m-1 ">
                                     <i class="fa fa-sharp fa-regular fa-trash"></i>
                                 </a>
