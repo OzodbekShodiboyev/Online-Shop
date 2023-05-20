@@ -49,11 +49,11 @@
                                             <form action="" method="GET">
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <label>Filter by date</label>
+                                                        <label>Sana bo'yicha filtrlash</label>
                                                         <input type="date" name="date" value="{{Request::get('date')}}" class="form-control">
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label>Filter by Status</label>
+                                                        <label>Holat bo‘yicha filtrlash</label>
                                                         <select name="status" class="form-select">
                                                             <option value="">Selet Status</option>
                                                             <option value="in_progress" {{Request::get('status')=='in_progress' ? 'selected': '' }}>In Progress</option>
@@ -62,10 +62,12 @@
                                                             <option value="cancelled" {{Request::get('status')=='cancelled'? 'selected': '' }}>Cancelled</option>
                                                             <option value="out-for-delivery" {{Request::get('status')=='out-for-delivery' ? 'selected': ''}}>Out for delivery</option>
                                                         </select>
+                                                        
                                                     </div>
-                                                    <div class="col-md-6">
+
+                                                    <div class="col-md-3 mt-2">
                                                         <br>
-                                                        <button type="submit" class="btn btn-success">Filter</button>
+                                                        <button type="submit" class="btn btn-outline-success">Filtrlash</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -76,24 +78,24 @@
                                                 <table class="table table-bordered table-striped">
                                                     <thead>
                                                         <th>Buyurtma raqami</th>
-                                                        <th>Tracking No</th>
-                                                        <th>Username</th>
-                                                        <th>Payment mode</th>
-                                                        <th>Ordered date</th>
-                                                        <th>Status message</th>
-                                                        <th>Action</th>
+                                                        <th>Kuzatuv raqami</th>
+                                                        <th>Foydalanuvchi nomi</th>
+                                                        <th>To'lov rejimi</th>
+                                                        <th>Buyurtma sanasi</th>
+                                                        <th>Holat xabari</th>
+                                                        <th>Harakat</th>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody class="border-none">
                                                         @forelse ($orders as $item)
-                                                            <tr>
+                                                            <tr class="border-none" style="border: none">
                                                                 <td>{{$item->id}}</td>
                                                                 <td>{{$item->tracking_no}}</td>
                                                                 <td>{{$item->fullname}}</td>
                                                                 <td>{{$item->payment_mode}}</td>
-                                                                <td>vaqti ishlamadi</td>
-                                                                <td>{{$item->status_message}}</td>
+                                                                <td>{{$item->created_at}}</td>
+                                                                <td class="text-capitalize">{{$item->status_message}}</td>
                                                                 <td>
-                                                                    <a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a>
+                                                                    <a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-outline-success">Ko'rish</a>
                                                                 </td>
                                                             </tr>
                                                         @empty

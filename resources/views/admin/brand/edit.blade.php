@@ -40,11 +40,11 @@
                 <div class="col-md-12 ">
                     <div class="card m-5">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74)">
-                            <h3>Edit Brands
+                            <h3>Brendni tahrirlash
                                 <a href="{{ url('admin/brands') }}"
                                 class="btn btn-outline-success text-white float-end"
                                         style="font-size:12px">
-                                        BACK
+                                        Qaytish
                                     </a>
                             </h3>
 
@@ -56,12 +56,12 @@
                                 <input type="hidden" name="id" value="{{$brand->id}}">
                                 <div class="row d-flex justify-content-center">
                                     <div class=" col-md-10 mb-3">
-                                        <label for="Name">Name</label>
+                                        <label for="Name">Nomi</label>
                                         <input type="text" name="name" value="{{ $brand->name }}" id="name" class="form-control">
                                         @error('name') <small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="col-md-10 mb-3">
-                                        <label>Category</label>
+                                        <label>Kategory tanlang</label>
                                         <select name="category_id" class="form-control">
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}
@@ -76,7 +76,7 @@
                                          @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
 
                                          <div class=" col-md-0 mt-3 mb-3">
-                                            <label for="status">Status</label><br />
+                                            <label for="status">Holat</label><br />
                                             <input type="checkbox"  {{ $brand->status == '1' ? 'checked' : '' }} name="status" id="status">
                                             @error('status') <small class="text-danger">{{ $message }}</small>@enderror
                                         </div>

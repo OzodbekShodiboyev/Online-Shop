@@ -46,7 +46,7 @@
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                placeholder="Qidiruv..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
                                     <i class="fas fa-search fa-fw" style="color: white;"></i>
@@ -70,7 +70,7 @@
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
+                                            placeholder="Qidiruv..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn" style="background-color: rgb(22 163 74) ;"
@@ -136,11 +136,9 @@
                     </div>
                     <div class="card m-5" style="">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
-                            <h3 style="">Add Color 
+                            <h3 style="">Rang qo'shish 
                                 <a href="{{ url('admin/colors/') }}" class="btn btn-outline-success text-white float-end"
-                                style="font-size:12px">
-                                BACK
-                            </a>
+                                style="font-size:12px">Qaytish</a>
                             </h3>
                         </div>
                         <div class="card-body">
@@ -149,20 +147,20 @@
                                 
                                 <div class="row d-flex justify-content-center ">
                                 <div class="col-md-10 mb-3">
-                                    <label for="">Color Name</label>
+                                    <label for="">Rang nomi</label>
                                     <input type="text" name="name" class="form-control ">
                                 </div>
                                 <div class="col-md-10 mb-3">
-                                    <label for="">Color Code</label>
+                                    <label for="">Rang kodi</label>
                                     <input type="text" name="code" class="form-control">
                                 </div>
                                 <div class="col-md-10 mb-3 mt-2 " style="font-size:18px">
                                     <input type="checkbox" name="status" style="width: 18px; height:18px">
-                                    <label for="" class="ml-2">Status</label>
+                                    <label for="" class="ml-2">Holat</label>
 
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-success float-end  ">Save</button>
+                                    <button type="submit" class="btn float-end text-white" style="background-color: rgb(22 163 74) ;">Saqlash</button>
                                 </div>
                             </div>
                             </form>

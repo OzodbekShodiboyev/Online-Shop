@@ -47,10 +47,10 @@
                         <div class="container-fluid">
                             <div class="con card shadow m-5">
                                 <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
-                                <h3 style="">Add Products
+                                <h3 style="">Mahsulotlarni qo'shish
                                     <a href="{{ url('admin/products') }}"
                                         class="btn btn-outline-success text-white float-end" style="font-size:12px">
-                                        BACK
+                                        Qaytish
                                     </a>
                                 </h3>
                             </div>
@@ -74,7 +74,7 @@
                                                     data-bs-toggle="tab" data-bs-target="#home-tab-pane"
                                                     type="button" role="tab" aria-controls="home-tab-pane"
                                                     aria-selected="true">
-                                                    Home
+                                                    Asosiy
                                                 </button>
                                             </li>
                                             <li class="nav-item" role="presentation">
@@ -82,7 +82,7 @@
                                                     data-bs-toggle="tab" data-bs-target="#seotag-tab-pane"
                                                     type="button" role="tab" aria-controls="seotag-tab-pane"
                                                     aria-selected="false">
-                                                    SEO Tags
+                                                    SEO teglari
                                                 </button>
                                             </li>
                                             <li class="nav-item" role="presentation">
@@ -90,7 +90,7 @@
                                                     data-bs-toggle="tab" data-bs-target="#details-tab-pane"
                                                     type="button" role="tab" aria-controls="details-tab-pane"
                                                     aria-selected="false">
-                                                    Details
+                                                    Tafsilotlar
                                                 </button>
                                             </li>
                                             <li class="nav-item" role="presentation">
@@ -98,7 +98,7 @@
                                                     data-bs-toggle="tab" data-bs-target="#image-tab-pane"
                                                     type="button" role="tab" aria-controls="image-tab-pane"
                                                     aria-selected="false">
-                                                    Image
+                                                    Rasm
                                                 </button>
                                             </li>
                                             <li class="nav-item" role="presentation">
@@ -106,7 +106,7 @@
                                                     data-bs-toggle="tab" data-bs-target="#color-tab-pane"
                                                     type="button" role="tab" aria-controls="color-tab-pane"
                                                     aria-selected="false">
-                                                    Product Color
+                                                    Mahsulot rangi
                                                 </button>
                                             </li>
                                         </ul>
@@ -115,7 +115,7 @@
                                                 role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                                 <div class="row d-flex justify-content-center">
                                                     <div class="mb-2 mt-2 col-md-11">
-                                                        <label>Category</label>
+                                                        <label>Kategory</label>
                                                         <select name="category_id" class="form-control">
                                                             @foreach ($categories as $category)
                                                                 <option value="{{ $category->id }}">
@@ -126,15 +126,15 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-2 col-md-11">
-                                                        <label for="">Product Name</label>
+                                                        <label for="">Mahsulot nomi</label>
                                                         <input type="text" name="name" class="form-control">
                                                     </div>
                                                     <div class="mb-2 col-md-11">
-                                                        <label for="">Product Slug</label>
+                                                        <label for="">Mahsulot Slug</label>
                                                         <input type="text" name="slug" class="form-control">
                                                     </div>
                                                     <div class="mb-2 mt-2 col-md-11">
-                                                        <label>Select Brand</label>
+                                                        <label>Brendni tanlang</label>
                                                         <select name="brand" class="form-control">
                                                             @foreach ($brands as $brand)
                                                                 <option value="{{ $brand->name }}">
@@ -145,12 +145,12 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-2 col-md-11">
-                                                        <label for="">Small Description</label>
+                                                        <label for="">Kichik tavsif</label>
                                                         <input type="text" name="small_description"
                                                             class="form-control">
                                                     </div>
                                                     <div class="mb-2 col-md-11">
-                                                        <label for="">Description</label>
+                                                        <label for="">Tavsif</label>
                                                         <input type="text" name="description"
                                                             class="form-control">
                                                     </div>
@@ -160,16 +160,16 @@
                                                 role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
                                                 <div class="row d-flex justify-content-center">
                                                     <div class="mb-3 col-md-11">
-                                                        <label for="">Meta Title</label>
+                                                        <label for="">Meta sarlavhasi</label>
                                                         <input type="text" name="meta_title" class="form-control">
                                                     </div>
                                                     <div class="mb-3 col-md-11">
-                                                        <label for="">Meta Description</label>
+                                                        <label for="">Meta tavsifi</label>
                                                         <input type="text" name="meta_description"
                                                             class="form-control">
                                                     </div>
                                                     <div class="mb-3 col-md-11">
-                                                        <label for="">Meta Keyword</label>
+                                                        <label for="">Meta kalit so'z</label>
                                                         <input type="text" name="meta_keyword"
                                                             class="form-control">
                                                     </div>
@@ -180,21 +180,21 @@
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="mb-3 col-md-11">
-                                                            <label for="">Original Price</label>
+                                                            <label for="">Asl narxi</label>
                                                             <input type="text" name="original_price"
                                                                 class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="mb-3 col-md-11">
-                                                            <label for="">Selling Price</label>
+                                                            <label for="">Sotish narxi</label>
                                                             <input type="text" name="selling_price"
                                                                 class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="mb-3">
-                                                            <label for="">Quantity</label>
+                                                            <label for="">Miqdori</label>
                                                             <input type="number" name="quantity"
                                                                 class="form-control">
                                                         </div>
@@ -203,21 +203,21 @@
                                                         <div class="col-md-0 mb-2 mt-2 ">
                                                             <input type="checkbox" name="trending"
                                                                 style="width: 18px; height:18px">
-                                                            <label for="">Trending</label>
+                                                            <label for="">Trendda</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 ml-3">
                                                         <div class="col-md-0 mb-2 mt-2 ">
                                                             <input type="checkbox" name="featured"
                                                                 style="width: 18px; height:18px">
-                                                            <label for="">Featured</label>
+                                                            <label for="">Tavsiya etilgan</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4 ml-2">
-                                                        <div class="col-md-0 mb-2 mt-2 " style="font-size:18px">
+                                                    <div class="col-md-3 ml-2">
+                                                        <div class="col-md-0 mb-2 mt-2 " style="font-size:16px">
                                                             <input type="checkbox" name="status"
                                                                 style="width: 18px; height:18px">
-                                                            <label for="" class="ml-2">Status</label>
+                                                            <label for="" class="ml-2">Holat</label>
 
                                                         </div>
                                                     </div>
@@ -226,7 +226,7 @@
                                             <div class="tab-pane fade border p-4" id="image-tab-pane" role="tabpanel"
                                                 aria-labelledby="image-tab" tabindex="0">
                                                 <div class="mb-3">
-                                                    <label>Upload Product Images</label>
+                                                    <label>Mahsulot rasmlarini yuklang</label>
                                                     <input name="image[]" type="file" multiple
                                                         class="form-control">
                                                 </div>
@@ -234,7 +234,7 @@
                                             <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel"
                                                 aria-labelledby="color-tab" tabindex="0">
                                                 <div class="mb-3">
-                                                    <label>Select Color</label>
+                                                    <label>Rangni tanlang</label>
                                                     <?php $soni = 1; ?>
                                                     <hr />
                                                     <div class="row">
@@ -242,9 +242,9 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Soni</th>
-                                                                    <th>Color</th>
-                                                                    <th>Status</th>
-                                                                    <th>Quantity</th>
+                                                                    <th>Rang</th>
+                                                                    <th>Holati</th>
+                                                                    <th>Miqdori</th>
                                                                     {{-- <th>Action</th> --}}
                                                                 </tr>
                                                             </thead>
@@ -266,7 +266,7 @@
                                                                         </td>
                                                                     @empty
                                                                         <div class="col-md-12">
-                                                                            <h3>Colors Not found</h3>
+                                                                            <h3>Ranglar topilmadi</h3>
                                                                         </div>
                                                                     </tr>
                                                                 @endforelse
@@ -282,7 +282,7 @@
                                         </div>
                                         <div>
                                             <button type="submit" class="btn mt-3 float-end text-white "
-                                                style="background-color: rgb(22 163 74) ;">Save</button>
+                                                style="background-color: rgb(22 163 74) ;">Saqlash</button>
                                         </div>
                                     </form>
                             </div>

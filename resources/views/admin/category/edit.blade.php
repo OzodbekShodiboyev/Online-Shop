@@ -43,10 +43,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
-                            <h3>Edit Category
+                            <h3>Kategoriyani tahrirlash
                                 <a href="{{ url('admin/category') }}"
                                     class="btn btn-outline-success text-white float-end" style="font-size:12px">
-                                    BACK
+                                    Qaytish
                                 </a>
                             </h3>
 
@@ -59,7 +59,7 @@
                                 @method('PUT')
                                 <div class="row">
                                     <div class=" col-md-6 mb-3 d-block" style="display: block">
-                                        <label for="Name">Name</label>
+                                        <label for="Name">Nomi</label>
                                         <input type="text" name="name" value="{{ $category->name }}"
                                             id="name" class="form-control">
                                         @error('name')
@@ -75,33 +75,30 @@
                                             @enderror
                                         </div>
                                     </div>
-
-                                    <div class=" col-md-3 mb-0">
-                                        <div class="image-preview">
-                                            <img class="img-responsive ml-5" style="width:200px; height:200px;"
-                                                alt="image" src="/Uploads/Category/{{ $category->image }}">
+                                    <div class="card" style="width: 10rem;" >
+                                        <img src="/Uploads/Category/{{ $category->image }}" class="card-img-top" alt="image" width="150px" height="150px">
+                                        <div class="card-body">
                                             <input type="file" name="image" id="image"
                                                 class="form-control d-none">
-                                            <label for="image" class="text-center mt-1"
-                                                style="margin-left: 25%">Change Image</label>
+                                          <h5 class="card-title text-center"><label for="image" class="text-center mt-1">Rasmni o'zgartirish</label></h5>
                                         </div>
                                         @error('image')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
+                                      </div>
 
                                     <div class=" col-md-12 mb-3">
-                                        <label for="description">Description</label>
+                                        <label for="description">Tavsif</label>
                                         <textarea type="text" name="description" rows="3" id="description" class="form-control">{{ $category->description }}</textarea>
                                         @error('description')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mb-1 mt-1">
-                                        <h4>SEO Tags</h4>
+                                        <h4>SEO teglari</h4>
                                     </div>
                                     <div class=" col-md-6 mb-3">
-                                        <label for="meta_title">Meta_title</label>
+                                        <label for="meta_title">Meta sarlavhasi</label>
                                         <input type="text" value="{{ $category->meta_title }}" name="meta_title"
                                             id="meta_title" class="form-control">
                                         @error('meta_title')
@@ -109,7 +106,7 @@
                                         @enderror
                                     </div>
                                     <div class=" col-md-6 mb-3">
-                                        <label for="meta_keyword">Meta_Keyword</label>
+                                        <label for="meta_keyword">Meta kalit so'z</label>
                                         <input type="text" name="meta_keyword" id="meta_keyword"
                                             class="form-control" value={{ $category->name }}>
                                         @error('meta_keyword')
@@ -117,7 +114,7 @@
                                         @enderror
                                     </div>
                                     <div class=" col-md-12 mb-3">
-                                        <label for="meta_description">Meta_description</label>
+                                        <label for="meta_description">Meta tavsifi</label>
                                         <textarea type="text" name="meta_description" id="meta_description" rows="3" class="form-control">{{ $category->name }}</textarea>
                                         @error('meta_description')
                                             <small class="text-danger">{{ $message }}</small>
@@ -134,7 +131,7 @@
 
                                     <div class="col-md-12 mb-3">
                                         <button type="submit" class="btn text-white float-end"
-                                            style="background-color: rgb(22 163 74) ;">Update</button>
+                                            style="background-color: rgb(22 163 74) ;">Yangilash</button>
                                     </div>
                                 </div>
                             </form>

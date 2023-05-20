@@ -43,11 +43,9 @@
                 <div class="col-md-12 ">
                     <div class="card shadow m-5 mb-4">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
-                            <h3>Add Brand
+                            <h3>Brend qo'shish
                                 <a href="{{ url('admin/brands/') }}" class="btn btn-outline-success text-white float-end"
-                                style="font-size:12px">
-                                BACK
-                            </a>
+                                style="font-size:12px">Qaytish</a>
                             </h3>
                         </div>
                         <div class="card-body">
@@ -56,14 +54,14 @@
 
                                 <div class="row d-flex justify-content-center ">
                                     <div class="col-md-10 mb-3">
-                                        <label for="">Name</label>
+                                        <label for="">Nomi</label>
                                         <input type="text" name="name" class="form-control" id="">
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-10 mb-3">
-                                        <label>Category</label>
+                                        <label>Kategoriya tanlang</label>
                                         <select name="category_id" class="form-control">
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}
@@ -81,12 +79,12 @@
 
                                         <div class="col-md-0 mb-3 mt-3" style="font-size:18px">
                                             <input type="checkbox" name="status">
-                                            <label for="">Status</label>
+                                            <label for="">Holati</label>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-12 mb-3">
-                                        <button type="submit" class="btn btn-success float-end">Save</button>
+                                        <button type="submit" class="btn float-end text-white" style="background-color: rgb(22 163 74) ;">Saqlash</button>
                                     </div>
                                 </div>
                             </form>

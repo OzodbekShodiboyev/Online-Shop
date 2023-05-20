@@ -43,11 +43,9 @@
                 <div class="col-md-12" style="">
                     <div class="card m-5 mt-0">
                         <div style="background-color: rgb(22 163 74);" class="card-header text-white">
-                            <h3>Add Category
+                            <h3>Kategoriya qo'shish
                                 <a href="{{ url('admin/category/') }}" class="btn btn-outline-success text-white float-end"
-                                style="font-size:12px">
-                                BACK
-                            </a>
+                                style="font-size:12px">Qaytish</a>
                             </h3>
                         </div>
                         <div class="card-body">
@@ -56,7 +54,7 @@
 
                                 <div class="row">
                                     <div class="col-md-6 mb-2">
-                                        <label for="">Name</label>
+                                        <label for="">Nomi</label>
                                         <input type="text" name="name" class="form-control" id="">
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
@@ -70,7 +68,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mb-2">
-                                        <label for="">Description</label>
+                                        <label for="">Tavsif</label>
                                         <textarea name="description" class="form-control" rows="3"></textarea>
                                         @error('description')
                                             <small class="text-danger">{{ $message }}</small>
@@ -116,45 +114,45 @@
                                             </i>
                                             <input type="file" name="image" class="form-control" id="fileInput"
                                                 style="display:none;"><br>
-                                            <label for="" class="float-left fs-5"
-                                                style="">Image</label>
+                                            <label for="" class="float-left fs-6"
+                                                style="">Rasm Joylash Uchun bosing!</label>
                                         </div>
                                         @error('image')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mb-2">
-                                        <h4>SEO Tags</h4>
+                                        <h4>SEO teglari</h4>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="">Meta Title</label>
+                                        <label for="">Meta sarlavhasi</label>
                                         <input type="text" name="meta_title" class="form-control">
                                         @error('meta_title')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="">Meta Description</label>
+                                        <label for="">Meta tavsifi</label>
                                         <input name="meta_description" class="form-control" rows="3">
                                         @error('meta_description')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mb-2">
-                                        <label for="">Meta Keyword</label>
+                                        <label for="">Meta kalit so'z</label>
                                         <textarea name="meta_keyword" class="form-control" rows="3"></textarea>
                                         @error('meta_keyword')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 mb-2 mt-2 " style="font-size:18px">
-                                        <input type="checkbox" name="status" style="width: 18px; height:18px">
-                                        <label for="" class="ml-2">Status</label>
+                                        <input type="checkbox" name="status" style="width: 18px; height:18px;">
+                                        <label for="" class="ml-1" style="">Holat</label>
 
                                     </div>
                                     <div class="col-md-12 mb-2">
                                         <button type="submit" class="btn btn-primary float-end"
-                                            style="background-color: rgb(22 163 74);">Save</button>
+                                            style="background-color: rgb(22 163 74);">Saqlash</button>
                                     </div>
                                 </div>
                             </form>

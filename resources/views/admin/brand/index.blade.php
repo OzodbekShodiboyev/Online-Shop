@@ -49,7 +49,7 @@
                                         <div class="table-responsive">
                                             <a href="{{ url('admin/brands/create') }}" style="background-color: rgb(22 163 74) ;">
                                                 <button type="button" class="btn mb-2 btn text-white" style="background-color: rgb(22 163 74) ;">
-                                                    🏘 Add Brand
+                                                    🏘 Brend qo'shish
                                                 </button>
                                             </a>
                                             @if ($data->isEmpty())
@@ -61,10 +61,10 @@
                                                         <tr>
                                                             <th>Id</th>
                                                             <th>Nomi</th>
-                                                            <th>Slag</th>
-                                                            <th>Status</th>
-                                                            <th>Kategoriya</th>
+                                                            <th>Slug</th>
                                                             <th>Holat</th>
+                                                            <th>Kategoriya</th>
+                                                            <th>Tahrirlash</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody style="border: none">
@@ -87,10 +87,10 @@
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{ url('admin/brands/' . $dat->id . '/edit') }}"
-                                                                        class="btn btn-warning">Edit</a>
+                                                                        class="btn btn-warning"><i class="fa fa-solid fa-pen"></i></a>
                                                                     <a href="{{ url('admin/brands/' . $dat->id . '/delete') }}"
-                                                                        onclick="return confirm('Are you sure you want to delete this Category?')"
-                                                                        class="btn btn-danger">Delete</a>
+                                                                        onclick="return confirm('Haqiqatan ham ushbu turkumni oʻchirib tashlamoqchimisiz?')"
+                                                                        class="btn btn-danger"><i class="fa fa-sharp fa-regular fa-trash"></i></a>
                                                                 </td>
                                                             </tr>
                                                             @php

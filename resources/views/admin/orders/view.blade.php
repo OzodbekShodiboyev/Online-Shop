@@ -33,52 +33,52 @@
                     <div class="col-md-12">
                         <div class="shadow bg-white p-3">
                             <h4>
-                                <i class="fa fa-shopping-cart text-success"></i> My Order Details
-                                <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end">Back</a>
-                                <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-primary btn-sm float-end">Download Invoice</a>
-                                <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end">View Invoice</a>
+                                <i class="fa fa-shopping-cart text-success ml-2"></i> Mening buyurtma tafsilotlarim
+                                <a href="{{ url('admin/orders') }}" class="btn btn-outline-danger btn-sm float-end ml-1">Orqaga</a>
+                                <a href="{{ url('admin/invoice/'.$order->id.'/generate') }}" class="btn btn-outline-success btn-sm float-end ml-1">Chekni yuklash</a>
+                                <a href="{{ url('admin/invoice/'.$order->id) }}" target="_blank" class="btn btn-outline-primary btn-sm float-end">Chekni ko'rish</a>
                             </h4>
                             <hr>
     
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>Order Details</h5>
+                                        <h5>Buyurtma tafsilotlari</h5>
                                         <hr>
     
-                                        <h6>Order Id: {{ $order->id }}</h6>
-                                        <h6>Tracking Id/No.: {{ $order->tracking_no }}</h6>
-                                        <h6>Ordered Date: {{ $order->created_at->format('d-m-Y H:i:s') }}</h6>
-                                        <h6>Payment Mode: {{ $order->payment_mode }}</h6>
-                                        <h6 class="border p-2 text-success">
-                                            Order Status Message: <span class="text-uppercase">{{ $order->status_message }}</span> 
+                                        <h6>Buyurtma raqami: {{ $order->id }}</h6>
+                                        <h6>Kuzatuv Id/№: {{ $order->tracking_no }}</h6>
+                                        <h6>Buyurtma sanasi: {{ $order->created_at->format('d-m-Y H:i:s') }}</h6>
+                                        <h6>To'lov tartibi: {{ $order->payment_mode }}</h6>
+                                        <h6 class="text-success">
+                                            Buyurtma holati haqida xabar: <span class="text-uppercase">{{ $order->status_message }}</span> 
                                         </h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>User Details</h5>
+                                        <h5>Foydalanuvchi tafsilotlari</h5>
                                         <hr>
         
-                                        <h6>Fullname: {{ $order->fullname }}</h6>
-                                        <h6>Email Id: {{ $order->email }}</h6>
-                                        <h6>Phone: {{ $order->phone }}</h6>
-                                        <h6>Address: {{ $order->address }}</h6>
-                                        <h6>Pin code: {{ $order->pincode }}</h6>
+                                        <h6>To'liq ismi: {{ $order->fullname }}</h6>
+                                        <h6>Elektron pochta: {{ $order->email }}</h6>
+                                        <h6>Telefon: {{ $order->phone }}</h6>
+                                        <h6>Manzil: {{ $order->address }}</h6>
+                                        <h6>Pin kodi: {{ $order->pincode }}</h6>
                                     </div>
                                 </div>
         
                                 <br/>
-                                <h5>Order Items</h5>
+                                <h5>Buyurtma buyumlari</h5>
                                 <hr>
     
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-stripped">
                                         <thead>
                                             <tr>
-                                                <th>Item ID</th>
-                                                <th>Image</th>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
-                                                <th>Total</th>
+                                                <th>Element ID</th>
+                                                <th>Rasm</th>
+                                                <th>Mahsulot</th>
+                                                <th>Narxi</th>
+                                                <th>Miqdori</th>
+                                                <th>Jami</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -107,7 +107,7 @@
                                                     </td>
                                                     <td width="10%">{{ $orderItem->price }}</td>
                                                     <td width="10%">{{ $orderItem->quantity }}</td>
-                                                    <td width="10%" class="fw-bold">${{ $orderItem->quantity * $orderItem->price }}</td>
+                                                    <td width="10%" class="fw-bold">{{ $orderItem->quantity * $orderItem->price }} UZS</td>
                                                     @php
                                                         $totalPrice += $orderItem->quantity * $orderItem->price ;
                                                         $totalAllocation = $totalPrice*(($orderItem->product->allocation_percentage * $orderItem->quantity)/100);
@@ -115,9 +115,9 @@
                                                 </tr>
                                             @endforeach
                                             <tr>
-                                                <td colspan="5" class="fw-bold">Total Amount:</td>
+                                                <td colspan="5" class="fw-bold">Umumiy hisob:</td>
                                                 <td colspan="1" class="fw-bold">
-                                                    ${{ $totalPrice }}
+                                                    {{ $totalPrice }} UZS
                                                 </td>
                                             </tr>
                                            
@@ -130,7 +130,7 @@
                 </div>
                 <div class="card border mt-3">
                     <div class="card-body">
-                        <h4>Order Process (Order Status Updates)</h4>
+                        <h4>Buyurtma jarayoni (buyurtma holatini yangilash)</h4>
                         <hr>
                         <div class="row">
                             <div class="col-md-5">
@@ -138,23 +138,24 @@
                                     @csrf
                                     @method('PUT')
     
-                                    <label style="margin-bottom: 5px;">Update Your Order Status</label>
+                                    <label style="margin-bottom: 5px;">Buyurtma holatini yangilang
+                                    </label>
                                     <div class="input-group">
                                         <select name="order_status" class="form-select">
-                                            <option value="in Progress" {{ Request::get('status') == 'in progress' ? 'selected':'' }}>In Progress</option>
-                                            <option value="completed" {{ Request::get('status') == 'completed' ? 'selected':'' }}>Completed</option>
-                                            <option value="pending" {{ Request::get('status') == 'pending' ? 'selected':'' }}>Pending</option>
-                                            <option value="cancelled" {{ Request::get('status') == 'cancelled' ? 'selected':''}}>Cancelled</option>
-                                            <option value="out-for-delivery" {{ Request::get('status') == 'out-for-delivery' ? 'selected':'' }}>Out for delivery</option>
+                                            <option value="in Progress" {{ Request::get('status') == 'in progress' ? 'selected':'' }}>Jarayonda</option>
+                                            <option value="completed" {{ Request::get('status') == 'completed' ? 'selected':'' }}>Bajarildi</option>
+                                            <option value="pending" {{ Request::get('status') == 'pending' ? 'selected':'' }}>Kutilmoqda</option>
+                                            <option value="cancelled" {{ Request::get('status') == 'cancelled' ? 'selected':''}}>Bekor qilingan</option>
+                                            <option value="out-for-delivery" {{ Request::get('status') == 'out-for-delivery' ? 'selected':'' }}>Yetkazib berilmoqda</option>
                                         </select>
     
-                                        <button type="submit" class="btn btn-primary text-white">Update</button>
+                                        <button type="submit" class="btn btn-outline-success">Yangilash</button>
                                     </div>
                                 </form>
                             </div>
                             <div class="col-md-6">
                                 <br/>
-                                <h4 class="mt-3" >Current Order Status: <span class="text-uppercase">{{ $order->status_message }} </span></h4>
+                                <h4 class="mt-3" >Buyurtmaning joriy holati: <span class="text-uppercase">{{ $order->status_message }} </span></h4>
                             </div>
                         </div>
                     </div>
