@@ -71,7 +71,7 @@
                 <div class="navbar-nav w-100">
                     <a href="{{ url('/collections') }}" class="nav-item nav-link">Barcha kategoriyalar</a>
                     @foreach ($categories as $category)
-                        <a href="/shop.html" class="nav-item nav-link">{{ $category->name }}</a>
+                        <a href="{{url('collections/'.$category->slug)}}" class="nav-item nav-link">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </nav>
@@ -93,7 +93,7 @@
                         <a href="shop.html" class="nav-item nav-link text-white">Shop</a>
                         <a href="detail.html" class="nav-item nav-link text-white">Shop Detail</a>
                         <a class="nav-item nav-link active text-white" href="{{ url('wishlist') }}">
-                            <i class="fa fa-heart"></i> Wishlist (
+                            <i class="fa fa-heart"></i> Saralangan (
                             <livewire:frontend.wishlist-count />)
                         </a>
                     </div>
@@ -114,25 +114,13 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="/profile">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
-                                    </a>
                                     <div class="dropdown-divider"></div>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                     <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
                                     this.closest('form').submit();">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        {{ __('Log Out') }}
+                                        {{ __('Chiqish') }}
                                     </a>
                                 </form>
                                 </div>

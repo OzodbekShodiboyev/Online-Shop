@@ -84,7 +84,7 @@
                 {{ __('Remember Me') }}
             </label>
         </div>
-          <input type="submit" value="Login" class="btnn " />
+          <input type="submit" value="KIrish" class="btnn " />
         </form>
 
         
@@ -99,7 +99,9 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
             ex ratione. Aliquid!
           </p>
-          <a href="{{url('/register')}}" class="btn border p-2 text-light">Ro'yxatdan o'tish</a>
+          <a href="/register" class="btn border text-white">
+            Ro'yxatdan o'tish
+          </a>
         </div>
         <img src="{{asset('assets/img/log.svg')}}" class="image" alt="" />
       </div>
@@ -120,52 +122,81 @@
   </div>
 
   
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
-        <div class="row px-xl-5 pt-5">
-            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>Namangan, O'zbekiston</p>
-                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram: @Ssuleiymann</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}</p>
-            </div>
-            <div class="col-lg-8 col-md-12">
-                <div class="row">
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        </div>
+  <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
+            <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
+                dolor. Rebum tempor no vero est magna amet no</p>
+            <p class="mb-2"><i
+                    class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}
+            </p>
+            <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
+                {{ $appSetting->telegram }}
+            </p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
+            </p>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
+                        <a class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                     </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
+                        <a class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                     </div>
-                    <div class="col-md-4 mb-5">
-                        <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
-                        <div class="d-flex">
-                            <a class="btn btn-success btn-square mr-2" href="#"><i class="fab fa-telegram"></i></a>
-                            <a class="btn btn-success btn-square" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h6 class="text-secondary text-center mt-4 mb-3">Follow Us</h6>
+                    <div class="d-flex m-3">
+                        @if ($appSetting->telegram)
+                            <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}"><i
+                                    class="fab fa-telegram">  Telegram</i></a>
+                        @endif
+
+
+                    </div>
+                    <div class="d-flex m-3">
+                        @if ($appSetting->instagram)
+                            <a class="btn text-light" style="width: 600px;   background: #f09433; 
+                            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+                            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"  href="{{ $appSetting->instagram }}"><i
+                                    class="fab fa-instagram">  Instagram</i></a>
+                        @endif
+                    </div>
+                    <div class="d-flex m-3">
+                        @if ($appSetting->facebook)
+                            <a class="btn text-light" style="width: 600px;   background: #3b5998 ; " href="{{ $appSetting->facebook }}"><i
+                                    class="fab fa-facebook">  Facebook</i></a>
+                        @endif
+                    </div>
+                    <div class="d-flex m-3">
+                        @if ($appSetting->youtube)
+                            <a class="btn text-light" style="width: 600px;   background: #c4302b ; "  href="{{ $appSetting->youtube }}"><i
+                                    class="fab fa-youtube">  You Tube</i></a>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-        
-    <!-- Footer End -->
+</div>
 
 <a href="#" class="btn btn-success back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
