@@ -2,46 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>BadommShop - Internet Magazin</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
-    <!-- Favicon -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/img/b.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="assets/css/navbar.css" rel="stylesheet">
-    <link href="{{ asset('assets/csowl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="assets/css/kabinet.css" rel="stylesheet">
-    <!--<link href="/css/profil.css" rel="stylesheet">-->
-    <link href="assets/css/shopcart2.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/kabinet.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    @livewireStyles
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    @livewireStyles
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <link href="{{ asset('assets/exzoom/jquery.exzoom.css') }}" rel="stylesheet">
+ 
 </head>
 
 <body>
-
-    <br><br><br><br><br><br><br><br><br>
     <header>
         @include('layouts.navbar')
     </header>
@@ -135,74 +134,12 @@
     <!-- Featured End -->
 
 
-    <!-- Products Start -->
 
 
 
-    <section class="shop container">
-        <h2 class="section-title">Shop Products</h2>
-        <div class="shop-content">
-            <!--BOX 1-->
-            <div class="product-box">
-                <a href="/detail.html">
-                    <img src="/imgg/product1.jpg" alt="" class="product-img">
-                </a>
-                <h2 class="product-title">AEROR SHIRT</h2>
-                <span class="price">$225</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 2-->
-            <div class="product-box">
-                <img src="/imgg/product2.jpg" alt="" class="product-img">
-                <h2 class="product-title">Earbuds</h2>
-                <span class="price">$25</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 3-->
-            <div class="product-box">
-                <img src="/imgg/product3.jpg" alt="" class="product-img">
-                <h2 class="product-title">AREADY SHIRT</h2>
-                <span class="price">$105</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 4-->
-            <div class="product-box">
-                <img src="/imgg/product4.jpg" alt="" class="product-img">
-                <h2 class="product-title"> SHIRT</h2>
-                <span class="price">$100</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 5-->
-            <div class="product-box">
-                <img src="/imgg/product5.jpg" alt="" class="product-img">
-                <h2 class="product-title">AEROREADY SHI</h2>
-                <span class="price">$200</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 6-->
-            <div class="product-box">
-                <img src="/imgg/product6.jpg" alt="" class="product-img">
-                <h2 class="product-title">AERORE SHRT</h2>
-                <span class="price">$325</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 7-->
-            <div class="product-box">
-                <img src="/imgg/product7.jpg" alt="" class="product-img">
-                <h2 class="product-title">AERODY SHT</h2>
-                <span class="price">$50</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 8-->
-            <div class="product-box">
-                <img src="/imgg/product8.jpg" alt="" class="product-img">
-                <h2 class="product-title">AEADY SHRT</h2>
-                <span class="price">$255</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-        </div>
-    </section>
-    <!-- Products End -->
+
+
+
     <!-- Trending Products -->
     <div class="py-5">
         <div class="container">
@@ -212,82 +149,47 @@
                     <div class="underline mb-4"></div>
                 </div>
                 @if ($trendingProducts)
-                    <div class="col-12">
-                        <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                @php
-                                    $totalProducts = count($trendingProducts);
-                                    $numColumns = 4;
-                                    $numRows = ceil($totalProducts / $numColumns);
-                                @endphp
-                                @for ($i = 0; $i < $numRows; $i++)
-                                    <li data-target="#trendingCarousel" data-slide-to="{{ $i }}"
-                                        class="{{ $i === 0 ? 'active' : '' }}"></li>
-                                @endfor
-                            </ol>
-                            <div class="carousel-inner">
-                                @php $counter = 0; @endphp
-                                @for ($row = 0; $row < $numRows; $row++)
-                                    <div class="carousel-item{{ $row === 0 ? ' active' : '' }}">
-                                        <div class="row">
-                                            @for ($col = 0; $col < $numColumns; $col++)
-                                                @php
-                                                    $index = ($row * $numColumns + $col) % $totalProducts;
-                                                    $productItem = $trendingProducts[$index];
-                                                @endphp
-                                                <div class="col-md-3">
-                                                    <div class="card">
-                                                        <div class="card-img-top">
-                                                            <label class="bg-success p-1 m-1" style="border-radius: 5px">New</label>
-                                                            @if ($productItem->productImages->count() > 0)
-                                                                <a
-                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
-                                                                        alt="{{ $productItem->name }}"
-                                                                        class="product-image">
-                                                                </a>
-                                                            @endif
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <p class="card-text">{{ $productItem->brand }}</p>
-                                                            <h5 class="card-title">
-                                                                <a
-                                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                                    {{ $productItem->name }}
-                                                                </a>
-                                                            </h5>
-                                                            <div class="d-flex justify-content-between">
-                                                                <span class="selling-price">
-                                                                    ${{ number_format($productItem->selling_price) }}
-                                                                </span>
-                                                                <span class="original-price">
-                                                                    ${{ number_format($productItem->original_price) }}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endfor
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($trendingProducts as $productItem)
+                                <div class="item">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <label class="stock bg-success">New</label>
+                                            {{-- @if ($productItem->productImages->count() > 0) --}}
+                                            @if ($productItem->productImages->count() > 0)
+                                                <a
+                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
+                                                        alt="{{ $productItem->name }}" class="product-image">
+                                                </a>
+                                            @endif
+
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $productItem->brand }}</p>
+                                            <h5 class="product-name">
+                                                <a
+                                                    href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                                    {{ $productItem->name }}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">₱
+                                                    {{ number_format($productItem->selling_price) }}</span>
+                                                <span class="original-price">₱
+                                                    {{ number_format($productItem->original_price) }}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                @endfor
-                            </div>
-                            <a class="carousel-control-prev" href="#trendingCarousel" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#trendingCarousel" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 @else
-                    <div col-md-12>
+                    <div class="col-md-12">
                         <div class="p-2">
-                            <h4>No New Arrival Avialable</h4>
+                            <h5>No Products Available</h5>
                         </div>
                     </div>
                 @endif
@@ -295,6 +197,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- New arrivals --}}
 
@@ -486,69 +389,6 @@
 
 
 
-    <!-- Products Start -->
-    <section class="shop container">
-        <h2 class="section-title">Shop Products</h2>
-        <div class="shop-content">
-            <!--BOX 1-->
-            <div class="product-box">
-                <img src="/imgg/product1.jpg" alt="" class="product-img">
-                <h2 class="product-title">AEROR SHIRT</h2>
-                <span class="price">$225</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 2-->
-            <div class="product-box">
-                <img src="/imgg/product2.jpg" alt="" class="product-img">
-                <h2 class="product-title">Earbuds</h2>
-                <span class="price">$25</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 3-->
-            <div class="product-box">
-                <img src="/imgg/product3.jpg" alt="" class="product-img">
-                <h2 class="product-title">AREADY SHIRT</h2>
-                <span class="price">$105</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 4-->
-            <div class="product-box">
-                <img src="/imgg/product4.jpg" alt="" class="product-img">
-                <h2 class="product-title"> SHIRT</h2>
-                <span class="price">$100</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 5-->
-            <div class="product-box">
-                <img src="/imgg/product5.jpg" alt="" class="product-img">
-                <h2 class="product-title">AEROREADY SHI</h2>
-                <span class="price">$200</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 6-->
-            <div class="product-box">
-                <img src="/imgg/product6.jpg" alt="" class="product-img">
-                <h2 class="product-title">AERORE SHRT</h2>
-                <span class="price">$325</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 7-->
-            <div class="product-box">
-                <img src="/imgg/product7.jpg" alt="" class="product-img">
-                <h2 class="product-title">AERODY SHT</h2>
-                <span class="price">$50</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-            <!--BOX 8-->
-            <div class="product-box">
-                <img src="/imgg/product8.jpg" alt="" class="product-img">
-                <h2 class="product-title">AEADY SHRT</h2>
-                <span class="price">$255</span>
-                <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-        </div>
-    </section>
-
     <!-- Products End -->
 
 
@@ -638,32 +478,42 @@
         <!-- Template Javascript -->
         <script src="{{ asset('assets/js/main.js') }}"></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}">
-            < script >
-                <
-                script src = "{{ asset('assets/js/owl.carousel.js') }}" > < script >
-                <
-                script
-            script >
-                $('.four-carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    nav: false,
-                    dot: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        1000: {
-                            items: 4
-                        }
-                    }
-                })
-        </script>
-        @livewireScripts
+            @section('script')
+            <script>
+$(function(){
+    
+    $("#exzoom").exzoom({
+        "navWidth": 60,
+        "navHeight": 60,
+        "navItemNum": 5,
+        "navItemMargin": 7,
+        "navBorder": 1,
+        "autoPlay": false,
+        "autoPlayTimeout": 2000
 
+    });
+
+});
+
+$('.four-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:false,
+dot:true,
+responsive:{
+    0:{
+        items:1
+    },
+    600:{
+        items:3
+    },
+    1000:{
+        items:4
+    }
+}
+});
+</script>
+@endsection
 </body>
 
 </html>

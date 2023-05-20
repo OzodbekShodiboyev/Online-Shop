@@ -87,22 +87,7 @@
           <input type="submit" value="Login" class="btnn " />
         </form>
 
-        <form action="#" class="sign-up-form">
-          <h2 class="title">Sign up</h2>
-          <div class="input-field">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
-          </div>
-          <div class="input-field">
-            <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
-          </div>
-          <div class="input-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
-          </div>
-          <input type="submit" class="btnn" value="Sign up" />
-        </form>
+        
       </div>
     </div>
 
@@ -114,9 +99,7 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
             ex ratione. Aliquid!
           </p>
-          <button class="btn transparent text-white" id="sign-up-btn">
-            Sign up
-          </button>
+          <a href="{{url('/register')}}" class="btn border p-2 text-light">Ro'yxatdan o'tish</a>
         </div>
         <img src="{{asset('assets/img/log.svg')}}" class="image" alt="" />
       </div>
