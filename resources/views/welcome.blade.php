@@ -84,21 +84,19 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="img/offer-1.jpg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">chegirma 20%</h6>
-                        <h3 class="text-white mb-3">Maxsus Chegirmalar</h3>
-                    </div>
-                </div>
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="img/offer-2.jpg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">chegirma 20%</h6>
-                        <h3 class="text-white mb-3">Maxsus Chegirmalar</h3>
-                    </div>
-                </div>
+                @foreach ($slider as $key => $sliderItem)
+                    @if ($key < 2) <!-- Add this condition to limit the loop to two iterations -->
+                        <div class="product-offer mb-30" style="height: 200px;">
+                            <img class="img-fluid" src="{{ asset("$sliderItem->image") }}" alt="">
+                            <div class="offer-text">
+                                <h6 class="text-white text-uppercase">{{ $sliderItem->description }}</h6>
+                                <h3 class="text-white mb-3">{{ $sliderItem->title }}</h3>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
+            
         </div>
     </div>
     <!-- Carousel End -->
