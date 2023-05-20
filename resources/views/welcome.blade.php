@@ -366,6 +366,7 @@
                     </div>
                     <div class="col-md-4 mb-5">
                         <h6 class="text-secondary text-center mt-4 mb-3">Follow Us</h6>
+                        {{-- {{dd($appSetting)}} --}}
                         <div class="d-flex m-3">
                             @if ($appSetting->telegram)
                                 <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}"><i
