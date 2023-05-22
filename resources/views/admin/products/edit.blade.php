@@ -247,8 +247,7 @@
                                                                         class="card-img-top" alt="...">
                                                                     <div class="card-body">
                                                                         <a class="d-block btn btn-outline-danger"
-                                                                            href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i
-                                                                                class="fa fa-solid fa-pen"></i></a>
+                                                                            href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i class="fa fa-sharp fa-regular fa-trash"></i></a>
                                                                     </div>
                                                                 </div>
                                                             @endforeach

@@ -93,7 +93,7 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input id="password-confirm"  placeholder="Parolni qayta kiriting" type="password" name="password_confirmation"
+                        <input id="password-confirm"  placeholder="Parolni qayta kiriting"  type="password" name="password_confirmation"
                             required autocomplete="new-password">
                     </div>
                     <button type="submit" class="btn " style="background-color: #4481eb; color: #fff; border-radius: 49px; height: 49px; text-transform: uppercase;font-weight: 600;margin: 10px 0;transition: 0.5s; cursor: pointer;">
@@ -116,19 +116,6 @@
                     <a href="/login" class="btn border text-white">
                         Kirish
                     </a>
-                </div>
-                <img src="{{ asset('assets/img/log.svg') }}" class="image" alt="" />
-            </div>
-            <div class="panel right-panel">
-                <div class="content">
-                    <h3>One of us ?</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                        laboriosam ad deleniti.
-                    </p>
-                    <button class="btn transparent text-white" id="sign-in-btn">
-                        Sign in
-                    </button>
                 </div>
                 <img src="{{ asset('assets/img/log.svg') }}" class="image" alt="" />
             </div>
