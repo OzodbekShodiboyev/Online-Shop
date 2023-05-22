@@ -91,7 +91,7 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ url('/') }}" class="nav-item nav-link active text-white">Home</a>
                         <a href="shop.html" class="nav-item nav-link text-white">Shop</a>
-                        <a href="detail.html" class="nav-item nav-link text-white">Shop Detail</a>
+                        <a href="{{url('/new-arrivals')}}" class="nav-item nav-link text-white">Yangi mahsulotlar</a>
                         <a class="nav-item nav-link active text-white" href="{{ url('wishlist') }}">
                             <i class="fa fa-heart"></i> Saralangan (
                             <livewire:frontend.wishlist-count />)
