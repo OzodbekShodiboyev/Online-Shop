@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Dompdf\Dompdf;
 use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
@@ -57,13 +57,30 @@ class OrderController extends Controller
         $order = Order::findOrFail($orderId);
         return view('admin.invoice.generate-invoice', compact('order'));
     }
+
     public function generateInvoice(int $orderId)
     {
-        $order = Order::findOrfail($orderId);
-        $data = ['order' => $order];
-        $pdf = Pdf::loadView('admin.invoice.generate-invoice', $data);
+        $order = Order::findOrFail($orderId);
 
         $todayDate = Carbon::now()->format('d-m-Y');
-        return $pdf->download('invoice-' . $order->id . '-' . $todayDate . '.pdf');
+
+        $filename = 'invoice-' . $order->id . '-' . $todayDate . '.pdf';
+
+        $dompdf = new Dompdf();
+
+        $html = view('admin.invoice.generate-invoice', compact('order'))->render();
+
+        // Load the HTML content into Dompdf
+        $dompdf->loadHtml($html);
+
+        // Set the paper size and rendering options
+        $customPaper = array(0,0,350,740);
+        $dompdf->setPaper($customPaper);
+
+        // Render the PDF
+        $dompdf->render();
+
+        // Stream the PDF to the browser for download
+        $dompdf->stream($filename, ['Attachment' => true]);
     }
 }
