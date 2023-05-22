@@ -88,10 +88,10 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/products/';
-
+            $i = 1;
             foreach ($request->file('image') as $imageFile) {
-                $extention = $imageFile->getClientOriginalExtension();
-                $filename = time() . '.' . $extention;
+                $extension = $imageFile->getClientOriginalExtension();
+                $filename = time() . $i++ . '.' . $extension;
                 $imageFile->move($uploadPath, $filename);
                 $finalImagePathName = $uploadPath . $filename;
 
