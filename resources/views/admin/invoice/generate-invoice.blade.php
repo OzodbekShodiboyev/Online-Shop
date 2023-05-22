@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@1,700&display=swap" rel="stylesheet">
 
     <style>
-        * {
+        *{
             font-family: 'Saira Semi Condensed', sans-serif;
         }
     </style>
