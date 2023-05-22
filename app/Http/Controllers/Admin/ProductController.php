@@ -10,6 +10,7 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -31,7 +32,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'category_id' => 'required',
             'name' => 'required',
             'slug' => 'required',
@@ -44,8 +45,12 @@ class ProductController extends Controller
             'meta_title' => 'required',
             'meta_keyword' => 'required',
             'meta_description' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $category_id = $request->category_id;
         $name = $request->name;
@@ -84,17 +89,17 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/products/';
 
-            $i = 1;
             foreach ($request->file('image') as $imageFile) {
                 $extention = $imageFile->getClientOriginalExtension();
-                $filename = time() . $i++ . '.' . $extention;
+                $filename = time() . '.' . $extention;
                 $imageFile->move($uploadPath, $filename);
-                $finalImagePathName = $uploadPath . '-' . $filename;
+                $finalImagePathName = $uploadPath . $filename;
+
+                $product->productImages()->create([
+                    'product_id' => $product->id,
+                    'image' => $finalImagePathName,
+                ]);
             }
-            $product->productImages()->create([
-                'product_id' => $product->id,
-                'image' => $finalImagePathName,
-            ]);
         }
 
         if ($request->colors) {
@@ -102,11 +107,10 @@ class ProductController extends Controller
                 $product->productColors()->create([
                     'product_id' => $product->id,
                     'color_id' => $color,
-                    'quantity' => $request->colorquantity[$key] ?? 0
+                    'quantity' => $request->colorquantity[$key] ?? 0,
                 ]);
             }
         }
-
 
         return redirect('admin/products')->with('message', "Mahsulot qo'shildi");
     }
@@ -147,12 +151,37 @@ class ProductController extends Controller
 
         $product->save();
 
+        // Update product colors
+        $existingColors = $product->productColors->pluck('color_id')->toArray();
+        $updatedColors = $request->colors ?? [];
+
+
+        // Add/update colors
+        if ($request->colors) {
+            foreach ($request->colors as $key => $color) {
+                $quantity = $request->colorquantity[$key] ?? 0;
+                $productColor = $product->productColors()->where('color_id', $color)->first();
+                if ($productColor) {
+                    // Update existing color quantity
+                    $productColor->quantity = $quantity;
+                    $productColor->save();
+                } else {
+                    // Add new color
+                    $product->productColors()->create([
+                        'product_id' => $product->id,
+                        'color_id' => $color,
+                        'quantity' => $quantity,
+                    ]);
+                }
+            }
+        }
+
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/products/';
             $i = 1;
             foreach ($request->file('image') as $imageFile) {
-                $extention = $imageFile->getClientOriginalExtension();
-                $filename = time() . $i++ . '.' . $extention;
+                $extension = $imageFile->getClientOriginalExtension();
+                $filename = time() . $i++ . '.' . $extension;
                 $imageFile->move($uploadPath, $filename);
                 $finalImagePathName = $uploadPath . $filename;
 
@@ -163,8 +192,9 @@ class ProductController extends Controller
             }
         }
 
-        return redirect('admin/products')->with('message', "Mahsulot ma'lumotlari o'zgartirildi");
+        return redirect('/admin/products')->with('message', "Mahsulot ma'lumotlari o'zgartirildi");
     }
+
 
 
     public function destroyImage(int $product_image_id)
@@ -197,20 +227,34 @@ class ProductController extends Controller
         return redirect()->back()->with('message', "Mahsulot o'chirildi");
     }
 
-    public function updateProductColorQty(Request $request, $prod_color_id)
-    {
-        $productColorData = ProductColor::findOrFail($prod_color_id);
-        $productColorData->update([
-            'quantity' => $request->qty,
-        ]);
 
-        return response()->json(['message' => 'Product Color Qty updated']);
+    public function updateProductColorQty(Request $request)
+    {
+        $prod_color_id = $request->input('prod_color_id');
+        $qty = $request->input('qty');
+
+        // Perform the update operation
+        $productColor = ProductColor::find($prod_color_id);
+        if ($productColor) {
+            $productColor->quantity = $qty;
+            $productColor->save();
+            return response()->json(['message' => 'Color quantity updated successfully']);
+        } else {
+            return response()->json(['message' => 'Color not found'], 404);
+        }
     }
 
-    public function deleteProductColor(string $product_color_id)
+    public function deleteProductColor(Request $request)
     {
-        $productColor = ProductColor::findOrFail($product_color_id);
-        $productColor->delete();
-        return response()->json(['message' => 'Color Deleted']);
+        $prod_color_id = $request->input('prod_color_id');
+
+        // Perform the delete operation
+        $productColor = ProductColor::find($prod_color_id);
+        if ($productColor) {
+            $productColor->delete();
+            return response()->json(['message' => 'Color deleted successfully']);
+        } else {
+            return response()->json(['message' => 'Color not found'], 404);
+        }
     }
 }
