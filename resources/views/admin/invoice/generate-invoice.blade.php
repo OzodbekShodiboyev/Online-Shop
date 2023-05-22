@@ -120,7 +120,7 @@
                                 @endif
                             </td>
                             <td class="float-end">{{ $orderItem->quantity }}x {{ $orderItem->price }} =
-                                ${{ $orderItem->quantity * $orderItem->price }}</td>
+                                {{ $orderItem->quantity * $orderItem->price }} <span>UZS</span></td>
                             </td>
                             @php
                                 $totalPrice += $orderItem->quantity * $orderItem->price;
@@ -142,13 +142,13 @@
                     <tr>
                         <td>Total Allocation Amount:</td>
                         <td class="float-end">
-                            <span>$</span>{{ $totalAllocation }}
+                            {{ $totalAllocation }} <span>UZS</span>
                         </td>
                     </tr>
                     <tr>
                         <td>Total Revenue Amount:</td>
                         <td class="float-end">
-                            <span>$</span>{{ $totalRevenue }}
+                            {{ $totalRevenue }} <span>UZS</span>
                         </td>
                     </tr>
 
@@ -166,7 +166,7 @@
                             <h5 class="fw-bold">Total Amount:</h5>
                         </td>
                         <td>
-                            <h5 class="fw-bold float-end"><span>$</span>{{ $totalPrice }}</h5>
+                            <h5 class="fw-bold float-end">{{ $totalPrice }} <span>UZS</span></h5>
                         </td>
                     </tr>
 

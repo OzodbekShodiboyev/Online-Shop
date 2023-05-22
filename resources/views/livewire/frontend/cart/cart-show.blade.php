@@ -1,11 +1,11 @@
 <div>
-    <div class="py-3 py-md-5 bg-light">
-        <div class="container-xxl">
+    <div class="py-3 py-md-5 bg-light ">
+        <div class="container-xxl shadow">
             <h4>My Cart</h4>
 
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-12">
-                    <div class="shopping-cart shadow">
+                    <div class="shopping-cart ">
 
                         <div class="cart-header d-sm-none d-mb-block d-lg-block">
                             <div class="row">
@@ -32,7 +32,7 @@
 
                         @forelse ($cart as $cartItem)
                             @if ($cartItem->product)
-                                <div class="cart-item shadow">
+                                <div class="cart-item ">
                                     <div class="row">
                                         <div class="col-md-4 my-auto">
                                             <a

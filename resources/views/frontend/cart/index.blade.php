@@ -34,8 +34,8 @@
     @livewireStyles
 </head>
 
-<body>
-    <header>
+<body class="bg-light">
+    <header >
 
         @include('layouts.navbar')
 
