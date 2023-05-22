@@ -53,29 +53,26 @@
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-8">
-                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel" data-interval="3000">
                     <ol class="carousel-indicators">
                         @foreach ($slider as $key => $sliderItem)
-                            <li data-target="#header-carousel" data-slide-to="{{ $sliderItem->id - 1 }}"></li>
+                            <li data-target="#header-carousel" data-slide-to="{{ $key }}" {{ $key == 0 ? 'class=active' : '' }}></li>
                         @endforeach
                     </ol>
                     <div class="carousel-inner">
                         @foreach ($slider as $key => $sliderItem)
-                            <div class="carousel-item position-relative {{ $key == 0 ? 'active' : '' }}"
-                                style="height: 430px;">
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" style="height: 430px;">
                                 @if ($sliderItem->image)
-                                    <img class="position-absolute w-100 h-100" src="{{ asset("$sliderItem->image") }}"
-                                        style="object-fit: cover;">
+                                    <img class="d-block w-100" src="{{ asset($sliderItem->image) }}" alt="Slide Image">
                                 @endif
-                                <div
-                                    class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h3 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
                                             {{ $sliderItem->title }}</h3>
                                         <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
                                             {{ $sliderItem->description }}</p>
-                                        <a class="btn py-2 px-4 mt-3 btn-outline-light " id="buybtn"
-                                            href="#">BUY Now</a>
+                                        <a class="btn py-2 px-4 mt-3 btn-outline-light" id="buybtn"
+                                            href="{{ url('/collections') }}">BUY Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,13 +80,14 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-lg-4">
                 @foreach ($slider as $key => $sliderItem)
                     @if ($key < 2) <!-- Add this condition to limit the loop to two iterations -->
                         <div class="product-offer mb-30" style="height: 200px;">
                             <img class="img-fluid" src="{{ asset("$sliderItem->image") }}" alt="">
                             <div class="offer-text">
-                                <h6 class="text-white text-uppercase">{{ $sliderItem->description }}</h6>
+                                <h6 class="text-white text-center">{{ $sliderItem->description }}</h6>
                                 <h3 class="text-white mb-3">{{ $sliderItem->title }}</h3>
                             </div>
                         </div>
