@@ -62,7 +62,7 @@
                                 @endif
                                 <div>
                                     @if ($this->prodColorSelectedQuantity == 'outOfStock')
-                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Out of Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
                                     @elseif($this->prodColorSelectedQuantity > 0)
                                         <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
                                     @endif
@@ -71,7 +71,7 @@
                                 @if ($product->quantity)
                                     <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
                                 @else
-                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">Out of Stock</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
                                 @endif
                             @endif
                         </div>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <button type="button" wire:click="addToCart({{ $product->id }})" class="btn btn1">
+                            <button type="button" wire:click="addToCart({{ $product->id }})" class="btn-success btn btn1">
                                 <span wire:loading.remove wire:target="addToCart">
                                     <i class="fa fa-shopping-cart"></i> Add To Cart
                                 </span>
@@ -93,7 +93,7 @@
 
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1">
                                 <span wire:loading.remove wire:target="addToWishList">
-                                    <i class="fa fa-heart"></i> Add To Wishlist
+                                    <i class="fa fa-heart"></i> Saralanganlarga qo'shish
                                 </span>
                                 <span wire:loading wire:target="addToWishList">Adding...</span>
                             </button>
