@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\CartController;
@@ -66,6 +67,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     Route::get('settings', [SettingController::class, 'index']);
     Route::post('settings', [SettingController::class, 'store']);
+
+    //Search Controller
+    Route::get('search', [SearchController::class, 'search'])->name('searching');
 
     // CATEGORY Routes
     Route::get('/category', [CategoryController::class, 'index']);

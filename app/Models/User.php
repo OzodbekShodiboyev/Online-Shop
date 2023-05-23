@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\URL;
 
 class User extends Authenticatable
 {
@@ -29,6 +30,10 @@ class User extends Authenticatable
         return $this->hasOne(UserDetail::class, 'user_id', 'id');
     }
 
+    public function getLink()
+    {
+        return URL::route('users.show', ['user' => $this->id]);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
