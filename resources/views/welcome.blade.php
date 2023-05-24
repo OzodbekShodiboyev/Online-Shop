@@ -49,14 +49,16 @@
 
 
 
-    <!-- Carousel Start -->
+    <!-- Slider Start -->
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-8">
-                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel" data-interval="3000">
+                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel"
+                    data-interval="3000">
                     <ol class="carousel-indicators">
                         @foreach ($slider as $key => $sliderItem)
-                            <li data-target="#header-carousel" data-slide-to="{{ $key }}" {{ $key == 0 ? 'class=active' : '' }}></li>
+                            <li data-target="#header-carousel" data-slide-to="{{ $key }}"
+                                {{ $key == 0 ? 'class=active' : '' }}></li>
                         @endforeach
                     </ol>
                     <div class="carousel-inner">
@@ -65,7 +67,8 @@
                                 @if ($sliderItem->image)
                                     <img class="d-block w-100" src="{{ asset($sliderItem->image) }}" alt="Slide Image">
                                 @endif
-                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div
+                                    class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h3 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
                                             {{ $sliderItem->title }}</h3>
@@ -80,10 +83,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4">
                 @foreach ($slider as $key => $sliderItem)
-                    @if ($key < 2) <!-- Add this condition to limit the loop to two iterations -->
+                    @if ($key < 2)
+                        <!-- Add this condition to limit the loop to two iterations -->
                         <div class="product-offer mb-30" style="height: 200px;">
                             <img class="img-fluid" src="{{ asset("$sliderItem->image") }}" alt="">
                             <div class="offer-text">
@@ -94,10 +98,10 @@
                     @endif
                 @endforeach
             </div>
-            
+
         </div>
     </div>
-    <!-- Carousel End -->
+    <!-- Slider End -->
 
 
     <!-- Featured Start -->
@@ -130,13 +134,6 @@
         </div>
     </div>
     <!-- Featured End -->
-
-
-
-
-
-
-
 
     {{-- Trending Products --}}
     <div class="py-5">
@@ -192,10 +189,6 @@
             </div>
         </div>
     </div>
-
-
-
-    {{-- New arrivals --}}
 
     {{-- New Arrivals --}}
     <div class="py-5 bg-white">
@@ -365,39 +358,44 @@
                         {{-- {{dd($appSetting)}} --}}
                         <div class="d-flex m-3">
                             @if ($appSetting->telegram)
-                                <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}" target="_blank"><i
-                                        class="fab fa-telegram">  Telegram</i></a>
+                                <a class="btn text-light" style="width: 600px; background-color:#229ED9; "
+                                    href="{{ $appSetting->telegram }}" target="_blank"><i class="fab fa-telegram">
+                                        Telegram</i></a>
                             @endif
-    
-    
+
+
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->instagram)
-                                <a class="btn text-light" style="width: 600px;   background: #f09433; 
+                                <a class="btn text-light"
+                                    style="width: 600px;   background: #f09433; 
                                 background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
                                 background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
                                 background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"  href="{{ $appSetting->instagram }}" target="_blank"><i
-                                        class="fab fa-instagram">  Instagram</i></a>
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"
+                                    href="{{ $appSetting->instagram }}" target="_blank"><i class="fab fa-instagram">
+                                        Instagram</i></a>
                             @endif
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->facebook)
-                                <a class="btn text-light" style="width: 600px;   background: #3b5998 ; " href="{{ $appSetting->facebook }}" target="_blank"><i
-                                        class="fab fa-facebook">  Facebook</i></a>
+                                <a class="btn text-light" style="width: 600px;   background: #3b5998 ; "
+                                    href="{{ $appSetting->facebook }}" target="_blank"><i class="fab fa-facebook">
+                                        Facebook</i></a>
                             @endif
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->youtube)
-                                <a class="btn text-light" style="width: 600px;   background: #c4302b ; "  href="{{ $appSetting->youtube }}" target="_blank"><i
-                                        class="fab fa-youtube">  You Tube</i></a>
+                                <a class="btn text-light" style="width: 600px;   background: #c4302b ; "
+                                    href="{{ $appSetting->youtube }}" target="_blank"><i class="fab fa-youtube"> You
+                                        Tube</i></a>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    
+        </div>
+
 
         <!-- Footer End -->
 
@@ -422,7 +420,7 @@
         <script>
             $(document).ready(function() {
                 $(".owl-carousel").owlCarousel({
-                    items: 4,
+                    items: 1, // Show one item per slide on mobile devices
                     loop: true,
                     nav: true,
                     dots: false,
@@ -430,10 +428,18 @@
                     navText: [
                         "<i class='fas fa-chevron-left'></i>",
                         "<i class='fas fa-chevron-right'></i>"
-                    ]
+                    ],
+                    responsive: {
+                        768: {
+                            items: 4 // Show four items per slide on laptops
+                        }
+                    }
                 });
             });
         </script>
+</body>
+
+</html>
 </body>
 
 </html>
