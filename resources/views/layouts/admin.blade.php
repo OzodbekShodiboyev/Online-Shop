@@ -37,52 +37,130 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h3 class="h3 mb-0 text-gray-800">Dashboard</h3>
                     </div>
 
                     <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Daromad manbalari</h6>
+                        <div class="col-md-12 grid-margin">
+                
+                            @if (session('message'))
+                                <h6 class="alert alert-success">{{ session('message') }},</h6>
+                            @endif
+                            <div class="me-md-3 me-xl-5">
+                                <p class="mb-md-0">Shop Analytics.</p>
+                                <hr>
+                            </div>
+                
+                            <div class="row">
+                                @php
+                                    $totalSales = 0;
+                                    $totalAllocatedFunds = 0;
+                                    $totalRevenue = 0;
+                                    foreach ($orderItems as $orderItem) {
+                                        $totalSales += $orderItem->quantity * $orderItem->price;
+                                        $totalAllocatedFunds += $orderItem->quantity * $orderItem->price * (($orderItem->allocation_percentage * $orderItem->quantity) / 100);
+                                    }
+                                @endphp
+                
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-primary text-white mb-3">
+                                        <label>Umumiy savdo</label>
+                                        <h3>{{ number_format($totalSales) }} UZS</h3>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span
-                                            class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span
-                                            class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span
-                                            class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span
-                                            class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-warning text-white mb-3">
+                                        <label>Umumiy daromad</label>
+                                        <h3>{{ number_format($totalSales - $totalAllocatedFunds) }} UZS</h3>
                                     </div>
                                 </div>
                             </div>
+                
+                            <hr>
+                
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-primary text-white mb-3">
+                                        <label>Jami buyurtmalar</label>
+                                        <h3>{{ $totalOrder }} ta</h3>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-success text-white mb-3">
+                                        <label>Bugungi buyurtmalar</label>
+                                        <h3>{{ $todayOrder }} ta</h3>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-warning text-white mb-3">
+                                        <label>Bu oydagi buyurtmalar</label>
+                                        <h3>{{ $thisMonthOrder }} ta</h3>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-danger text-white mb-3">
+                                        <label>Bu yilgi buyurtmalar</label>
+                                        <h3>{{ $thisYearOrder }}</h3>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <hr>
+                
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-primary text-white mb-3">
+                                        <label>Jami mahsulotlar</label>
+                                        <h3>{{ $totalProducts }}</h3>
+                                        <a href="{{ url('admin/products') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-success text-white mb-3">
+                                        <label>Jami kategoriyalar</label>
+                                        <h3>{{ $totalCategories }}</h3>
+                                        <a href="{{ url('admin/category') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-warning text-white mb-3">
+                                        <label>Jami brendlar</label>
+                                        <h3>{{ $totalBrands }}</h3>
+                                        <a href="{{ url('admin/brands') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-primary text-white mb-3">
+                                        <label>Barcha foydalanuvchilar</label>
+                                        <h3>{{ $totalAllUsers }}</h3>
+                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-success text-white mb-3">
+                                        <label>Jami foydalanuvchilar</label>
+                                        <h3>{{ $totalUser }}</h3>
+                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-body bg-warning text-white mb-3">
+                                        <label>Jami adminstratorlar</label>
+                                        <h3>{{ $totalAdmin }}</h3>
+                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                    </div>
+                                </div>
+                            </div>
+                
                         </div>
                     </div>
 
