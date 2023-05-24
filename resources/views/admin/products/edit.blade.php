@@ -248,11 +248,7 @@
                                                                     <div class="card-body">
                                                                         <a class="d-block btn btn-outline-danger"
                                                                             href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i
-<<<<<<< HEAD
                                                                                 class="fa fa-solid fa-trash"></i></a>
-=======
-                                                                                class="fa fa-sharp fa-regular fa-trash"></i></a>
->>>>>>> 80207d570253fa3c3b396e6716928c20afbb088c
                                                                     </div>
                                                                 </div>
                                                             @endforeach

@@ -268,15 +268,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-2yX+egazMXUyq2aIbfbQ1fZTCq3CtwR+FN83t4QeR9e4asYi7cM7kGw7H+4flpea" crossorigin="anonymous">
     </script>
-    <script src="assets/lib/easing/easing.min.js"></script>
-    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('assets/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
     <!-- Contact Javascript File -->
-    <script src="assets/mail/jqBootstrapValidation.min.js"></script>
-    <script src="assets/mail/contact.js"></script>
-    <script src="assets/js/shopcart2.js"></script>
+    <script src="{{asset('assets/mail/jqBootstrapValidation.min.js')}}"></script>
+    <script src="{{asset('assets/mail/contact.js')}}"></script>
+    <script src="{{asset('assets/js/shopcart2.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
     @livewireScripts
 </body>
