@@ -420,7 +420,7 @@
         <script>
             $(document).ready(function() {
                 $(".owl-carousel").owlCarousel({
-                    items: 1, // Show one item per slide on mobile devices
+                    items: 2, // Show one item per slide on mobile devices
                     loop: true,
                     nav: true,
                     dots: false,
