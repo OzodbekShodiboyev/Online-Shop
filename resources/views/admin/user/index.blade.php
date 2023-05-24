@@ -89,7 +89,11 @@
                                                                 class="btn btn-sm btn-warning"><i class="fa fa-solid fa-pen"></i></a>
                                                             <a href="{{ url('admin/users/' . $user->id . '/delete') }}"
                                                                 onclick="return confirm('Are you sure, you want to delete this data')"
+<<<<<<< HEAD
                                                                 class="btn btn-sm btn-danger"><i class="fa fa-sharp fa-regular fa-trash"></i></a>
+=======
+                                                                class="btn btn-sm btn-danger"><i class="fa fa-solid fa-trash"></i></a>
+>>>>>>> df8fccd4e8d0260a32cd7f64b96c8cf90301eec1
                                                         </td>
                                                     </tr>
                                                 @empty
