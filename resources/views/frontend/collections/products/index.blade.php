@@ -51,11 +51,11 @@
                 <h4 class="text-center mb-4">Our Products</h4>
 
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <livewire:frontend.product.index :category="$category" />
                     </div>
 
-                    <div class="col-md-9">
+                    {{-- <div class="col-md-9">
                         <div class="row">
                             @forelse ($products as $productItem)
                                 <div class="col-md-4 mb-4">
@@ -95,7 +95,7 @@
                                 </div>
                             @endforelse
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>

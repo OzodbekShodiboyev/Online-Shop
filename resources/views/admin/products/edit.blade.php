@@ -248,7 +248,11 @@
                                                                     <div class="card-body">
                                                                         <a class="d-block btn btn-outline-danger"
                                                                             href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i
+<<<<<<< HEAD
                                                                                 class="fa fa-solid fa-trash"></i></a>
+=======
+                                                                                class="fa fa-sharp fa-regular fa-trash"></i></a>
+>>>>>>> 80207d570253fa3c3b396e6716928c20afbb088c
                                                                     </div>
                                                                 </div>
                                                             @endforeach
@@ -258,19 +262,24 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel" aria-labelledby="color-tab" tabindex="0">
+                                            <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel"
+                                                aria-labelledby="color-tab" tabindex="0">
                                                 <div class="mb-3">
                                                     <h4>Mahsulot rangini qo'shing</h4>
                                                     <label>Rangni tanlang</label>
                                                     <hr />
-                                            
+
                                                     <div class="row">
                                                         @forelse ($colors as $color)
                                                             <div class="col-md-3">
                                                                 <div class="p-2 border m-2">
-                                                                    Rang: <input name="colors[{{ $color->id }}]" type="checkbox" value="{{ $color->id }}" class="p-2 border m-2">{{ $color->name }}
+                                                                    Rang: <input name="colors[{{ $color->id }}]"
+                                                                        type="checkbox" value="{{ $color->id }}"
+                                                                        class="p-2 border m-2">{{ $color->name }}
                                                                     <br />
-                                                                    Miqdori: <input type="number" name="colorquantity[{{ $color->id }}]" style="width: 70px; border:1px solid ">
+                                                                    Miqdori: <input type="number"
+                                                                        name="colorquantity[{{ $color->id }}]"
+                                                                        style="width: 70px; border:1px solid ">
                                                                 </div>
                                                             </div>
                                                         @empty
@@ -280,7 +289,7 @@
                                                         @endforelse
                                                     </div>
                                                 </div>
-                                            
+
                                                 <div class="table-responsive">
                                                     <table class="table table-sm table-bordered">
                                                         <thead>
@@ -292,7 +301,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($product->productColors as $productColor)
-                                                                <tr class="productColorTr">
+                                                                <tr class="prod-color-tr">
                                                                     <td>
                                                                         @if ($productColor->color)
                                                                             {{ $productColor->color->name }}
@@ -301,13 +310,23 @@
                                                                         @endif
                                                                     </td>
                                                                     <td>
-                                                                        <div class="input-group mb-3" style="width: 150px">
-                                                                            <input type="text" value="{{ $productColor->quantity }}" class="updateProductColorQty form-control form-control-sm" />
-                                                                            <button type="button" value="{{ $productColor->id }}" class="updateProductColorBtn btn btn-primary btn-sm text-white">♻</button>
+                                                                        <div class="input-group mb-3"
+                                                                            style="width: 150px">
+                                                                            <input type="text"
+                                                                                value="{{ $productColor->quantity }}"
+                                                                                class="productColorQuantity form-control form-control-sm" />
+                                                                            <button type="button"
+                                                                                value="{{ $productColor->id }}"
+                                                                                onclick="location.reload();"
+                                                                                class="updateProductColorBtn btn btn-primary btn-sm text-white">♻</button>
                                                                         </div>
                                                                     </td>
                                                                     <td>
-                                                                        <button type="button" value="{{ $productColor->id }}" class="deleteProductColorBtn btn btn-danger btn-sm text-white"><i class="fa fa-sharp fa-regular fa-trash"></i></button>
+                                                                        <button type="button"
+                                                                            value="{{ $productColor->id }}"
+                                                                            class="deleteProductColorBtn btn btn-danger btn-sm text-white"
+                                                                            onclick="location.reload();"><i
+                                                                                class="fa fa-sharp fa-regular fa-trash"></i></button>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -315,10 +334,6 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            
-
-                                            
-
                                         </div>
                                         <div>
                                             <button type="submit" class="btn mt-3 float-end text-white"
@@ -363,7 +378,7 @@
             </div>
         </div>
 
-
+        @livewireScripts
 
         <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -374,66 +389,61 @@
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-        @livewireScripts
 
         <script>
             $(document).ready(function() {
-                $(".updateProductColorBtn").click(function() {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $(document).on('click', '.updateProductColorBtn', function() {
+                    var product_id = "{{ $product->id }}";
                     var prod_color_id = $(this).val();
-                    var qty = $(this).closest(".productColorTr").find(".updateProductColorQty").val();
+                    var qty = $(this).closest('.prod-color-tr').find('.productColorQuantity').val();
+
                     if (qty <= 0) {
-                        alert("Stok alanı boş bırakılamaz");
+                        alert('Quantity is required');
                         return false;
                     }
-                    var confirmation = confirm("Are you sure you want to update the color quantity?");
-                    if (confirmation) {
-                        // Perform update action here
-                        $.ajax({
-                            type: "POST",
-                            url: "/admin/product/product-color/update",
-                            data: {
-                                prod_color_id: prod_color_id,
-                                qty: qty,
-                                _token: "{{ csrf_token() }}"
-                            },
-                            success: function(response) {
-                                alert(response.message);
-                                // Update the quantity value in the table if necessary
-                                // Example: $(this).closest(".productColorTr").find(".updateProductColorQty").val(qty);
-                            },
-                            error: function(xhr, status, error) {
-                                console.error(xhr.responseText);
-                            }
-                        });
-                    }
+
+                    var data = {
+                        'product_id': product_id,
+                        'prod_color_id': prod_color_id,
+                        'qty': qty
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/product-color/" + prod_color_id,
+                        data: data,
+                        success: function(response) {
+                            alert(response.message)
+                        }
+                    });
                 });
-        
-                $(".deleteProductColorBtn").click(function() {
+
+                // Update Color Quantity Script
+
+                $(document).on('click', '.deleteProductColorBtn', function() {
                     var prod_color_id = $(this).val();
-                    var confirmation = confirm("Are you sure you want to delete the color?");
-                    if (confirmation) {
-                        // Perform delete action here
-                        $.ajax({
-                            type: "POST",
-                            url: "/admin/product/product-color/delete",
-                            data: {
-                                prod_color_id: prod_color_id,
-                                _token: "{{ csrf_token() }}"
-                            },
-                            success: function(response) {
-                                alert(response.message);
-                                // Remove the row from the table
-                                $(this).closest(".productColorTr").remove();
-                            },
-                            error: function(xhr, status, error) {
-                                console.error(xhr.responseText);
-                            }
-                        });
-                    }
+                    var thisClick = $(this);
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/admin/product-color/" + prod_color_id + "/delete",
+                        success: function(response) {
+                            thisClick.closest('.prod-color-tr').remove();
+                            alert(response.message)
+                        }
+                    });
+
                 });
+
             });
         </script>
-
 </body>
 
 </html>

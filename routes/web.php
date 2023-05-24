@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\CartController;
@@ -33,24 +34,24 @@ use App\Http\Controllers\SettingController;
 // });
 
 Auth::routes();
-Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function(){
-    Route::get('/','index');
-    Route::get('/home','index');
-    Route::get('/collections','categories');
-    Route::get('/collections/{category_slug}','products');
-    Route::get('/collections/{category_slug}/{product_slug}','productView');
-   
-    Route::get('/new-arrivals','newArrival');
-    Route::get('/featured-products','featuredProducts');
+Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/home', 'index');
+    Route::get('/collections', 'categories');
+    Route::get('/collections/{category_slug}', 'products');
+    Route::get('/collections/{category_slug}/{product_slug}', 'productView');
+
+    Route::get('/new-arrivals', 'newArrival');
+    Route::get('/featured-products', 'featuredProducts');
     Route::get('search', 'searchProducts');
 });
 
-Route::middleware(['auth'])->group(function (){
-    Route::get('/wishlist',[WishlistController::class,'index']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'index']);
     Route::get('/cart', [CartController::class, 'index']);
     Route::get('/checkout', [CheckoutController::class, 'index']);
-    Route::get('orders',[OrderController::class, 'index']);
-    Route::get('/orders/{orderId}',[OrderController::class, 'show']);
+    Route::get('orders', [OrderController::class, 'index']);
+    Route::get('/orders/{orderId}', [OrderController::class, 'show']);
 
     Route::get('profile', [ProfileController::class, 'index']);
     Route::post('profile', [ProfileController::class, 'updateUserDetails']);
@@ -67,6 +68,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('settings', [SettingController::class, 'index']);
     Route::post('settings', [SettingController::class, 'store']);
 
+    //Search Controller
+    Route::get('search', [SearchController::class, 'search'])->name('searching');
+
     // CATEGORY Routes
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
@@ -81,11 +85,13 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('/products/create', [ProductController::class, 'create']);
     Route::post('/products/store', [ProductController::class, 'store']);
     Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
-    Route::put('/products/{product}/update', [ProductController::class, 'update']);
-    Route::get('/products/{product_id}/delete', [ProductController::class, 'destroy']); 
+    Route::put('/products/{product}/update', [ProductController::class, 'updat']);
+    Route::get('/products/{product_id}/delete', [ProductController::class, 'destroy']);
 
-    Route::post('/product-color/{prod_color_id}', [ProductController::class, 'updateProductColorQty']);
-    Route::get('/product-color/{prod_color_id}/delete', [ProductController::class, 'deleteProductColor']);
+    Route::post('product-color/{prod_color_id}', [ProductController::class, 'updateProdColorQty']);
+    Route::get('product-color/{prod_color_id}/delete', [ProductController::class, 'deleteProdColor']);
+
+
 
     //Delete image
     Route::get('/product-image/{product_image_id}/delete',  [ProductController::class, 'destroyImage']);
@@ -106,22 +112,22 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::post('/sldr', [SliderController::class, 'store']);
     Route::get('/sldr/{slider}/edit', [SliderController::class, 'edit']);
     Route::put('/sldr/{slider}', [SliderController::class, 'update']);
-    Route::get('sldr/{slider}/delete', [SliderController::class, 'destroy']); 
-    
+    Route::get('sldr/{slider}/delete', [SliderController::class, 'destroy']);
+
     //Color Routes
     Route::get('/colors', [ColorController::class, 'index']);
     Route::get('/colors/create', [ColorController::class, 'create']);
     Route::post('/colors', [ColorController::class, 'store']);
     Route::get('/colors/{color}/edit', [ColorController::class, 'edit']);
     Route::put('/colors/{color_id}/update', [ColorController::class, 'update']);
-    Route::get('/colors/{color_id}/delete', [ColorController::class, 'destroy']); 
+    Route::get('/colors/{color_id}/delete', [ColorController::class, 'destroy']);
 
     //orders routes
-    Route::get('/orders',[App\Http\Controllers\Admin\OrderController::class, 'index']);
-    Route::get('/orders/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'show']);
-    Route::put('/orders/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'updateOrderStatus']);
-    Route::get('/invoice/{orderId}',[App\Http\Controllers\Admin\OrderController::class, 'viewInvoice']);
-    Route::get('/invoice/{orderId}/generate',[App\Http\Controllers\Admin\OrderController::class, 'generateInvoice']);
+    Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+    Route::get('/orders/{orderId}', [App\Http\Controllers\Admin\OrderController::class, 'show']);
+    Route::put('/orders/{orderId}', [App\Http\Controllers\Admin\OrderController::class, 'updateOrderStatus']);
+    Route::get('/invoice/{orderId}', [App\Http\Controllers\Admin\OrderController::class, 'viewInvoice']);
+    Route::get('/invoice/{orderId}/generate', [App\Http\Controllers\Admin\OrderController::class, 'generateInvoice']);
 
     //User Controller Routes
     Route::get('users', [UserController::class, 'index']);
@@ -131,5 +137,3 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::put('users/{user_id}', [UserController::class, 'update']);
     Route::get('users/{user_id}/delete', [UserController::class, 'destroy']);
 });
-
-

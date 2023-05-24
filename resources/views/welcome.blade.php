@@ -328,7 +328,7 @@
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
                     dolor. Rebum tempor no vero est magna amet no</p>
                 <p class="mb-2"><i
-                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}
+                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Address' }}
                 </p>
                 <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
                     {{ $appSetting->telegram }}
@@ -365,7 +365,7 @@
                         {{-- {{dd($appSetting)}} --}}
                         <div class="d-flex m-3">
                             @if ($appSetting->telegram)
-                                <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}"><i
+                                <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}" target="_blank"><i
                                         class="fab fa-telegram">  Telegram</i></a>
                             @endif
     
@@ -377,19 +377,19 @@
                                 background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
                                 background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
                                 background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"  href="{{ $appSetting->instagram }}"><i
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"  href="{{ $appSetting->instagram }}" target="_blank"><i
                                         class="fab fa-instagram">  Instagram</i></a>
                             @endif
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->facebook)
-                                <a class="btn text-light" style="width: 600px;   background: #3b5998 ; " href="{{ $appSetting->facebook }}"><i
+                                <a class="btn text-light" style="width: 600px;   background: #3b5998 ; " href="{{ $appSetting->facebook }}" target="_blank"><i
                                         class="fab fa-facebook">  Facebook</i></a>
                             @endif
                         </div>
                         <div class="d-flex m-3">
                             @if ($appSetting->youtube)
-                                <a class="btn text-light" style="width: 600px;   background: #c4302b ; "  href="{{ $appSetting->youtube }}"><i
+                                <a class="btn text-light" style="width: 600px;   background: #c4302b ; "  href="{{ $appSetting->youtube }}" target="_blank"><i
                                         class="fab fa-youtube">  You Tube</i></a>
                             @endif
                         </div>
