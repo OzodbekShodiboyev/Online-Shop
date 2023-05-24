@@ -248,7 +248,7 @@
                                                                     <div class="card-body">
                                                                         <a class="d-block btn btn-outline-danger"
                                                                             href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i
-                                                                                class="fa fa-solid fa-pen"></i></a>
+                                                                                class="fa fa-solid fa-trash"></i></a>
                                                                     </div>
                                                                 </div>
                                                             @endforeach
@@ -275,7 +275,7 @@
                                                             </div>
                                                         @empty
                                                             <div class="col-md-12">
-                                                                <h3>Ranglar topilmadi</h3>
+                                                                <h3 class="text-warning">Qo'shish uchun ranglar topilmadi</h3>
                                                             </div>
                                                         @endforelse
                                                     </div>
