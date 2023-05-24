@@ -48,7 +48,7 @@
                             <div class="con m-5">
 
                                 @if (session('message'))
-                                    <div class="alert alert success">{{ session('message') }}</div>
+                                    <div class="alert alert-success">{{ session('message') }}</div>
                                 @endif
 
                                 <div class="card shadow mb 4">
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="card-body">
                                         <a href="{{ url('admin/users/create') }}" class="btn btn-md text-white mb-3 "
-                                            style="background-color: rgb(22 163 74) ;">🛍️ Add User</a>
+                                            style="background-color: rgb(22 163 74) ;">👨‍💻 Add User</a>
                                         <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
@@ -89,7 +89,7 @@
                                                                 class="btn btn-sm btn-warning"><i class="fa fa-solid fa-pen"></i></a>
                                                             <a href="{{ url('admin/users/' . $user->id . '/delete') }}"
                                                                 onclick="return confirm('Are you sure, you want to delete this data')"
-                                                                class="btn btn-sm btn-danger"><i class="fa fa-solid fa-pen"></i></a>
+                                                                class="btn btn-sm btn-danger"><i class="fa fa-sharp fa-regular fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 @empty

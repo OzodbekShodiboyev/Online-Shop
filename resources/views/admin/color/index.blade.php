@@ -42,10 +42,10 @@
 
                 <div>
                     <div>
-                        <div class="container-fluid">
+                        <div class="container-fluid ">
 
 
-                            <div class="con m-5">
+                            <div class="con m-5" style="height: 500px">
 
                                     @if (session('message'))
                                         <div class="alert alert-success">{{ session('message') }}</div>

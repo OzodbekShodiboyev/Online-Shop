@@ -28,6 +28,14 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
+        <a class="nav-link" href="{{url('/admin/users')}}">
+            <i style="color: black;" class="fas fa-fw fa-users"></i>
+            <span style="color: black;">Foydalanuvchilar</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/category') }}">
             <i style="color: black;" class="fas fa-fw fa-cog"></i>
             <span style="color: black;">Kategoriya</span></a>

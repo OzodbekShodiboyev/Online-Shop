@@ -40,7 +40,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="col-md-12">
+                <div class="col-md-12 " style="height: 500px">
                     <div class="card">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Kategoriyani tahrirlash
