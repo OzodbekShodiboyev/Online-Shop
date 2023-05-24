@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Color;
 use App\Models\Order;
 
 class SearchController extends Controller
@@ -33,12 +34,16 @@ class SearchController extends Controller
         $orderResults = Order::where('order_number', 'like', '%' . $keyword . '%')
             ->get();
 
+        $colorResults = Color::where('name', 'like', '%' . $keyword . '%')
+            ->get();
+
         $results = [
             'products' => $productResults,
             'users' => $userResults,
             'categories' => $categoryResults,
             'brands' => $brandResults,
             'orders' => $orderResults,
+            'colors' => $colorResults,
         ];
 
         return view('admin.search_results', compact('results'));
