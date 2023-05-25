@@ -58,7 +58,7 @@
       <div class="signin-signup">
         <form action="#" method="POST" action="{{ route('login') }}" class="sign-in-form">
             @csrf
-          <h2 class="title">Sign in</h2>
+          <h2 class="title text-dark">Kirish</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input id="email" placeholder="Email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
@@ -70,7 +70,7 @@
         </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <input id="password" placeholder="Parol kiriting"  type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -84,7 +84,7 @@
                 {{ __('Remember Me') }}
             </label>
         </div>
-          <input type="submit" value="KIrish" class="btnn " />
+          <input type="submit" value="KIrish" class="btnn " style="background-color: #7bb768"/>
         </form>
 
         
@@ -94,14 +94,13 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here ?</h3>
+          <a href="/register" class="btn border text-white">
+            Ro'yxatdan o'tish
+          </a>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
             ex ratione. Aliquid!
           </p>
-          <a href="/register" class="btn border text-white">
-            Ro'yxatdan o'tish
-          </a>
         </div>
         <img src="{{asset('assets/img/log.svg')}}" class="image" alt="" />
       </div>

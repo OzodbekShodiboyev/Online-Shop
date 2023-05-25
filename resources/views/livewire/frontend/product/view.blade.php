@@ -15,7 +15,9 @@
                                 <div class="exzoom_img_box">
                                   <ul class='exzoom_img_ul'>
                                     @foreach ($product->productImages as $itemImg)
-                                    <li><img src="{{ asset($itemImg->image) }}"/></li>
+                                    <li>
+                                        <img src="{{ asset($itemImg->image) }}" style="margin-top: 50.8817px; width: 328px; height: 328px"/>
+                                    </li>
                                     @endforeach
                                   </ul>
                                 </div>
@@ -55,7 +57,7 @@
                                             <label class="btn btn-outline-dark"
                                                 style="background-color: {{ $colorItem->color->code }}"
                                                 for="btnradio{{ $colorItem->id }}" id="colorButton"><span
-                                                    style="color: black; text-shadow: 1px 1px 2px white;">{{ $colorItem->color->name }}</span></label>
+                                                    style="color: black; text-shadow: 0px 0px 12px white;">{{ $colorItem->color->name }}</span></label>
                                         @endforeach
                                     </div>
 
@@ -64,7 +66,7 @@
                                     @if ($this->prodColorSelectedQuantity == 'outOfStock')
                                         <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
                                     @elseif($this->prodColorSelectedQuantity > 0)
-                                        <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">Sotuvda bor</label>
                                     @endif
                                 </div>
                             @else
@@ -139,12 +141,12 @@
                     @if ($category)              
                     <div class="owl-carousel owl-theme four-carousel">
                 @foreach ($category->relatedProducts as $relatedProductItem)
-                <div class="item mb-3">
-                    <div class="product-card">
-                        <div class="product-card-img">
+                <div class="item mb-3" >
+                    <div class="product-card "style="height: 370px">
+                        <div class="product-card-img ">
 
                             @if ($relatedProductItem->productImages->count() > 0)
-                            <a href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
+                            <a class="p-4" href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
                             <img src="{{ asset($relatedProductItem->productImages[0]->image) }}" alt="{{ $relatedProductItem->name }}">
                             </a>
                             @endif
@@ -192,8 +194,8 @@
                         @foreach ($category->relatedProducts as $relatedProductItem)
                         @if ($relatedProductItem->brand == "$product->brand")
 
-                            <div class="item mb-3">
-                                <div class="product-card">
+                            <div class="item mb-5">
+                                <div class="product-card" style="height: 370px">
                                     <div class="product-card-img">
             
                                         @if ($relatedProductItem->productImages->count() > 0)
@@ -254,7 +256,7 @@ $(function(){
         dot:true,
         responsive:{
             0:{
-                items:1
+                items:2
             },
             600:{
                 items:3
@@ -267,4 +269,5 @@ $(function(){
   
   });
 </script>
+
 @endpush

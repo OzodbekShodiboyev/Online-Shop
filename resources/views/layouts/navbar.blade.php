@@ -39,9 +39,10 @@
 
         </div>
         <div class="col-lg-4 col-6 text-left">
-            <form action="{{url('search')}}" method="GET" role="search">
+            <form action="{{ url('search') }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="search" name="search" class="form-control"  value="{{ Request::get('search')}}" placeholder="Mahsulotlarni qidirish"> 
+                    <input type="search" name="search" class="form-control" value="{{ Request::get('search') }}"
+                        placeholder="Mahsulotlarni qidirish">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text bg-transparent text-success">
                             <i class="fa fa-search"></i>
@@ -71,7 +72,8 @@
                 <div class="navbar-nav w-100">
                     <a href="{{ url('/collections') }}" class="nav-item nav-link">Barcha kategoriyalar</a>
                     @foreach ($categories as $category)
-                        <a href="{{url('collections/'.$category->slug)}}" class="nav-item nav-link">{{ $category->name }}</a>
+                        <a href="{{ url('collections/' . $category->slug) }}"
+                            class="nav-item nav-link">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </nav>
@@ -91,7 +93,7 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ url('/') }}" class="nav-item nav-link active text-white">Home</a>
                         <a href="shop.html" class="nav-item nav-link text-white">Shop</a>
-                        <a href="{{url('/new-arrivals')}}" class="nav-item nav-link text-white">Yangi mahsulotlar</a>
+                        <a href="{{ url('/new-arrivals') }}" class="nav-item nav-link text-white">Yangi mahsulotlar</a>
                         <a class="nav-item nav-link active text-white" href="{{ url('wishlist') }}">
                             <i class="fa fa-heart"></i> Saralangan (
                             <livewire:frontend.wishlist-count />)
@@ -101,15 +103,17 @@
                         <a href="{{ url('cart') }}" class="login-link text-light text-decoration-none mr-4">
                             <i class="fa-solid fa-cart-shopping"></i>
                             Savat
-                            <span class="badge bg-secondary bg-success p-2"><livewire:frontend.cart.cart-count /></span>
+                            <span class="badge bg-secondary bg-success p-2">
+                                <livewire:frontend.cart.cart-count />
+                            </span>
                         </a>
                         @if (Route::has('login'))
                             @auth
-                                <a class="login-link text-light text-decoration-none mr-4" href="#" id="userDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="login-link text-light text-decoration-none mr-4" href="#" id="userDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-user fa-sm fa-fw text-gray-400"></i>
                                     {{ Auth::user()->name }}
-                                   
+
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -117,12 +121,13 @@
                                     <div class="dropdown-divider"></div>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                    <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
+                                        <a class="dropdown-item" href="route('logout')"
+                                            onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        {{ __('Chiqish') }}
-                                    </a>
-                                </form>
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            {{ __('Chiqish') }}
+                                        </a>
+                                    </form>
                                 </div>
                             @else
                                 <a href="{{ route('login') }}" class="login-link text-light text-decoration-none">
@@ -154,7 +159,7 @@
 
 <!-- Mobil navbar -->
 <div class="header_navbar_collapse off-nav" style="display: block;">
-    <ul class="header_navbar_collapse_nav" style="min-height: 54px;">
+    <ul class="header_navbar_collapse_nav mt-2" style="min-height: 40px;">
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
                 <a class="header_navbar_collapse_nav_item_link active text-dark" href="{{ url('/') }}"><span
@@ -166,8 +171,8 @@
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
-                <a class="header_navbar_collapse_nav_item_link " href="/about.html">
-                    <span class="far fa-file-alt fa-lg text-dark"></span>
+                <a class="header_navbar_collapse_nav_item_link " href="{{ url('wishlist') }}">
+                    <span class="far fa-lg fa-solid fa-heart text-dark"></span>
                     <p></p>
                 </a>
             </div>
@@ -175,7 +180,7 @@
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
-                <a class="header_navbar_collapse_nav_item_link text-dark" href="/cart.html"> <span
+                <a class="header_navbar_collapse_nav_item_link text-dark" href="{{ url('cart') }}"> <span
                         class="fas fa-shopping-cart fa-lg" aria-hidden="true"></span>
                     <p></p>
                 </a>
@@ -184,8 +189,8 @@
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
-                <a class="header_navbar_collapse_nav_item_link text-dark" target="_blank"
-                    href="https://t.me/Ssuleiymann">
+                <a class="header_navbar_collapse_nav_item_link text-dark"
+                    href="#footer">
                     <span class="fas fa-phone fa-lg" aria-hidden="true"></span>
                     <p></p>
                 </a>
@@ -194,13 +199,38 @@
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad ">
-                <a class="header_navbar_collapse_nav_item_link " href="/profil.html"> <span
-                        class="position-relative d-flex justify-content-center icon-notifications">
-                        <span class="fas fa-user fa-lg text-dark"></span>
-                    </span>
-
-                    <p></p>
-                </a>
+                @if (Route::has('login'))
+                    @auth
+                        <a class="header_navbar_collapse_nav_item_link" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="position-relative d-flex justify-content-center icon-notifications">
+                                <span class="fas fa-user fa-lg text-dark"></span>
+                                <p></p>
+                            </span>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a class="dropdown-item" href="route('logout')"
+                                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Chiqish') }}
+                                </a>
+                            </form>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}" class="header_navbar_collapse_nav_item_link ">
+                            <span class="position-relative d-flex justify-content-center icon-notifications">
+                                <span class="fas fa-user fa-lg text-dark"></span>
+                            </span>
+                            <p></p>
+                        </a>
+                    @endauth
+                @endif
             </div>
         </li>
     </ul>

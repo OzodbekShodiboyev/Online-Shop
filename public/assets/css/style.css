@@ -9944,7 +9944,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 12px;
 }
 .product-card .product-card-img{
-  max-height: 260px;
+  height: 250px;
   overflow: hidden;
   border-bottom: 1px solid #ccc;
 }

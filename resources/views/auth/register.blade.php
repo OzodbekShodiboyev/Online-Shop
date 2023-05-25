@@ -60,7 +60,7 @@
             <div class="signin-signup">
                 <form action="#" method="POST" action="{{ route('login') }}" class="sign-in-form">
                     @csrf
-                    <h2 class="title">Sign in</h2>
+                    <h2 class="title text-dark">Ro'yxatdan o'tish</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input id="name" placeholder="Name" type="text" @error('name') is-invalid @enderror"
@@ -72,7 +72,7 @@
                         @enderror
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-envelope"></i>
                         <input id="email" placeholder="Email" type="email" @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
@@ -96,34 +96,45 @@
                         <input id="password-confirm"  placeholder="Parolni qayta kiriting"  type="password" name="password_confirmation"
                             required autocomplete="new-password">
                     </div>
-                    <button type="submit" class="btn " style="background-color: #4481eb; color: #fff; border-radius: 49px; height: 49px; text-transform: uppercase;font-weight: 600;margin: 10px 0;transition: 0.5s; cursor: pointer;">
+                    <button type="submit" class="btn text-white" style="background-color: #7bb768; border-radius: 49px; height: 49px; text-transform: uppercase;font-weight: 600;margin: 10px 0;transition: 0.5s; cursor: pointer;">
                         {{ __("Ro'yxatdan o'tish") }}
                     </button>
                 </form>
-
-
             </div>
         </div>
 
         <div class="panels-container">
             <div class="panel left-panel">
-                <div class="content">
-                    <h3>New here ?</h3>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                        ex ratione. Aliquid!
-                    </p>
-                    <a href="/login" class="btn border text-white">
-                        Kirish
-                    </a>
-                </div>
-                <img src="{{ asset('assets/img/log.svg') }}" class="image" alt="" />
+              <div class="content">
+                <a href="/login" class="btn border text-white">
+                  Kirish
+                </a>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                  ex ratione. Aliquid!
+                </p>
+              </div>
+              <img src="{{asset('assets/img/log.svg')}}" class="image" alt="" />
             </div>
+            <div class="panel right-panel">
+              <div class="content">
+                <h3>One of us ?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                  laboriosam ad deleniti.
+                </p>
+                <button class="btn transparent text-white" id="sign-in-btn">
+                  Sign in
+                </button>
+              </div>
+              <img src="{{asset('assets/img/log.svg')}}" class="image" alt="" />
+            </div>
+          </div>
         </div>
     </div>
 
 
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
