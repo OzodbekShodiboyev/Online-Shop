@@ -84,28 +84,28 @@
                                     <div class="card card-body bg-primary text-white mb-3">
                                         <label>Jami buyurtmalar</label>
                                         <h3>{{ $totalOrder }} ta</h3>
-                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-success text-white mb-3">
                                         <label>Bugungi buyurtmalar</label>
                                         <h3>{{ $todayOrder }} ta</h3>
-                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-warning text-white mb-3">
                                         <label>Bu oydagi buyurtmalar</label>
                                         <h3>{{ $thisMonthOrder }} ta</h3>
-                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-danger text-white mb-3">
                                         <label>Bu yilgi buyurtmalar</label>
                                         <h3>{{ $thisYearOrder }}</h3>
-                                        <a href="{{ url('admin/orders') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/orders') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                             </div>
@@ -117,21 +117,21 @@
                                     <div class="card card-body bg-primary text-white mb-3">
                                         <label>Jami mahsulotlar</label>
                                         <h3>{{ $totalProducts }}</h3>
-                                        <a href="{{ url('admin/products') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/products') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-success text-white mb-3">
                                         <label>Jami kategoriyalar</label>
                                         <h3>{{ $totalCategories }}</h3>
-                                        <a href="{{ url('admin/category') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/category') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-warning text-white mb-3">
                                         <label>Jami brendlar</label>
                                         <h3>{{ $totalBrands }}</h3>
-                                        <a href="{{ url('admin/brands') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/brands') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                             </div>
@@ -142,21 +142,21 @@
                                     <div class="card card-body bg-primary text-white mb-3">
                                         <label>Barcha foydalanuvchilar</label>
                                         <h3>{{ $totalAllUsers }}</h3>
-                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/users') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-success text-white mb-3">
                                         <label>Jami foydalanuvchilar</label>
                                         <h3>{{ $totalUser }}</h3>
-                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/users') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-body bg-warning text-white mb-3">
                                         <label>Jami adminstratorlar</label>
                                         <h3>{{ $totalAdmin }}</h3>
-                                        <a href="{{ url('admin/users') }}" class="text-white">view</a>
+                                        <a href="{{ url('admin/users') }}" class="text-white">Ko'rish</a>
                                     </div>
                                 </div>
                             </div>

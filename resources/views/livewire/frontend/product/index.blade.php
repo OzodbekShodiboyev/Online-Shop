@@ -1,4 +1,4 @@
-<div>
+<div></div>
     <div class="row">
         <div class="col-md-3">
             @if ($category->brands)
@@ -32,7 +32,7 @@
 
 
             {{-- Stop trying to control. --}}
-            <div class="row">
+            <div class="row mt-3">
             @forelse ($products as $productItem)
                         
                 
@@ -47,7 +47,7 @@
                                     
                                     @if ($productItem->productImages->count() > 0)
                                     <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
-                                    <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}" class="category-thumbnail2">
+                                    <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}" class="category-thumbnail2" style="height:100%">
                                     </a> 
                                     @endif
                                 
@@ -60,8 +60,8 @@
                                     </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">₱ {{ number_format($productItem->selling_price) }}</span>
-                                        <span class="original-price">₱ {{ number_format($productItem->original_price) }}</span>
+                                        <span class="selling-price">{{ number_format($productItem->selling_price) }} UZS</span>
+                                        <span class="original-price"> {{ number_format($productItem->original_price) }} UZS</span>
                                     </div>
                                 
                                 </div>

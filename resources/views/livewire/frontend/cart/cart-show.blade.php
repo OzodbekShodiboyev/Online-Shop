@@ -115,7 +115,7 @@
                     <div class="col-md-8 my-md-auto mt-3">
                         <h5>
                             Get the best deals & Offers <a href="{{ url('/collections') }}"
-                                class="btn btn-success text-white"><i class="bi bi-cart4"></i> Shop Now</a>
+                                class="btn text-white" style="background-color: rgb(22 163 74) ;"><i class="bi bi-cart4"></i> Shop Now</a>
                         </h5>
                     </div>
                     <div class="col-md-4 mt-3">

@@ -52,7 +52,7 @@
                         </h5>
                         @endif
                         <h3>Thank you for Shopping</h3>
-                        <a href="{{url('collections')}}" class="btn btn-primary">Shop now</a>
+                        <a href="{{url('collections')}}" class="btn text-white" style="background-color: rgb(22 163 74) ;">Shop now</a>
                     </div>
                 </div>
             </div>
