@@ -20,8 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@1,700&display=swap" rel="stylesheet">
 
     <style>
-        *{
-            font-family: 'Saira Semi Condensed', sans-serif;
+        * {
+            font-family: "Comic Sans MS";
         }
     </style>
 </head>
@@ -32,44 +32,51 @@
     <div class="container mt-4">
         <div class="card p-3">
             <div class="text-center">
-                <h2 class="text-center mt-2 fw-bold" id="sar">BADOMM SHOP</h2>
-                <span>Invoice Id: #{{ $order->id }}</span> <br>
-                <span>Date: {{ date('d / m / Y') }}</span> <br>
-                <span class="">Address: Manila City</span> <br>
+                <h2 class="text-center mt-2 fw-bold" id="sar">
+                    <center>BADOMM SHOP</center>
+                </h2>
+                <center>
+                    <span>Invoice Id: #{{ $order->id }}</span> <br>
+                    <span>Date: {{ date('d / m / Y') }}</span> <br>
+                    <span class="">Address: Manila City</span> <br>
+                </center>
             </div>
 
-            <table class=" border-none" style="border:none">
+            <table class="border-none" style="border:none">
                 <thead class="border-none ">
-                    <hr>
-                    <th class="fw-border" colspan="2"><b>User Details</b>
+
+                    <th class="fw-border" colspan="2" style="text-align: left"><b><br>User Details
+                            <hr>
+                        </b>
                     </th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Full Name:</td>
-                        <td class="float-end">{{ $order->fullname }}</td>
+                        <td style="text-align: left">Full Name:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->fullname }}</td>
                     </tr>
                     <tr>
-                        <td>Email:</td>
-                        <td class="float-end">{{ $order->email }}</td>
+                        <td style="text-align: left">Email:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->email }}</td>
                     </tr>
                     <tr>
-                        <td>Phone:</td>
-                        <td class="float-end">+{{ $order->phone }}</td>
+                        <td style="text-align: left">Phone:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->phone }}</td>
                     </tr>
                     <tr>
-                        <td>Address:</td>
-                        <td class="float-end">{{ $order->address }}</td>
+                        <td style="text-align: left">Address:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->address }}</td>
                     </tr>
                     <tr>
-                        <td>Pin code:</td>
-                        <td class="float-end">{{ $order->pincode }}</td>
+                        <td style="text-align: left">Pin code:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->pincode }}</td>
                     </tr>
                 </tbody>
                 <thead class="border-none">
-                    <th colspan="2"><b>
-                            <hr>
+                    <th colspan="2" style="text-align: left"><b>
+                        <br>
                             Order Details
+                            <hr>
                         </b>
 
                     </th>
@@ -79,28 +86,30 @@
                 <tbody class="border-none float-left">
                     <tr>
 
-                        <td>Order Id:</td>
-                        <td class="float-end">{{ $order->id }}</td>
+                        <td style="text-align: left">Order Id:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->id }}</td>
                     </tr>
                     <tr>
-                        <td>Tracking Id/No.:</td>
-                        <td class="float-end">{{ $order->tracking_no }}</td>
+                        <td style="text-align: left"> Tracking Id/No.:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->tracking_no }}</td>
                     </tr>
                     <tr>
-                        <td>Ordered Date:</td>
-                        <td class="float-end">{{ $order->created_at->format('d-m-Y H:i:s') }}</td>
+                        <td style="text-align: left">Ordered Date:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->created_at->format('d-m-Y H:i:s') }}
+                        </td>
                     </tr>
 
                     <tr>
-                        <td>Payment Mode:</td>
-                        <td class="float-end">{{ $order->payment_mode }}</td>
+                        <td style="text-align: left">Payment Mode:</td>
+                        <td class="float-end" style="text-align: right">{{ $order->payment_mode }}</td>
                     </tr>
                 </tbody>
                 <thead class="border-none">
-                    <th colspan="2">
+                    <th colspan="2" style="text-align: left">
                         <b>
-                            <hr>
+                            <br>
                             Order Items
+                            <hr>
                         </b>
                     </th>
 
@@ -119,7 +128,8 @@
                                     @endif
                                 @endif
                             </td>
-                            <td class="float-end">{{ $orderItem->quantity }}x {{ $orderItem->price }} =
+                            <td class="float-end" style="text-align: right">{{ $orderItem->quantity }}x
+                                {{ $orderItem->price }} =
                                 {{ $orderItem->quantity * $orderItem->price }} <span>UZS</span></td>
                             </td>
                             @php
@@ -131,9 +141,10 @@
                     @endforeach
                 </tbody>
                 <thead class="border-none">
-                    <th colspan="2" class=""><b>
-                            <hr>
+                    <th colspan="2" style="text-align: left"><b>
+                        <br>
                             Total amount
+                            <hr>
                         </b>
                     </th>
 
@@ -141,13 +152,13 @@
                 <tbody>
                     <tr>
                         <td>Total Allocation Amount:</td>
-                        <td class="float-end">
+                        <td class="float-end" style="text-align: right">
                             {{ $totalAllocation }} <span>UZS</span>
                         </td>
                     </tr>
                     <tr>
                         <td>Total Revenue Amount:</td>
-                        <td class="float-end">
+                        <td class="float-end" style="text-align: right">
                             {{ $totalRevenue }} <span>UZS</span>
                         </td>
                     </tr>
@@ -163,10 +174,11 @@
                 <tbody class="fw-bold">
                     <tr>
                         <td>
-                            <h5 class="fw-bold">Total Amount:</h5>
+                            <h3 class="fw-bold"><b>Total Amount:</b></h3>
                         </td>
                         <td>
-                            <h5 class="fw-bold float-end">{{ $totalPrice }} <span>UZS</span></h5>
+                            <h3 class="fw-bold float-end" style="text-align: right">{{ $totalPrice }}
+                                <span>UZS</span></h3>
                         </td>
                     </tr>
 

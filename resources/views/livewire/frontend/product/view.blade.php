@@ -1,11 +1,6 @@
 <div>
     <div class="py-3 py-md-5 bg-light mb-4">
         <div class="container">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
@@ -13,20 +8,22 @@
                             {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
                             <div class="exzoom" id="exzoom">
                                 <div class="exzoom_img_box">
-                                  <ul class='exzoom_img_ul'>
-                                    @foreach ($product->productImages as $itemImg)
-                                    <li>
-                                        <img src="{{ asset($itemImg->image) }}" style="margin-top: 50.8817px; width: 328px; height: 328px"/>
-                                    </li>
-                                    @endforeach
-                                  </ul>
+                                    <ul class='exzoom_img_ul'>
+                                        @foreach ($product->productImages as $itemImg)
+                                            <li>
+                                                <img src="{{ asset($itemImg->image) }}"
+                                                    style="margin-top: 50.8817px; width: 328px; height: 100%" />
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                                 <div class="exzoom_nav"></div>
                                 <p class="exzoom_btn">
-                                    <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
-                                    <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                                    <a href="javascript:void(0);" class="exzoom_prev_btn">
+                                        < </a>
+                                            <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
                                 </p>
-                              </div>
+                            </div>
                         @else
                             Mo image added
                         @endif
@@ -86,7 +83,8 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <button type="button" wire:click="addToCart({{ $product->id }})" class="btn-success btn btn1">
+                            <button type="button" wire:click="addToCart({{ $product->id }})"
+                                class="btn-success btn btn1">
                                 <span wire:loading.remove wire:target="addToCart">
                                     <i class="fa fa-shopping-cart"></i> Add To Cart
                                 </span>
@@ -95,7 +93,12 @@
 
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1">
                                 <span wire:loading.remove wire:target="addToWishList">
-                                    <i class="fa fa-heart"></i> Saralanganlarga qo'shish
+                                    @if (session()->has('message'))
+                                        <i class="fa fa-heart"></i> Qo'shilgan
+                                    @else
+                                        <i class="fa fa-heart"></i> Qo'shish
+                                    @endif
+
                                 </span>
                                 <span wire:loading wire:target="addToWishList">Adding...</span>
                             </button>
@@ -131,49 +134,57 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <h3>Related
-                        @if($category) {{ $category->name }} @endif
-                         Products</h3>
+                        @if ($category)
+                            {{ $category->name }}
+                        @endif
+                        Products
+                    </h3>
                     <div class="underline"></div>
                     <hr>
                 </div>
 
                 <div class="col-md-12">
-                    @if ($category)              
-                    <div class="owl-carousel owl-theme four-carousel">
-                @foreach ($category->relatedProducts as $relatedProductItem)
-                <div class="item mb-3" >
-                    <div class="product-card "style="height: 370px">
-                        <div class="product-card-img ">
+                    @if ($category)
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts as $relatedProductItem)
+                                <div class="item mb-3">
+                                    <div class="product-card p-2"style="height: 38 0px">
+                                        <div class="product-card-img ">
 
-                            @if ($relatedProductItem->productImages->count() > 0)
-                            <a class="p-4" href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
-                            <img src="{{ asset($relatedProductItem->productImages[0]->image) }}" alt="{{ $relatedProductItem->name }}">
-                            </a>
-                            @endif
+                                            @if ($relatedProductItem->productImages->count() > 0)
+                                                <a class="p-4"
+                                                    href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                                    <img src="{{ asset($relatedProductItem->productImages[0]->image) }}"
+                                                        alt="{{ $relatedProductItem->name }}">
+                                                </a>
+                                            @endif
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $relatedProductItem->brand }}</p>
+                                            <h5 class="product-name">
+                                                <a
+                                                    href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                                    {{ $relatedProductItem->name }}
+                                                </a>
+                                            </h5>
+                                            <div class="">
+                                                <span class="selling-price fs-4">$
+                                                    {{ number_format($relatedProductItem->selling_price) }}</span>
+                                                <span class="original-price text-dark fs-6">$
+                                                    {{ number_format($relatedProductItem->original_price) }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="product-card-body">
-                            <p class="product-brand">{{ $relatedProductItem->brand }}</p>
-                            <h5 class="product-name">
-                            <a href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
-                                    {{ $relatedProductItem->name }}
-                            </a>
-                            </h5>
-                            <div>
-                                <span class="selling-price">$ {{ number_format($relatedProductItem->selling_price) }}</span>
-                                <span class="original-price">$ {{ number_format($relatedProductItem->original_price) }}</span>
-                            </div>
+                    @else
+                        <div class="p-2">
+                            <h5>No Related Products Available</h5>
                         </div>
-                    </div>
+
+                    @endif
                 </div>
-                @endforeach
-                </div>
-                @else
-                <div class="p-2">
-                    <h5>No Related Products Available</h5>
-                </div>
-                
-                @endif
-            </div>
 
             </div>
         </div>
@@ -183,50 +194,58 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <h3>Related
-                        @if($product) {{ $product->brand }} @endif
-                         Products</h3>
+                        @if ($product)
+                            {{ $product->brand }}
+                        @endif
+                        Products
+                    </h3>
                     <div class="underline"></div>
                     <hr>
                 </div>
                 <div class="col-md-12">
-                    @if ($category)              
-                    <div class="owl-carousel owl-theme four-carousel">
-                        @foreach ($category->relatedProducts as $relatedProductItem)
-                        @if ($relatedProductItem->brand == "$product->brand")
+                    @if ($category)
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts as $relatedProductItem)
+                                @if ($relatedProductItem->brand == "$product->brand")
+                                    <div class="item mb-5">
+                                        <div class="product-card" style="height: 370px">
+                                            <div class="product-card-img">
 
-                            <div class="item mb-5">
-                                <div class="product-card" style="height: 370px">
-                                    <div class="product-card-img">
-            
-                                        @if ($relatedProductItem->productImages->count() > 0)
-                                        <a href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
-                                        <img src="{{ asset($relatedProductItem->productImages[0]->image) }}" alt="{{ $relatedProductItem->name }}">
-                                        </a>
-                                        @endif
-                                    </div>
-                                    <div class="product-card-body">
-                                        <p class="product-brand">{{ $relatedProductItem->brand }}</p>
-                                        <h5 class="product-name">
-                                        <a href="{{ url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug) }}">
-                                                {{ $relatedProductItem->name }}
-                                        </a>
-                                        </h5>
-                                        <div>
-                                            <span class="selling-price">$ {{ number_format($relatedProductItem->selling_price) }}</span>
-                                            <span class="original-price">$ {{ number_format($relatedProductItem->original_price) }}</span>
+                                                @if ($relatedProductItem->productImages->count() > 0)
+                                                    <a
+                                                        href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                                        <img src="{{ asset($relatedProductItem->productImages[0]->image) }}"
+                                                            alt="{{ $relatedProductItem->name }}">
+                                                    </a>
+                                                @endif
+                                            </div>
+                                            <div class="product-card-body">
+                                                <p class="product-brand">{{ $relatedProductItem->brand }}</p>
+                                                <h5 class="product-name">
+                                                    <a
+                                                        href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                                        {{ $relatedProductItem->name }}
+                                                    </a>
+                                                </h5>
+                                                <div>
+                                                    <span class="selling-price ">$
+                                                        {{ number_format($relatedProductItem->selling_price) }}</span>
+                                                    <span class="original-price text-dark fs-6">$
+                                                        {{ number_format($relatedProductItem->original_price) }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                                 @endif
                             @endforeach
-                    </div>
+                        </div>
+                        <br>
                     @else
-                <div class="p-2">
-                    <h5>No Related Products Available</h5>
-                </div>  
-                @endif
-            </div>
+                        <div class="p-2">
+                            <h5>No Related Products Available</h5>
+                        </div>
+                    @endif
+                </div>
 
             </div>
         </div>
@@ -234,40 +253,39 @@
 </div>
 @livewireScripts
 @push('scripts')
-<script>
-$(function(){
+    <script>
+        $(function() {
 
-    $("#exzoom").exzoom({
-  
-      // thumbnail nav options
-      "navWidth": 60,
-      "navHeight": 60,
-      "navItemNum": 5,
-      "navItemMargin": 7,
-      "navBorder": 1,
-      "autoPlay": false, 
-      "autoPlayTimeout": 2000
-      
-    });
-    $('.four-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        nav:false,
-        dot:true,
-        responsive:{
-            0:{
-                items:2
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:4
-            }
-        }
+            $("#exzoom").exzoom({
+
+                // thumbnail nav options
+                "navWidth": 60,
+                "navHeight": 60,
+                "navItemNum": 5,
+                "navItemMargin": 7,
+                "navBorder": 1,
+                "autoPlay": false,
+                "autoPlayTimeout": 2000
+
+            });
+            $('.four-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dot: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
+
         });
-  
-  });
-</script>
-
+    </script>
 @endpush

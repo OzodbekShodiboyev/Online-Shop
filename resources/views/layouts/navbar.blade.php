@@ -1,5 +1,5 @@
 <!-- Topbar Start -->
-<div class="container-fluid">
+<div class="container-fluid sticky-top">
     <div class="row bg-secondary py-1 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center h-100">
@@ -93,38 +93,47 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ url('/') }}" class="nav-item nav-link active text-white">Home</a>
                         <a href="shop.html" class="nav-item nav-link text-white">Shop</a>
-                        <a href="{{ url('/new-arrivals') }}" class="nav-item nav-link text-white">Yangi mahsulotlar</a>
-                        <a class="nav-item nav-link active text-white" href="{{ url('wishlist') }}">
-                            <i class="fa fa-heart"></i> Saralangan (
-                            <livewire:frontend.wishlist-count />)
+                        <a href="{{ url('/new-arrivals') }}" class="nav-item nav-link text-white">News</a>
+                        <a class="nav-item nav-link text-white" href="{{ url('wishlist') }}">
+                             Sorted
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                        <a href="{{ url('wishlist') }}" class="login-link text-light text-decoration-none mr-1">
+                            <button type="button" class="btn position-relative">
+                                <i class="fa-solid fa-heart text-white fa-lg"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 " style="margin-left: -15%">
+                                   <livewire:frontend.wishlist-count />
+                                  <span class="visually-hidden">Unread messages</span>
+                                </span>
+                            </button>
+                        </a>
                         <a href="{{ url('cart') }}" class="login-link text-light text-decoration-none mr-4">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            Savat
-                            <span class="badge bg-secondary bg-success p-2">
-                                <livewire:frontend.cart.cart-count />
-                            </span>
+                            <button type="button" class="btn position-relative">
+                                <i class="fa-solid fa-cart-shopping text-white fa-lg"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 " style="margin-left: -15%">
+                                    <livewire:frontend.cart.cart-count />
+                                  <span class="visually-hidden">Unread messages</span>
+                                </span>
+                            </button>
                         </a>
                         @if (Route::has('login'))
                             @auth
                                 <a class="login-link text-light text-decoration-none mr-4" href="#" id="userDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user fa-sm fa-fw text-gray-400"></i>
+                                    <i class="fas fa-user fa-lg fa-fw text-gray-400"></i>
                                     {{ Auth::user()->name }}
 
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <div class="dropdown-divider"></div>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" href="route('logout')"
                                             onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
                                             {{ __('Chiqish') }}
                                         </a>
                                     </form>
@@ -140,15 +149,6 @@
                 </div>
             </nav>
 
-        </div>
-        <div class="col-lg-9 bg-white" style="background-color:#6C757D;">
-            <div class=" align-items-center bg-white d-block d-lg-none">
-                <nav class="navbar navbar-expand-lg bg-white navbar-white py-1 py-lg-0 px-0">
-                    <div class="col-lg-3 col-10 text-left">
-                    </div>
-                    <i class=" btn px-0 ml-3 bx bx-shopping-bag text-success" id="cart-icon2"></i>
-                </nav>
-            </div>
         </div>
     </div>
 </div>
@@ -171,17 +171,31 @@
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
-                <a class="header_navbar_collapse_nav_item_link " href="{{ url('wishlist') }}">
-                    <span class="far fa-lg fa-solid fa-heart text-dark"></span>
+                <a class="header_navbar_collapse_nav_item_link text-dark btn position-relative" href="{{ url('wishlist') }}">
+                    <span
+                        class="fas fa-solid fa-heart fa-lg" aria-hidden="true"></span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 " style="margin-left: -15%">
+                            <livewire:frontend.wishlist-count />
+                          <span class="visually-hidden">Unread messages</span>
+                        </span>
                     <p></p>
                 </a>
+                {{-- <a class="header_navbar_collapse_nav_item_link " href="{{ url('wishlist') }}">
+                    <span class="far fa-lg fa-solid fa-heart text-dark"></span>
+                    <p></p>
+                </a> --}}
             </div>
         </li>
 
         <li class="header_navbar_collapse_nav_item">
             <div class="header_navbar_collapse_nav_item_pad">
-                <a class="header_navbar_collapse_nav_item_link text-dark" href="{{ url('cart') }}"> <span
+                <a class="header_navbar_collapse_nav_item_link text-dark btn position-relative" href="{{ url('cart') }}">
+                    <span
                         class="fas fa-shopping-cart fa-lg" aria-hidden="true"></span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 " style="margin-left: -15%">
+                            <livewire:frontend.cart.cart-count />
+                          <span class="visually-hidden">Unread messages</span>
+                        </span>
                     <p></p>
                 </a>
             </div>
@@ -209,14 +223,13 @@
                             </span>
                         </a>
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" style="margin-top: -26%"
                             aria-labelledby="userDropdown">
-                            <div class="dropdown-divider"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a class="dropdown-item" href="route('logout')"
                                     onclick="event.preventDefault();
-                    this.closest('form').submit();">
+                                    this.closest('form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Chiqish') }}
                                 </a>

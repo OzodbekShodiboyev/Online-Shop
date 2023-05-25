@@ -74,7 +74,7 @@ class OrderController extends Controller
         $dompdf->loadHtml($html);
 
         // Set the paper size and rendering options
-        $customPaper = array(0,0,400,740);
+        $customPaper = array(0,0,360,650);
         $dompdf->setPaper($customPaper);
 
         // Render the PDF

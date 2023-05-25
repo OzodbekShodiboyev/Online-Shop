@@ -51,7 +51,7 @@
 
     <!-- Slider Start -->
     <div class="container-fluid mb-3">
-        <div class="row px-xl-5">
+        <div class="row px-xl-5 ">
             <div class="col-lg-8">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel"
                     data-interval="3000">
@@ -148,7 +148,7 @@
                         <div class="owl-carousel owl-theme">
                             @foreach ($trendingProducts as $productItem)
                                 <div class="item">
-                                    <div class="product-card">
+                                    <div class="product-card shadow">
                                         <div class="product-card-img">
                                             <label class="stock bg-success">New</label>
                                             @if ($productItem->productImages->count() > 0)
@@ -196,7 +196,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>New Arrivals
-                        <a href="{{ url('new-arrivals') }}" class="btn btn-warning float-end">View More</a>
+                        <a href="{{ url('new-arrivals') }}" class="btn btn-sm text-white bg-success float-end">Yana</a>
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
@@ -204,8 +204,8 @@
                     <div class="col-md-12">
                         <div class="owl-carousel owl-theme four-carousel">
                             @foreach ($newArrivalsProducts as $productItem)
-                                <div class="item card">
-                                    <div class="product-card">
+                                <div class="item">
+                                    <div class="product-card shadow">
                                         <div class="product-card-img">
                                             <label class="stock bg-success">New</label>
 
@@ -254,7 +254,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>Featured Products
-                        <a href="{{ url('featured-products') }}" class="btn btn-warning float-end">View More</a>
+                        <a href="{{ url('featured-products') }}" class="btn btn-sm text-white bg-success float-end">Yana</a>
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
@@ -263,7 +263,7 @@
                         <div class="owl-carousel owl-theme four-carousel">
                             @foreach ($featuredProducts as $productItem)
                                 <div class="item">
-                                    <div class="product-card">
+                                    <div class="product-card shadow">
                                         <div class="product-card-img">
                                             <label class="stock bg-success">New</label>
 
