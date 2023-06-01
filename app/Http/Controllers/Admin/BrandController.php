@@ -45,7 +45,7 @@ class BrandController extends Controller
 
         $brand->save();
 
-        return redirect('admin/brands')->with('success', 'Brand added successfully');
+        return redirect('admin/brands')->with('success', "Brand  qo'shildi");
     }
 
     public function edit($id)
@@ -74,7 +74,7 @@ class BrandController extends Controller
             'category_id'=>$category_id
         ]);
 
-        return redirect('admin/brands')->with('success', 'Brand updated successfully');
+        return redirect('admin/brands')->with('success', "Brand o'zgartirildi");
     }
 
     public function delete($id)
@@ -82,6 +82,6 @@ class BrandController extends Controller
         $brand = Brand::findOrFail($id);
         $brand->delete();
 
-        return redirect('admin/brands')->with('success', 'Brand deleted successfully');
+        return redirect('admin/brands')->with('success', "Brand o'chirildi");
     }
 }

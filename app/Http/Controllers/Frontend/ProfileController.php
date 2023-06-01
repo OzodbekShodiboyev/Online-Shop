@@ -39,6 +39,6 @@ class ProfileController extends Controller
             ]
         );
 
-        return redirect('/')->with('message', 'User Profile successfully Updated');
+        return redirect('/')->with('message', "Foydalanuvchi profile o'zgartirildi");
     }
 }

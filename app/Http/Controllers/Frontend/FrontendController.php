@@ -43,7 +43,7 @@ class FrontendController extends Controller
     
             return view('frontend.pages.search', compact('searchProducts', 'categories', 'brands'));
         } else {
-            return redirect()->back()->with('message', 'No results found.');
+            return redirect()->back()->with('message', 'Natijalar topilmadi');
         }
     }    
 

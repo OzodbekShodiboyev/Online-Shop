@@ -49,7 +49,7 @@ class SliderController extends Controller
             'status' => $validatedData['status'],
         ]);
 
-        return redirect('admin/sldr')->with('message', 'Slider Added');
+        return redirect('admin/sldr')->with('message', "Slayder qo'shildi");
     }
 
     public function edit(Slider $slider)
@@ -80,7 +80,7 @@ class SliderController extends Controller
             'status' => $validatedData['status'],
         ]);
     
-        return redirect('admin/sldr')->with('message', 'Slider Updated Successfully');
+        return redirect('admin/sldr')->with('message', "Slayder o'zgartirildi");
     }
     
     
@@ -91,30 +91,6 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->delete();
 
-        return redirect('admin/sldr')->with('message', 'Slider Deleted');
+        return redirect('admin/sldr')->with('message', "Slayder o'chirildi");
     }
 }
-
-
-
-        // $request->validate([
-        //     'title' => 'required  ',
-        //     'description' => 'required',
-        // ]);
-
-        // $title = $request->title;
-        // $description = $request->description;
-        // $status=$request->status == true ? '1' : '0';
-
-        // $product = new Slider;
-        // $product->title=$title;
-        // $product->description=$description;
-        // $product->slug=$slug;
-        // $product->brand=$brand;
-        // $product->small_description=$small_description;
-        // $product->description=$description;
-        // $product->original_price=$original_price;
-        // $product->selling_price=$selling_price;
-        // $product->quantity=$quantity;
-        // $product->trending=$trending;
-        // $product->status=$status;

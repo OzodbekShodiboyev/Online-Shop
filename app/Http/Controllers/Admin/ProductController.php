@@ -234,13 +234,13 @@ class ProductController extends Controller
         $productColorData->update([
             'quantity' => $request->qty
         ]);
-        return response()->json(['message' => 'Product Color Quantity updated']);
+        return response()->json(['message' => "Mahsulot Rangining soni o'zgartirildi"]);
     }
 
     public function deleteProdColor($prod_color_id)
     {
         $prodColor = ProductColor::findOrFail($prod_color_id);
         $prodColor->delete();
-        return response()->json(['message' => 'Product Color Deleted']);
+        return response()->json(['message' => "Mahsulot rangi o'chirildi"]);
     }
 }

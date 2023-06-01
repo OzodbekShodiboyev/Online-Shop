@@ -34,7 +34,7 @@ class SettingController extends Controller
                 'youtube'=>$request->youtube,
             ]);
 
-            return redirect()->back()->with('message', "Settings saved"); 
+            return redirect()->back()->with('message', "Sozlanmalar saqlandi"); 
 
         } else {
             Setting::create([
@@ -54,7 +54,7 @@ class SettingController extends Controller
                 'youtube'=>$request->youtube,
             ]);
 
-            return redirect()->back()->with('message', "Settings created"); 
+            return redirect()->back()->with('message', "Sozlanmalar yaratildi"); 
         }
     }
 }

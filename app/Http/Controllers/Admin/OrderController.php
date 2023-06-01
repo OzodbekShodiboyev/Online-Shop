@@ -35,7 +35,7 @@ class OrderController extends Controller
         if ($order) {
             return view('admin.orders.view', compact('order'));
         } else {
-            return redirect('admin/orders')->with('message', 'Order Id not found');
+            return redirect('admin/orders')->with('message', "Buyurtma raqami topilmadi");
         }
     }
     public function updateOrderStatus(int $orderId, Request $request)
@@ -46,9 +46,9 @@ class OrderController extends Controller
             $order->update([
                 'status_message' => $request->order_status
             ]);
-            return redirect('admin/orders/' . $orderId)->with('message', 'Order Status Updated');
+            return redirect('admin/orders/' . $orderId)->with('message', "Buyurtma status o'zgartirildi");
         } else {
-            return redirect('admin/orders/' . $orderId)->with('message', 'Order Id not found');
+            return redirect('admin/orders/' . $orderId)->with('message', 'Buyurtma raqami topilmadi');
         }
     }
 

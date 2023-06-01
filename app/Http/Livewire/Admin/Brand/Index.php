@@ -43,7 +43,7 @@ class Index extends Component
             'category_id' => $this->category_id,
         ]);
 
-        session()->flash('success', 'Brand added successfully.');
+        session()->flash('success', "Brand qo'shildi");
         $this->resetInput();
     }
 
@@ -70,7 +70,7 @@ class Index extends Component
             'category_id' => $this->category_id,
         ]);
 
-        session()->flash('success', 'Brand updated successfully.');
+        session()->flash('success', "Brand o'zgartirildi");
         $this->resetInput();
         $this->showModal = false;
     }

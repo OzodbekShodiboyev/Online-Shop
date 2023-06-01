@@ -36,7 +36,7 @@ class UserController extends Controller
             'role_as' => $request->role_as,
         ]);
 
-        return redirect('admin/users')->with('message', 'User Create Successfully');
+        return redirect('admin/users')->with('message', "Foydalanuvchi yaratildi");
     }
 
     public function edit(int $userId) {
@@ -58,7 +58,7 @@ class UserController extends Controller
             'role_as' => $request->role_as,
         ]);
 
-        return redirect('admin/users')->with('message', 'User Updated Successfully');
+        return redirect('admin/users')->with('message', "Foydalanuvchi ma'lumotlari o'zgartirildi");
     }
 
     public function destroy(int $userId)
@@ -66,6 +66,6 @@ class UserController extends Controller
         $user = User::findOrFail($userId);
         $user->delete();
 
-        return redirect('admin/users')->with('success', 'User deleted successfully');
+        return redirect('admin/users')->with('success', "Foydalanuvchi o'chirildi");
     }
 }

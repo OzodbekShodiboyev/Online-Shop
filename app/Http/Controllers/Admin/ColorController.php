@@ -38,7 +38,7 @@ class ColorController extends Controller
 
         $color->save();
 
-        return redirect('admin/colors')->with('success', 'Color added successfully');
+        return redirect('admin/colors')->with('success', "Rang qo'shildi");
     }
 
     public function edit($id)
@@ -65,7 +65,7 @@ class ColorController extends Controller
 
         $color->save();
 
-        return redirect('admin/colors')->with('success', 'Color updated successfully');
+        return redirect('admin/colors')->with('success', "Rang o'zgartirildi");
     }
 
     public function destroy($color_id)
@@ -73,7 +73,7 @@ class ColorController extends Controller
         $color = Color::findOrFail($color_id);
         $color->delete();
 
-        return redirect('admin/colors')->with('success', 'Color deleted successfully');
+        return redirect('admin/colors')->with('success', "Rang o'chirildi");
     }
     
 }

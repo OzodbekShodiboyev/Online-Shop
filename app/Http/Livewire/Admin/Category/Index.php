@@ -29,7 +29,7 @@ class Index extends Component
             File::delete($paths);
         }
         $category->delete();
-        session()->flash('message', 'Category Deleted');
+        session()->flash('message', "Kategoriya o'chirildi");
         $this->dispatchBrowserEvent('close-modal');
     }
 

@@ -41,7 +41,7 @@ class CategoryController extends Controller
             'meta_description' => $valid['meta_description'],            
             'description' => $valid['description'],
         ]);
-        return redirect('admin/category')->with('success', 'Category added successfully');
+        return redirect('admin/category')->with('success', "Kategoriya qo'shildi");
     }
 
     public function edit(Category $category)
@@ -71,7 +71,7 @@ class CategoryController extends Controller
             $category['meta_description'] = $valid['meta_description'];
             $category['description'] = $valid['description'];
             $category->update();
-            return redirect('admin/category')->with('success', 'Category updated successfully');
+            return redirect('admin/category')->with('success', "Ketogoriya o'zgartirildi");
         } else {
             $category = Category::findOrFail($id);
             $valid = $request->validated();
@@ -84,13 +84,13 @@ class CategoryController extends Controller
             $category['meta_description'] = $valid['meta_description'];
             $category['description'] = $valid['description'];
             $category->update();
-            return redirect('admin/category')->with('message', 'Category updated successfully');
+            return redirect('admin/category')->with('message', "Ketogoriya o'zgartirildi");
         }
     }
     public function delete($id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return back()->with('success', 'Category deleted successfully');
+        return back()->with('success', "Ketogoriya o'chirildi");
     }
 }
