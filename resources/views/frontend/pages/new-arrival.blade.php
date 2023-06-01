@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>New Arrival Products</h4>
+                        <h4>Yangi Mahsulotlar</h4>
                         <div class="underline mb-4"></div>
                     </div>
         
@@ -51,7 +51,7 @@
                         <div class="col-md-3">
                             <div class="product-card">
                                 <div class="product-card-img">
-                                    <label class="stock bg-success">New</label>
+                                    <label class="stock bg-success">Yangi</label>
         
                                     @if ($productItem->productImages->count() > 0)
                                     <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
@@ -75,7 +75,7 @@
                         </div>
                          @empty
                                 <div class="col-md-12 p-2">
-                                    <h5>No Products Available</h5>
+                                    <h5>Mahsulotlar mavjud emas</h5>
                                 </div>
                         @endforelse
         

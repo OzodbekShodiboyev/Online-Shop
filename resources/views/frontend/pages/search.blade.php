@@ -32,7 +32,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>New Arrival</title>
+    <title>Qidiruv tizimi</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <h4>Search Results</h4>
+                        <h4>Qidiruv natijalari</h4>
                         <div class="underline mb-4"></div>
                     </div>
 
@@ -74,7 +74,7 @@
                                                     </a>
                                                 </h5>
                                                 <p style="height: 45px; overflow: hidden">
-                                                    <b>Description</b> {{ $item->description }}
+                                                    <b>Tavsif</b> {{ $item->description }}
                                                 </p>
                                             @elseif ($item instanceof App\Models\Brand)
                                                 <p class="product-brand">{{ $item->name }}</p>
@@ -86,7 +86,7 @@
                                                     class="original-price">${{ number_format($item->original_price) }}</span>
                                             </div>
                                             <a href="{{ url('/collections/' . $item->category->slug . '/' . $item->slug) }}"
-                                                class="btn btn-outline-primary">View</a>
+                                                class="btn btn-outline-primary">Ko'rish</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                         </div>
                     @empty
                         <div class="col-md-12 p-2">
-                            <h5>No Products Available</h5>
+                            <h5>Mahsulotlar mavjud emas</h5>
                         </div>
                     @endforelse
 

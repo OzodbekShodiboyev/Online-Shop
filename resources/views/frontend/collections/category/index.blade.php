@@ -32,7 +32,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>Our Categories</title>
+    <title>Barcha Kategoriyalar</title>
 
 </head>
 
@@ -42,7 +42,7 @@
         @include('layouts.navbar')
 
         <div class="container-fluid pt-5">
-            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Kategoriyalar</span></h2>
             <div class="row px-xl-5 pb-3">
                 @forelse ($categories as $categoryItem)
                     @php

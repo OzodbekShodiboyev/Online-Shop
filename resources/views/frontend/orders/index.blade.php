@@ -48,12 +48,12 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <th>Buyurtma raqami</th>
-                        <th>Tracking No</th>
-                        <th>Username</th>
-                        <th>Payment mode</th>
-                        <th>Ordered date</th>
-                        <th>Status message</th>
-                        <th>Action</th>
+                        <th>Kuzatuv raqami</th>
+                        <th>Foydalanuvchi ismi</th>
+                        <th>To'lov usuli</th>
+                        <th>Buyurtma vaqti</th>
+                        <th>Holati xabari</th>
+                        <th>Harakatlar</th>
                     </thead>
                     <tbody>
                         @forelse ($orders as $item)

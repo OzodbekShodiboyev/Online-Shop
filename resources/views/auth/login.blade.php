@@ -130,9 +130,7 @@
             <p class="mb-2"><i
                     class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'address' }}
             </p>
-            <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
-                {{ $appSetting->telegram }}
-            </p>
+       
             <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
             </p>
         </div>
@@ -141,7 +139,7 @@
                 <div class="col-md-4">
                     <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Bosh sahifa</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
@@ -152,7 +150,7 @@
                 <div class="col-md-4">
                     <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Bosh sahifa</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
                         <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
@@ -162,36 +160,8 @@
                 </div>
                 <div class="col-md-4 mb-5">
                     <h6 class="text-secondary text-center mt-4 mb-3">Follow Us</h6>
-                    <div class="d-flex m-3">
-                        @if ($appSetting->telegram)
-                            <a class="btn text-light" style="width: 600px; background-color:#229ED9; " href="{{ $appSetting->telegram }}"><i
-                                    class="fab fa-telegram">  Telegram</i></a>
-                        @endif
-
-
-                    </div>
-                    <div class="d-flex m-3">
-                        @if ($appSetting->instagram)
-                            <a class="btn text-light" style="width: 600px;   background: #f09433; 
-                            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-                            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-                            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"  href="{{ $appSetting->instagram }}"><i
-                                    class="fab fa-instagram">  Instagram</i></a>
-                        @endif
-                    </div>
-                    <div class="d-flex m-3">
-                        @if ($appSetting->facebook)
-                            <a class="btn text-light" style="width: 600px;   background: #3b5998 ; " href="{{ $appSetting->facebook }}"><i
-                                    class="fab fa-facebook">  Facebook</i></a>
-                        @endif
-                    </div>
-                    <div class="d-flex m-3">
-                        @if ($appSetting->youtube)
-                            <a class="btn text-light" style="width: 600px;   background: #c4302b ; "  href="{{ $appSetting->youtube }}"><i
-                                    class="fab fa-youtube">  You Tube</i></a>
-                        @endif
-                    </div>
+                   
+                    
                 </div>
             </div>
         </div>

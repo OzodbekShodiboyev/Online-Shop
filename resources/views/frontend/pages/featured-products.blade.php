@@ -32,7 +32,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>New Arrival</title>
+    <title>Saralangan Mahsulotlar</title>
 </head>
 <body>
     <header>
@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Featured Products</h4>
+                        <h4>Saralangan mahsulotlar</h4>
                         <div class="underline mb-4"></div>
                     </div>
         
@@ -75,7 +75,7 @@
                         </div>
                          @empty
                                 <div class="col-md-12 p-2">
-                                    <h5>No Featured Products Available</h5>
+                                    <h5>No Saralangan mahsulotlar Available</h5>
                                 </div>
                         @endforelse
         

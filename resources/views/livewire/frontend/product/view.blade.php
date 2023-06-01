@@ -25,7 +25,7 @@
                                 </p>
                             </div>
                         @else
-                            Mo image added
+                            Rasm mavjud emas
                         @endif
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                            Home / {{ $product->category->name }} / {{ $product->name }}
+                        Bosh sahifa / {{ $product->category->name }} / {{ $product->name }}
                         </p>
                         <div>
                             <span class="selling-price">${{ $product->selling_price }}</span>
@@ -68,7 +68,7 @@
                                 </div>
                             @else
                                 @if ($product->quantity)
-                                    <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-success">Sotuvda mavjud</label>
                                 @else
                                     <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
                                 @endif
@@ -86,9 +86,9 @@
                             <button type="button" wire:click="addToCart({{ $product->id }})"
                                 class="btn-success btn btn1">
                                 <span wire:loading.remove wire:target="addToCart">
-                                    <i class="fa fa-shopping-cart"></i> Add To Cart
+                                    <i class="fa fa-shopping-cart"></i>Savatchaga qo'shish
                                 </span>
-                                <span wire:loading wire:target="addToCart">Adding...</span>
+                                <span wire:loading wire:target="addToCart">Qo'shilmoqda...</span>
                             </button>
 
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1">
@@ -100,11 +100,11 @@
                                     @endif
 
                                 </span>
-                                <span wire:loading wire:target="addToWishList">Adding...</span>
+                                <span wire:loading wire:target="addToWishList">Qo'shilmoqda...</span>
                             </button>
                         </div>
                         <div class="mt-3">
-                            <h5 class="mb-0">Small Description</h5>
+                            <h5 class="mb-0">Kichik tavsif</h5>
                             <p>
                                 {!! $product->small_description !!}
                             </p>
@@ -117,7 +117,7 @@
                 <div class="col-md-12 mt-3">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h4>Description</h4>
+                            <h4>Tavsif</h4>
                         </div>
                         <div class="card-body">
                             <p>
@@ -133,11 +133,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Related
+                    <h3>Tegishli mahsulotlar
                         @if ($category)
                             {{ $category->name }}
                         @endif
-                        Products
+                        
                     </h3>
                     <div class="underline"></div>
                     <hr>
@@ -180,7 +180,7 @@
                         </div>
                     @else
                         <div class="p-2">
-                            <h5>No Related Products Available</h5>
+                            <h5>Mahsulot mavjud emas</h5>
                         </div>
 
                     @endif
@@ -193,11 +193,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Related
+                    <h3>Tegishli mahsulotlar
                         @if ($product)
                             {{ $product->brand }}
                         @endif
-                        Products
+                        
                     </h3>
                     <div class="underline"></div>
                     <hr>
@@ -242,7 +242,7 @@
                         <br>
                     @else
                         <div class="p-2">
-                            <h5>No Related Products Available</h5>
+                            <h5>Mahsulot mavjud emas</h5>
                         </div>
                     @endif
                 </div>

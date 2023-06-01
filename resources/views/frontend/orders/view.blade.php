@@ -43,38 +43,38 @@
                     <div class="col-md-12">
                         <div class="shadow bg-white p-3">
                             <h4>
-                                <i class="fa fa-shopping-cart text-success"></i> My Order Details
-                                <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">Back</a>
+                                <i class="fa fa-shopping-cart text-success"></i>Mening buyurtmalar ro'yxatim
+                                <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">Orqaga</a>
                             </h4>
                             <hr>
     
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>Order Details</h5>
+                                        <h5>Buyurtma tafsilotlari</h5>
                                         <hr>
     
-                                        <h6>Order Id: {{ $order->id }}</h6>
-                                        <h6>Tracking Id/No.: {{ $order->tracking_no }}</h6>
-                                        <h6>Ordered Date: {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
-                                        <h6>Payment Mode: {{ $order->payment_mode }}</h6>
+                                        <h6>Buyurtma raqami: {{ $order->id }}</h6>
+                                        <h6>Kuzatuv raqami: {{ $order->tracking_no }}</h6>
+                                        <h6>Buyurtma vaqti: {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
+                                        <h6>To'lov usuli: {{ $order->payment_mode }}</h6>
                                         <h6 class="border p-2 text-success">
-                                            Order Status Message: <span class="text-uppercase">{{ $order->status_message }}</span> 
+                                            Buyurtma haqidagi xabar: <span class="text-uppercase">{{ $order->status_message }}</span> 
                                         </h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>User Details</h5>
+                                        <h5>Foydalanuvchi ma'lumotlari</h5>
                                         <hr>
         
-                                        <h6>Fullname: {{ $order->fullname }}</h6>
-                                        <h6>Email Id: {{ $order->email }}</h6>
-                                        <h6>Phone: {{ $order->phone }}</h6>
-                                        <h6>Address: {{ $order->address }}</h6>
+                                        <h6>To'liq ismi: {{ $order->fullname }}</h6>
+                                        <h6>Elektron pochtasi: {{ $order->email }}</h6>
+                                        <h6>Telefon raqami: {{ $order->phone }}</h6>
+                                        <h6>Manzili: {{ $order->address }}</h6>
                                         <h6>Pin code: {{ $order->pincode }}</h6>
                                     </div>
                                 </div>
         
                                 <br/>
-                                <h5>Order Items</h5>
+                                <h5>Buyurtam qilingan mahsulotlar</h5>
                                 <hr>
     
                                 <div class="table-responsive">
@@ -82,11 +82,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Item ID</th>
-                                                <th>Image</th>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
-                                                <th>Total</th>
+                                                <th>Rasm</th>
+                                                <th>Mahsulot</th>
+                                                <th>Narxi</th>
+                                                <th>Soni</th>
+                                                <th>Umumiy</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,7 +109,7 @@
                                                         {{ $orderItem->product->name }}
                                                         @if ($orderItem->productColor)
                                                             @if ($orderItem->productColor->color)
-                                                                <span>- Color: {{ $orderItem->productColor->color->name }}</span>
+                                                                <span>- Rangi: {{ $orderItem->productColor->color->name }}</span>
                                                             @endif
                                                         @endif
                                                     </td>
@@ -123,7 +123,7 @@
                                                 </tr>
                                             @endforeach
                                             <tr>
-                                                <td colspan="5" class="fw-bold">Total Amount:</td>
+                                                <td colspan="5" class="fw-bold">Umumiy Summa:</td>
                                                 <td colspan="1" class="fw-bold">
                                                     ${{ $totalPrice }}
                                                 </td>

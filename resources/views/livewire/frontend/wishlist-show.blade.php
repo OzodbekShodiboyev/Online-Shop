@@ -4,7 +4,7 @@
     @else
         <div class="py-3 py-md-5 bg-light">
             <div class="container">
-                <h3>My Wishlist</h3>
+                <h3>Tanlangan</h3>
                 <hr>
 
                 <div class="row">
@@ -14,13 +14,13 @@
                             <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h4>Products</h4>
+                                        <h4>Mahsulotlar</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Price</h4>
+                                        <h4>Narxi</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Remove</h4>
+                                        <h4>O'chirish</h4>
                                     </div>
                                 </div>
                             </div>
@@ -51,11 +51,11 @@
                                                         class="btn btn-danger btn-sm">
                                                         <span wire:loading.remove
                                                             wire:target="removeWishlistItem({{ $wishlistItem->id }})">
-                                                            <i class="fa fa-trash"></i> Remove
+                                                            <i class="fa fa-trash"></i> O'chirish
                                                         </span>
                                                         <span wire:loading
                                                             wire:target="removeWishlistItem({{ $wishlistItem->id }})">
-                                                            <i class="fa fa-trash"></i> Removing
+                                                            <i class="fa fa-trash"></i> O'chirilmoqda
                                                         </span>
                                                     </button>
                                                 </div>
@@ -64,7 +64,7 @@
                                     </div>
                                 @endif
                             @empty
-                                <h4>No Wishlist Added</h4>
+                                <h4>Hech narsa topilmadi</h4>
                             @endforelse
 
                         </div>

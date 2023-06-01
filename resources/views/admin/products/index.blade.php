@@ -98,7 +98,7 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="7">No products Available</td>
+                                                        <td colspan="7">Mahsulotlar mavjud emas</td>
                                                     </tr>
                                                 @endforelse
 

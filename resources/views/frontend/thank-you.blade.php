@@ -51,8 +51,8 @@
                           {{session('message')}}
                         </h5>
                         @endif
-                        <h3>Thank you for Shopping</h3>
-                        <a href="{{url('collections')}}" class="btn text-white" style="background-color: rgb(22 163 74) ;">Shop now</a>
+                        <h3>Xaridiningiz uchun rahmat</h3>
+                        <a href="{{url('collections')}}" class="btn text-white" style="background-color: rgb(22 163 74) ;">Hoziroq sotib oling</a>
                     </div>
                 </div>
             </div>

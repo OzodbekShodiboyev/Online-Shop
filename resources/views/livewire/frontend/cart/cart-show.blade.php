@@ -1,7 +1,7 @@
 <div>
     <div class="py-3 py-md-5 bg-light">
             <div class="container">
-                <h4>My Cart</h4>
+                <h4>Mening Savatim</h4>
         
                 <div class="row">
                     <div class="col-md-12">
@@ -10,19 +10,19 @@
                             <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h4>Products</h4>
+                                        <h4>Mahsulotlar</h4>
                                     </div>
                                     <div class="col-md-1">
-                                        <h4>Price</h4>
+                                        <h4>Narxi</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Quantity</h4>
+                                        <h4>Soni</h4>
                                     </div>
                                     <div class="col-md-1">
-                                        <h4>Total</h4>
+                                        <h4>Umumiy</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Remove</h4>
+                                        <h4>O'chirish</h4>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
     
                                                     @if ($cartItem->productColor)
                                                         @if ($cartItem->productColor->color)
-                                                            <span>- Color: {{ $cartItem->productColor->color->name }}</span>
+                                                            <span>- Rangi: {{ $cartItem->productColor->color->name }}</span>
                                                         @endif
                                                     @endif
                                                 </label>
@@ -72,10 +72,10 @@
                                             <div class="remove">
                                                 <button type="button" wire:click="removeCartItem({{ $cartItem->id }})" class="btn btn-danger btn-sm">
                                                     <span wire:loading.remove wire:target="removeCartItem({{ $cartItem->id }})">
-                                                    <i class="fa fa-trash"></i> Remove
+                                                    <i class="fa fa-trash"></i> O'chirish
                                                     </span>
                                                     <span wire:loading wire:target="removeCartItem({{ $cartItem->id }})">
-                                                    <i class="fa fa-trash"></i> Removing
+                                                    <i class="fa fa-trash"></i> O'chirilmoqda
                                                     </span>
                                                 </button>
                                             </div>
@@ -84,7 +84,7 @@
                                 </div>
                                 @endif
                             @empty
-                                <div>No Cart Items Available</div>
+                                <div>Savatcha bo'sh</div>
                             @endforelse
     
     
@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-md-8 my-md-auto mt-3">
                         <h5>
-                            Get the best deals & Offers <a href="{{ url('/collections') }}" class="btn btn-success"><i class="bi bi-cart4"></i> Shop Now</a>
+                            Eng yaxshi buyurtmalar va takliflar <a href="{{ url('/collections') }}" class="btn btn-success"><i class="bi bi-cart4"></i>Hoziroq sotib oling</a>
                         </h5>
                     </div>
                     <div class="col-md-4 mt-3">
@@ -105,7 +105,7 @@
                                 <span class="float-end">${{ $totalPrice }}</span>
                             </h4>
                             <hr>
-                            <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">Checkout</a>
+                            <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">Sotib olish</a>
                         </div>
                     </div>
                 </div>

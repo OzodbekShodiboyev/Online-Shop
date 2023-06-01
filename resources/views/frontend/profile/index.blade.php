@@ -39,7 +39,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>User Profile</title>
+    <title>Foydalanuvchi profili</title>
 </head>
 
 <body>
@@ -52,11 +52,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         @if (session('message'))
- <p class="alert alert-success">{{ session('message') }}</p>
+                            <p class="alert alert-success">{{ session('message') }}</p>
                         @endif
                         <div class="card shadow">
                             <div class="card-header bg-primary">
-                                <h4 class="mb-0 text-white">User Details</h4>
+                                <h4 class="mb-0 text-white">Foydalanuvchi ma'lumotlari</h4>
                             </div>
                             <div class="card-body">
                                 <form action="{{ url('profile') }}" method="POST">
@@ -64,35 +64,35 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-10">
                                             <div class="mb-3">
-                                                <label>Username</label>
+                                                <label>Foydalanuvchi nomi</label>
                                                 <input type="text" name="name" value="{{ Auth::user()->name }}"
                                                     class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="mb-3">
-                                                <label>Email Address</label>
+                                                <label>Elektron pochtasi</label>
                                                 <input type="text" readonly value="{{ Auth::user()->email }}"
                                                     name="email" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="mb-3">
-                                                <label>Phone Number</label>
+                                                <label>Telefon raqami</label>
                                                 <input type="text" name="phone" value="{{Auth::user()->userDetail->phone ?? ''}}"
                                                     class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="mb-3">
-                                                <label>Address</label>
+                                                <label>Manzili</label>
                                                 <input type="text" name="address" value=""
                                                     class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary float-end">
-                                                Save
+                                                Saqlash
                                             </button>
                                         </div>
                                     </div>

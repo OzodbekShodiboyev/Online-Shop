@@ -4,7 +4,7 @@
             @if ($category->brands)
 
             <div class="card">
-            <div class="card-header"><h4>Brands</h4></div>
+            <div class="card-header"><h4>Brandlar</h4></div>
                 <div class="card-body">
                     @foreach ($category->brands as $brandItem)
                     <label class="d-block">
@@ -16,13 +16,13 @@
             @endif
 
             <div class="card mt-3">
-            <div class="card-header"><h4>Price</h4></div>
+            <div class="card-header"><h4>Narxi</h4></div>
                 <div class="card-body">
                     <label class="d-block">
-                        <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" /> High to Low
+                        <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />Baland narxdan past narxgacha
                     </label>
                     <label class="d-block">
-                        <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" /> Low to High
+                        <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" /> Past narxdan baland narxgacha
                     </label>
                 </div>
             </div>
@@ -30,8 +30,6 @@
         </div>
         <div class="col-md-9">
 
-
-            {{-- Stop trying to control. --}}
             <div class="row mt-3">
             @forelse ($products as $productItem)
                         
@@ -69,7 +67,7 @@
                     </div>
                 @empty
                 <div class="col-md-12">
-                    <h5>No Products Available for {{ $category->name }}</h5>
+                    <h5>Mahsulotlar mavjud emas {{ $category->name }}</h5>
                 </div>
                 @endforelse
             </div>
