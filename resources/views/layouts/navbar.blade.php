@@ -52,8 +52,8 @@
             </form>
         </div>
         <div class="col-lg-4 col-6 text-right">
-            <p class="m-0">Telephone Number:</p>
-            <h5 class="m-0">{{ $appSetting->phone1 ?? 'phone' }}</h5>
+            <p class="m-0">Telefon raqami:</p>
+            <h5 class="m-0">{{ $appSetting->phone1 ?? '' }}</h5>
         </div>
     </div>
 </div>

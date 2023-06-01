@@ -64,7 +64,7 @@
                 @empty
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h4 class="text-center">No Products for {{ $category->name }}</h4>
+                            <h4 class="text-center">Kategoriya mavjud emas</h4>
                         </div>
                     </div>
                 @endforelse
