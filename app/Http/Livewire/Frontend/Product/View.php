@@ -38,9 +38,9 @@ class View extends Component
                 ]);
             }
         } else {
-            session()->flash('message', 'Please login to continue');
+            session()->flash('message', 'Iltimos, davom etish uchun profilingizga kiring!');
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Please login to continue',
+                'text' => 'Iltimos, davom etish uchun profilingizga kiring!',
                 'type' => 'info',
                 'status' => 401
             ]);
@@ -169,7 +169,7 @@ class View extends Component
             }
         } else {
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Please Login to add to Cart!',
+                'text' => 'Iltimos, davom etish uchun profilingizga kiring! ',
                 'type' => 'info',
                 'status' => 401
             ]);

@@ -75,7 +75,7 @@
                                         <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
                                             {{ $sliderItem->description }}</p>
                                         <a class="btn py-2 px-4 mt-3 btn-outline-light" id="buybtn"
-                                            href="{{ url('/collections') }}">Hoziroq sotib olish</a>
+                                            href="{{ url('/collections') }}">@lang('public.buy')</a>
                                     </div>
                                 </div>
                             </div>
@@ -110,25 +110,25 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-check text-success m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Har qanday Mahsulot</h5>
+                    <h5 class="font-weight-semi-bold m-0">@lang('public.any_product')</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-shipping-fast text-success m-0 mr-2"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Tez yetkazib berish!</h5>
+                    <h5 class="font-weight-semi-bold m-0">@lang('public.fast_del')</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fas fa-exchange-alt text-success m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">1-5 kun oralig'ida</h5>
+                    <h5 class="font-weight-semi-bold m-0">@lang('public.delivery')</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-phone-volume text-success m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">24/7 Markaz</h5>
+                    <h5 class="font-weight-semi-bold m-0">@lang('public.call_centre')</h5>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Ommabop Mahsulotlar</h4>
+                    <h4>@lang('public.pop_prod')</h4>
                     <div class="underline mb-4"></div>
                 </div>
                 @if ($trendingProducts)
@@ -149,7 +149,7 @@
                                 <div class="item">
                                     <div class="product-card shadow">
                                         <div class="product-card-img">
-                                            <label class="stock bg-success">Yangi</label>
+                                            <label class="stock bg-success">@lang('public.new')</label>
                                             @if ($productItem->productImages->count() > 0)
                                                 <a
                                                     href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
@@ -181,7 +181,7 @@
                 @else
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h5>Mahsulotlar mavjud emas</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     </div>
                 @endif
@@ -192,21 +192,22 @@
     <div class="py-5 bg-white">
         <div class="container">
             <div class="row">
-            @if ($newArrivalsProducts)
-                <div class="col-md-12">
-                    <h4>Yangi mahsulotlar
-                        <a href="{{ url('new-arrivals') }}" class="btn btn-sm text-white bg-success float-end">Yana</a>
-                    </h4>
-                    <div class="underline mb-4"></div>
-                </div>
-                
+                @if ($newArrivalsProducts)
+                    <div class="col-md-12">
+                        <h4>@lang('public.new_prod')
+                            <a href="{{ url('new-arrivals') }}"
+                                class="btn btn-sm text-white bg-success float-end">@lang('public.again')</a>
+                        </h4>
+                        <div class="underline mb-4"></div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="owl-carousel owl-theme four-carousel">
                             @foreach ($newArrivalsProducts as $productItem)
                                 <div class="item">
                                     <div class="product-card shadow">
                                         <div class="product-card-img">
-                                            <label class="stock bg-success">Yangi</label>
+                                            <label class="stock bg-success">@lang('public.new')</label>
 
                                             @if ($productItem->productImages->count() > 0)
                                                 <a
@@ -240,7 +241,7 @@
                 @else
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h5>Mahsulot mavjud emas</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     </div>
                 @endif
@@ -252,8 +253,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Saralangan mahsulotlar
-                        <a href="{{ url('featured-products') }}" class="btn btn-sm text-white bg-success float-end">Yana</a>
+                    <h4>@lang('public.sorted_prod')
+                        <a href="{{ url('featured-products') }}"
+                            class="btn btn-sm text-white bg-success float-end">@lang('public.again')</a>
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
@@ -298,7 +300,7 @@
                 @else
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h5>Mahsulot mavjud emas</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     </div>
                 @endif
@@ -316,80 +318,117 @@
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Aloqada bo'ling</h5>
+                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
                     dolor. Rebum tempor no vero est magna amet no</p>
                 <p class="mb-2"><i
-                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Manzil' }}
+                        class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Address' }}
                 </p>
-                
-                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'Telefon raqam' }}
+                <p class="mb-2"><i class="fa fa-envelope text-white mr-3"></i>Telegram:
+                    {{ $appSetting->telegram }}
+                </p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-white mr-3"></i>{{ $appSetting->phone1 ?? 'phone' }}
                 </p>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4">
-                        <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
+                        <h5 class="text-secondary text-uppercase mb-4">@lang('public.quick_shop')</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Bosh sahifa</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Bizning do'kon</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Savatcha</a>
-                            <a class="text-secondary mb-2"><i class="fa fa-angle-right mr-2"></i>Sotib olish</a>
-                            <a class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Biz bilan bog'lanish</a>
+                            <a href="/" class="text-secondary mb-2"><i
+                                    class="fa fa-angle-right mr-2"></i>@lang('public.main')</a>
+                            <a href="{{ url('/new-arrivals') }}" class="text-secondary mb-2"><i
+                                    class="fa fa-angle-right mr-2"></i>@lang('public.new_product')</a>
+                            <a href="{{ url('wishlist') }}" class="text-secondary mb-2"><i
+                                    class="fa fa-angle-right mr-2"></i>@lang('public.sorted')</a>
+                            <a href="{{ url('cart') }}" class="text-secondary mb-2"><i
+                                    class="fa fa-angle-right mr-2"></i>@lang('public.basket')</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h6 class="text-secondary text-center mt-4 mb-3">Bizga qo'shiling</h6>
-                        
-                        
-                        
-                        
+                        <h6 class="text-secondary text-center mt-4 mb-3">@lang('public.join_us')</h6>
+                        {{-- {{dd($appSetting)}} --}}
+                        <div class="d-flex m-3">
+                            @if ($appSetting->telegram)
+                                <a class="btn text-light" style="width: 600px; background-color:#229ED9; "
+                                    href="{{ $appSetting->telegram }}" target="_blank"><i class="fab fa-telegram">
+                                        Telegram</i></a>
+                            @endif
+
+
+                        </div>
+                        <div class="d-flex m-3">
+                            @if ($appSetting->instagram)
+                                <a class="btn text-light"
+                                    style="width: 600px;   background: #f09433; 
+                            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+                            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"
+                                    href="{{ $appSetting->instagram }}" target="_blank"><i class="fab fa-instagram">
+                                        Instagram</i></a>
+                            @endif
+                        </div>
+                        <div class="d-flex m-3">
+                            @if ($appSetting->facebook)
+                                <a class="btn text-light" style="width: 600px;   background: #3b5998 ; "
+                                    href="{{ $appSetting->facebook }}" target="_blank"><i class="fab fa-facebook">
+                                        Facebook</i></a>
+                            @endif
+                        </div>
+                        <div class="d-flex m-3">
+                            @if ($appSetting->youtube)
+                                <a class="btn text-light" style="width: 600px;   background: #c4302b ; "
+                                    href="{{ $appSetting->youtube }}" target="_blank"><i class="fab fa-youtube"> You
+                                        Tube</i></a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Footer End -->
 
 
-        <!-- Footer End -->
+    <a href="#" class="btn btn-success back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-        <a href="#" class="btn btn-success back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <!-- Contact Javascript File -->
+    <script src="{{ asset('assets/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('assets/mail/contact.js') }}"></script>
+    <script src="{{ asset('assets/js/shopcart2.js') }}"></script>
 
-
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="{{asset('assets/lib/easing/easing.min.js') }}"></script>
-        <script src="{{asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-        <!-- Contact Javascript File -->
-        <script src="{{asset('assets/mail/jqBootstrapValidation.min.js') }}"></script>
-        <script src="{{asset('assets/mail/contact.js') }}"></script>
-        <script src="{{asset('assets/js/shopcart2.js') }}"></script>
-
-        <!-- Template Javascript -->
-        <script src="{{ asset('assets/js/main.js') }}"></script>
-        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $(".owl-carousel").owlCarousel({
-                    items: 2, // Show one item per slide on mobile devices
-                    loop: true,
-                    nav: true,
-                    dots: false,
-                    margin: 15,
-                    navText: [
-                        "<i class='fas fa-chevron-left'></i>",
-                        "<i class='fas fa-chevron-right'></i>"
-                    ],
-                    responsive: {
-                        768: {
-                            items: 4 // Show four items per slide on laptops
-                        }
+    <!-- Template Javascript -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: 2, // Show one item per slide on mobile devices
+                loop: true,
+                nav: true,
+                dots: false,
+                margin: 15,
+                navText: [
+                    "<i class='fas fa-chevron-left'></i>",
+                    "<i class='fas fa-chevron-right'></i>"
+                ],
+                responsive: {
+                    768: {
+                        items: 4 // Show four items per slide on laptops
                     }
-                });
+                }
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>

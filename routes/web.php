@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use  App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\SettingController;
 
 
@@ -137,3 +138,5 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::put('users/{user_id}', [UserController::class, 'update']);
     Route::get('users/{user_id}/delete', [UserController::class, 'destroy']);
 });
+//Localization
+Route::get("locale/{lange}",[LocalizationController::class,'setLang']);
