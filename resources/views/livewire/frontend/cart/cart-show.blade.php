@@ -1,7 +1,7 @@
 <div>
     <div class="py-3 py-md-5 bg-light">
             <div class="container">
-                <h4>Mening Savatim</h4>
+                <h4>@lang('public.card')</h4>
         
                 <div class="row">
                     <div class="col-md-12">
@@ -10,19 +10,19 @@
                             <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h4>Mahsulotlar</h4>
+                                        <h4>@lang('public.product')</h4>
                                     </div>
                                     <div class="col-md-1">
-                                        <h4>Narxi</h4>
+                                        <h4>@lang('public.price')</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Soni</h4>
+                                        <h4>@lang('public.miqdor')</h4>
                                     </div>
                                     <div class="col-md-1">
-                                        <h4>Umumiy</h4>
+                                        <h4>@lang('public.umumiy')</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>O'chirish</h4>
+                                        <h4>@lang('public.delete')</h4>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
     
                                                     @if ($cartItem->productColor)
                                                         @if ($cartItem->productColor->color)
-                                                            <span>- Rangi: {{ $cartItem->productColor->color->name }}</span>
+                                                            <span>- @lang('public.rangi'): {{ $cartItem->productColor->color->name }}</span>
                                                         @endif
                                                     @endif
                                                 </label>
@@ -72,10 +72,10 @@
                                             <div class="remove">
                                                 <button type="button" wire:click="removeCartItem({{ $cartItem->id }})" class="btn btn-danger btn-sm">
                                                     <span wire:loading.remove wire:target="removeCartItem({{ $cartItem->id }})">
-                                                    <i class="fa fa-trash"></i> O'chirish
+                                                    <i class="fa fa-trash"></i> @lang('public.delete')
                                                     </span>
                                                     <span wire:loading wire:target="removeCartItem({{ $cartItem->id }})">
-                                                    <i class="fa fa-trash"></i> O'chirilmoqda
+                                                    <i class="fa fa-trash"></i> @lang('public.deleting')
                                                     </span>
                                                 </button>
                                             </div>
@@ -84,7 +84,7 @@
                                 </div>
                                 @endif
                             @empty
-                                <div>Savatcha bo'sh</div>
+                                <div>@lang('public.no_bascet')</div>
                             @endforelse
     
     
@@ -96,16 +96,16 @@
                 <div class="row">
                     <div class="col-md-8 my-md-auto mt-3">
                         <h5>
-                            Eng yaxshi buyurtmalar va takliflar <a href="{{ url('/collections') }}" class="btn btn-success"><i class="bi bi-cart4"></i>Hoziroq sotib oling</a>
+                            @lang('public.taklif') <a href="{{ url('/collections') }}" class="btn btn-success"><i class="bi bi-cart4"></i>@lang('public.h_s_o')</a>
                         </h5>
                     </div>
                     <div class="col-md-4 mt-3">
                         <div class="shadow-sm bg-white p-3">
-                            <h4>Total:
+                            <h4>@lang('public.umumiy'):
                                 <span class="float-end">${{ $totalPrice }}</span>
                             </h4>
                             <hr>
-                            <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">Sotib olish</a>
+                            <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">@lang('public.sotib_olish')</a>
                         </div>
                     </div>
                 </div>

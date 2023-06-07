@@ -36,9 +36,6 @@
 
                         </h4>
                         <hr>
-                        <p class="product-path">
-                        Bosh sahifa / {{ $product->category->name }} / {{ $product->name }}
-                        </p>
                         <div>
                             <span class="selling-price">${{ $product->selling_price }}</span>
                             <span class="original-price">${{ $product->original_price }}</span>
@@ -61,16 +58,16 @@
                                 @endif
                                 <div>
                                     @if ($this->prodColorSelectedQuantity == 'outOfStock')
-                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">@lang('public.out_stock')</label>
                                     @elseif($this->prodColorSelectedQuantity > 0)
-                                        <label class="btn-sm py-1 mt-2 text-white bg-success">Sotuvda bor</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">@lang("public.instock")</label>
                                     @endif
                                 </div>
                             @else
                                 @if ($product->quantity)
-                                    <label class="btn-sm py-1 mt-2 text-white bg-success">Sotuvda mavjud</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-success">@lang("public.instock")</label>
                                 @else
-                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">Sotuvda yo'q</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">@lang('public.out_stock')</label>
                                 @endif
                             @endif
                         </div>
@@ -86,25 +83,25 @@
                             <button type="button" wire:click="addToCart({{ $product->id }})"
                                 class="btn-success btn btn1">
                                 <span wire:loading.remove wire:target="addToCart">
-                                    <i class="fa fa-shopping-cart"></i>Savatchaga qo'shish
+                                    <i class="fa fa-shopping-cart"></i>@lang('public.add_bas')
                                 </span>
-                                <span wire:loading wire:target="addToCart">Qo'shilmoqda...</span>
+                                <span wire:loading wire:target="addToCart">@lang('public.adding')</span>
                             </button>
 
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1">
                                 <span wire:loading.remove wire:target="addToWishList">
                                     @if (session()->has('message'))
-                                        <i class="fa fa-heart"></i> Qo'shilgan
+                                        <i class="fa fa-heart"></i>@lang('public.added')
                                     @else
-                                        <i class="fa fa-heart"></i> Qo'shish
+                                        <i class="fa fa-heart"></i>@lang('public.add')
                                     @endif
 
                                 </span>
-                                <span wire:loading wire:target="addToWishList">Qo'shilmoqda...</span>
+                                <span wire:loading wire:target="addToWishList">@lang('public.adding')</span>
                             </button>
                         </div>
                         <div class="mt-3">
-                            <h5 class="mb-0">Kichik tavsif</h5>
+                            <h5 class="mb-0">@lang('public.short_desc')</h5>
                             <p>
                                 {!! $product->small_description !!}
                             </p>
@@ -117,7 +114,7 @@
                 <div class="col-md-12 mt-3">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h4>Tavsif</h4>
+                            <h4>@lang('public.description')</h4>
                         </div>
                         <div class="card-body">
                             <p>
@@ -133,9 +130,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Tegishli mahsulotlar
+                    <h3>
                         @if ($category)
-                            {{ $category->name }}
+                            {{ $category->name }} - @lang('public.con_prod')
                         @endif
                         
                     </h3>
@@ -193,10 +190,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Tegishli mahsulotlar
+                    <h3> 
                         @if ($product)
-                            {{ $product->brand }}
+                            Brand: {{ $product->brand }} - @lang('public.con_prod')
                         @endif
+
                         
                     </h3>
                     <div class="underline"></div>

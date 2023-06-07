@@ -36,9 +36,30 @@ return [
     'email' => 'Электронная почта',
     'password' => 'Введите пароль',
     'remember' => 'Для запомнить',
-    'password_confirm' => 'Подтвердите пароль'
+    'password_confirm' => 'Подтвердите пароль',
 
+    'image_no'=>'Изображение нет',
 
-
+    'con_prod' => 'Похожие продукты',
+    'add_bas'=>"Добавить в корзину",
+    'adding'=>"Добавление...",
+    'added'=> "Добавлен",
+    'add' => 'Добавить',
+    'short_desc'=>"Кaроткое описание",
+    'instock'=>"Доступен для продажи",
+    'out_stock'=>"Нет в наличии",
+    'description'=>"О продукте",
+    'card'=>'Моя корзина',
+    'product'=>'Продукты',
+    'price'=>'Цена',
+    'miqdor'=>'Количество',
+    'umumiy'=>'Общий',
+    'delete'=>'Удалить',
+    'taklif'=>'Лучшие заказы и предложения',
+    'sotib_olish'=>'Купить',
+    'h_s_o'=>'Купить сейчас',
+    'rangi'=>'Цвет',
+    'deleting'=>"Удаление",
+    'no_bascet'=>'Корзина пуста'
     // Add more translation keys and values as needed
 ];

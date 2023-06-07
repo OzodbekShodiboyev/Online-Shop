@@ -35,9 +35,32 @@ return [
     'email' => 'Email',
     'password' => 'Parol kiriting',
     'remember' => 'Eslab qolish uchun',
-    'password_confirm' => 'Parolni qayta kiriting'
+    'password_confirm' => 'Parolni qayta kiriting',
     
+    'image_no'=>'Rasm mavjud emas',
 
+    'con_prod' => "O'xshash mahsulotlar",
+    'adding'=>"Qo'shilmoqda...",
+    'added'=> "Qo'shilgan",
+    'add' => "Qo'shish",
+    'short_desc'=>"Qisqa ma'lumot",
+    'instock'=>"Sotuvda bor",
+    'out_stock'=>"Sotuvda yo'q",
+    'description'=>"Mahsulot haqida",
+    'card'=>'Mening Savatim',
+    'product'=>'Mahsulotlar',
+    'price'=>'Narxi',
+    'miqdor'=>'Miqdori',
+    'umumiy'=>'Umumiy',
+    'delete'=>'O\'chirish',
+    'taklif'=>'Eng yaxshi buyurtmalar va takliflar',
+    'sotib_olish'=>'Sotib olish',
+    'h_s_o'=>"Hoziroq sotib oling",
+    'rangi'=>'Rangi',
+    'deleting'=>"O'chirilmoqda",
+    'no_bascet'=>"Savatcha bo'sh",
+
+    
 
     // Add more translation keys and values as needed
 ];
