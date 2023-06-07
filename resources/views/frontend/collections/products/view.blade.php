@@ -49,7 +49,7 @@
             @include('layouts.navbar')
             </div>
             <div>
-                <livewire:frontend.product.view :category="$category" :product="$product" />
+                <livewire:frontend.product.view  :category="$category" :product="$product" />
             </div>
 
         </header>

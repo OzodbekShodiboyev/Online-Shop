@@ -318,9 +318,8 @@
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
-                    dolor. Rebum tempor no vero est magna amet no</p>
+                <h5 class="text-secondary text-uppercase mb-4">{{ $appSetting->website_name ?? 'Sayt Nomi' }}</h5>
+                <p class="mb-4">{{ $appSetting->page_title ?? 'Qisqa malumot' }}</p>
                 <p class="mb-2"><i
                         class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Address' }}
                 </p>

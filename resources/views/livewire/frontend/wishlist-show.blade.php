@@ -64,7 +64,7 @@
                                     </div>
                                 @endif
                             @empty
-                                <h4>Hech narsa topilmadi</h4>
+                                <h4>@lang('puplic.not_found')</h4>
                             @endforelse
 
                         </div>

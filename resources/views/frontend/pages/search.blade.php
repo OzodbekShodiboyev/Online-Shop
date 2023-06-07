@@ -74,7 +74,7 @@
                                                     </a>
                                                 </h5>
                                                 <p style="height: 45px; overflow: hidden">
-                                                    <b>Tavsif</b> {{ $item->description }}
+                                                    <b>@lang('public.description')</b> {{ $item->description }}
                                                 </p>
                                             @elseif ($item instanceof App\Models\Brand)
                                                 <p class="product-brand">{{ $item->name }}</p>
@@ -86,7 +86,7 @@
                                                     class="original-price">${{ number_format($item->original_price) }}</span>
                                             </div>
                                             <a href="{{ url('/collections/' . $item->category->slug . '/' . $item->slug) }}"
-                                                class="btn btn-outline-primary">Ko'rish</a>
+                                                class="btn btn-outline-primary">@lang('public.again')</a>
                                         </div>
                                     </div>
                                 </div>

@@ -92,7 +92,7 @@ class View extends Component
                                     ]);
                                     $this->emit('CartAddedUpdated');
                                     $this->dispatchBrowserEvent('message', [
-                                        'text' => 'Product Added to Cart.',
+                                        'text' => __('public.added_cart'),
                                         'type' => 'success',
                                         'status' => 200
                                     ]);
@@ -138,7 +138,7 @@ class View extends Component
                                 ]);
                                 $this->emit('CartAddedUpdated');
                                 $this->dispatchBrowserEvent('message', [
-                                    'text' => 'Product Added to Cart.',
+                                    'text' => __('public.added_cart'),
                                     'type' => 'success',
                                     'status' => 200
                                 ]);
