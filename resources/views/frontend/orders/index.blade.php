@@ -42,19 +42,19 @@
         @include('layouts.navbar')
         <div>
             <h4 class="mb-4">
-                Mening buyurtmalarim
+                @lang('public.order')
             </h4>
             <hr>
             <div class="container-xxl table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead>
-                        <th>Buyurtma raqami</th>
-                        <th>Kuzatuv raqami</th>
-                        <th>Foydalanuvchi ismi</th>
-                        <th>To'lov usuli</th>
-                        <th>Buyurtma vaqti</th>
-                        <th>Holati xabari</th>
-                        <th>Harakatlar</th>
+                        <th>@lang('public.my_order_id')</th>
+                        <th>@lang('public.kuzatuv')</th>
+                        <th>@lang('public.name_order')</th>
+                        <th>@lang('public.payment')</th>
+                        <th>@lang('public.order_time')</th>
+                        <th>@lang('public.order_status')</th>
+                        <th>@lang('public.again')</th>
                     </thead>
                     <tbody>
                         @forelse ($orders as $item)
@@ -63,15 +63,15 @@
                                 <td>{{$item->tracking_no}}</td>
                                 <td>{{$item->fullname}}</td>
                                 <td>{{$item->payment_mode}}</td>
-                                <td>vaqti ishlamadi</td>
+                                <td>@lang('public.no_time')</td>
                                 <td>{{$item->status_message}}</td>
                                 <td>
-                                    <a href="{{url('orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{url('orders/'.$item->id)}}" class="btn btn-primary btn-sm">@lang('public.again')</a>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7">Buyurtmalar yo'q</td>
+                                <td colspan="7">@lang('public.no_order')</td>
                             </tr>
                         @endforelse
                     </tbody>

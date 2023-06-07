@@ -32,7 +32,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>Barcha Kategoriyalar</title>
+    <title>@lang('public.all_category')</title>
 
 </head>
 
@@ -42,7 +42,7 @@
         @include('layouts.navbar')
 
         <div class="container-fluid pt-5">
-            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Kategoriyalar</span></h2>
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">@lang('public.all_category')</span></h2>
             <div class="row px-xl-5 pb-3">
                 @forelse ($categories as $categoryItem)
                     @php
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="flex-fill pl-3">
                                     <h6>{{ $categoryItem->name }}</h6>
-                                    <small class="text-body">{{ $category_count }} Product{{ $category_count != 1 ? 's' : '' }}</small>
+                                    <small class="text-body">{{ $category_count }} Product {{ $category_count != 1 ? 's' : '' }}</small>
                                 </div>
                             </div>
                         </a>
@@ -64,7 +64,7 @@
                 @empty
                     <div class="col-md-12">
                         <div class="p-2">
-                            <h4 class="text-center">Kategoriya mavjud emas</h4>
+                            <h4 class="text-center">{{ $categoryItem->name}} @lang('no')</h4>
                         </div>
                     </div>
                 @endforelse

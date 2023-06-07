@@ -24,16 +24,17 @@
     <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/kabinet.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>New Arrival</title>
+    <title>@lang('public.new_prod')</title>
 </head>
+
 <body>
     <header>
         <!-- Navbar -->
@@ -43,63 +44,66 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Yangi Mahsulotlar</h4>
+                        <h4>@lang('public.new_prod')</h4>
                         <div class="underline mb-4"></div>
                     </div>
-        
-                        @forelse ($newArrivalsProducts as $productItem)
+
+                    @forelse ($newArrivalsProducts as $productItem)
                         <div class="col-md-3">
                             <div class="product-card">
                                 <div class="product-card-img">
-                                    <label class="stock bg-success">Yangi</label>
-        
+                                    <label class="stock bg-success">@lang('public.new')</label>
+
                                     @if ($productItem->productImages->count() > 0)
-                                    <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
-                                    <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}" class="product-image">
-                                    </a>
+                                        <a
+                                            href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
+                                            <img src="{{ asset($productItem->productImages[0]->image) }}"
+                                                alt="{{ $productItem->name }}" class="product-image">
+                                        </a>
                                     @endif
                                 </div>
                                 <div class="product-card-body">
                                     <p class="product-brand">{{ $productItem->brand }}</p>
                                     <h5 class="product-name">
-                                    <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
+                                        <a
+                                            href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
                                             {{ $productItem->name }}
-                                    </a>
+                                        </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">$ {{ number_format($productItem->selling_price) }}</span>
-                                        <span class="original-price">$ {{ number_format($productItem->original_price) }}</span>
+                                        <span class="selling-price">$
+                                            {{ number_format($productItem->selling_price) }}</span>
+                                        <span class="original-price">$
+                                            {{ number_format($productItem->original_price) }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                         @empty
-                                <div class="col-md-12 p-2">
-                                    <h5>Mahsulotlar mavjud emas</h5>
-                                </div>
-                        @endforelse
-        
-                        {{-- <div class="text-center">
-                            <a href="{{ url('collections') }}" class="btn btn-warning px-3">View More</a>
-                        </div> --}}
-        
-                    </div>
+                    @empty
+                        <div class="col-md-12 p-2">
+                            <h5>@lang('no_prod')</h5>
+                        </div>
+                    @endforelse
+
+
                 </div>
             </div>
-        
-        
+        </div>
+
+
     </header>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('assets/lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <!-- Contact Javascript File -->
-    <script src="{{asset('assets/mail/jqBootstrapValidation.min.js')}}"></script>
-    <script src="{{asset('assets/mail/contact.js')}}"></script>
-    <script src="{{asset('assets/js/shopcart2.js')}}"></script>
+    <script src="{{ asset('assets/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('assets/mail/contact.js') }}"></script>
+    <script src="{{ asset('assets/js/shopcart2.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
+
 </html>

@@ -32,7 +32,7 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
-    <title>Qidiruv tizimi</title>
+    <title>@lang('public.search')</title>
 </head>
 
 <body>
@@ -94,7 +94,7 @@
                         </div>
                     @empty
                         <div class="col-md-12 p-2">
-                            <h5>Mahsulotlar mavjud emas</h5>
+                            <h5>@lang('no_prod')</h5>
                         </div>
                     @endforelse
 

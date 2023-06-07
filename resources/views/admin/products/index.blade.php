@@ -98,7 +98,7 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="7">Mahsulotlar mavjud emas</td>
+                                                        <td colspan="7">@lang('no_prod')</td>
                                                     </tr>
                                                 @endforelse
 

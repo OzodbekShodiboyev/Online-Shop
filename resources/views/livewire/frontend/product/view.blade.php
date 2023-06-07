@@ -25,7 +25,7 @@
                                 </p>
                             </div>
                         @else
-                            Rasm mavjud emas
+                            @lang('image_no')
                         @endif
                     </div>
                 </div>
@@ -60,12 +60,12 @@
                                     @if ($this->prodColorSelectedQuantity == 'outOfStock')
                                         <label class="btn-sm py-1 mt-2 text-white bg-danger">@lang('public.out_stock')</label>
                                     @elseif($this->prodColorSelectedQuantity > 0)
-                                        <label class="btn-sm py-1 mt-2 text-white bg-success">@lang("public.instock")</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">@lang('public.instock')</label>
                                     @endif
                                 </div>
                             @else
                                 @if ($product->quantity)
-                                    <label class="btn-sm py-1 mt-2 text-white bg-success">@lang("public.instock")</label>
+                                    <label class="btn-sm py-1 mt-2 text-white bg-success">@lang('public.instock')</label>
                                 @else
                                     <label class="btn-sm py-1 mt-2 text-white bg-danger">@lang('public.out_stock')</label>
                                 @endif
@@ -134,7 +134,7 @@
                         @if ($category)
                             {{ $category->name }} - @lang('public.con_prod')
                         @endif
-                        
+
                     </h3>
                     <div class="underline"></div>
                     <hr>
@@ -177,7 +177,7 @@
                         </div>
                     @else
                         <div class="p-2">
-                            <h5>Mahsulot mavjud emas</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
 
                     @endif
@@ -190,12 +190,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3> 
+                    <h3>
                         @if ($product)
                             Brand: {{ $product->brand }} - @lang('public.con_prod')
                         @endif
 
-                        
+
                     </h3>
                     <div class="underline"></div>
                     <hr>
@@ -240,7 +240,7 @@
                         <br>
                     @else
                         <div class="p-2">
-                            <h5>Mahsulot mavjud emas</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     @endif
                 </div>

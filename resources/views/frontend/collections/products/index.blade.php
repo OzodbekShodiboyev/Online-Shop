@@ -55,47 +55,6 @@
                         <livewire:frontend.product.index :category="$category" />
                     </div>
 
-                    {{-- <div class="col-md-9">
-                        <div class="row">
-                            @forelse ($products as $productItem)
-                                <div class="col-md-4 mb-4">
-                                    <div class="card product-card">
-                                        <div class="product-card-img">
-                                            @if ($productItem->quantity > 0)
-                                                <button class="btn-sm outline-none border-none btn-success m-1">In Stock</button>
-                                            @else
-                                                <button class="btn-sm outline-none border-none btn-danger m-1">Out of Stock</button>
-                                            @endif
-                                            @if ($productItem->productImages->count() > 0)
-                                                <a href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                    <img src="{{ asset($productItem->productImages[0]->image) }}"
-                                                        alt="{{ $productItem->name }}" class="product-img" height="250px" height="250px">
-                                                </a>
-                                            @endif
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="product-brand">{{ $productItem->brand }}</p>
-                                            <h5 class="product-name">
-                                                <a href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                                    {{ $productItem->name }}
-                                                </a>
-                                            </h5>
-                                            <div class="product-prices">
-                                                <span class="selling-price">{{ $productItem->selling_price }}</span>
-                                                <span class="original-price">{{ $productItem->original_price }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                                <div class="col-md-12">
-                                    <div class="p-2">
-                                        <h4 class="text-center">kategoriya mavjud emas</h4>
-                                    </div>
-                                </div>
-                            @endforelse
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </section>

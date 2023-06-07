@@ -44,8 +44,8 @@
                     <div class="col-md-12">
                         <div class="shadow bg-white p-3">
                             <h4>
-                                <i class="fa fa-shopping-cart text-success"></i>Mening buyurtmalar ro'yxatim
-                                <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">Orqaga</a>
+                                <i class="fa fa-shopping-cart text-success"></i>@lang('public.my_order')
+                                <a href="{{ url('orders') }}" class="btn btn-danger btn-sm float-end">@lang('public.back')</a>
                             </h4>
                             <hr>
     
@@ -54,40 +54,40 @@
                                         <h5>Buyurtma tafsilotlari</h5>
                                         <hr>
     
-                                        <h6>Buyurtma raqami: {{ $order->id }}</h6>
-                                        <h6>Kuzatuv raqami: {{ $order->tracking_no }}</h6>
-                                        <h6>Buyurtma vaqti: {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
-                                        <h6>To'lov usuli: {{ $order->payment_mode }}</h6>
+                                        <h6>@lang('my_order_id'): {{ $order->id }}</h6>
+                                        <h6>@lang('public.kuzatuv'): {{ $order->tracking_no }}</h6>
+                                        <h6>@lang('public.order_time'): {{ $order->created_at->format('d-m-Y h:i A') }}</h6>
+                                        <h6>@lang('public.payment'): {{ $order->payment_mode }}</h6>
                                         <h6 class="border p-2 text-success">
-                                            Buyurtma haqidagi xabar: <span class="text-uppercase">{{ $order->status_message }}</span> 
+                                            @lang('public.order_status'): <span class="text-uppercase">{{ $order->status_message }}</span> 
                                         </h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Foydalanuvchi ma'lumotlari</h5>
+                                        <h5>@lang('public.user_info')</h5>
                                         <hr>
         
-                                        <h6>To'liq ismi: {{ $order->fullname }}</h6>
-                                        <h6>Elektron pochtasi: {{ $order->email }}</h6>
-                                        <h6>Telefon raqami: {{ $order->phone }}</h6>
-                                        <h6>Manzili: {{ $order->address }}</h6>
-                                        <h6>Pin code: {{ $order->pincode }}</h6>
+                                        <h6>@lang('name_order'): {{ $order->fullname }}</h6>
+                                        <h6>@lang('public.user_email'): {{ $order->email }}</h6>
+                                        <h6>@lang('public.phone'): {{ $order->phone }}</h6>
+                                        <h6>@lang('public.address'): {{ $order->address }}</h6>
+                                        <h6>@lang('public.pincode'): {{ $order->pincode }}</h6>
                                     </div>
                                 </div>
         
                                 <br/>
-                                <h5>Buyurtam qilingan mahsulotlar</h5>
+                                <h5>@lang('public.ordered_prod')</h5>
                                 <hr>
     
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-stripped">
                                         <thead>
                                             <tr>
-                                                <th>Item ID</th>
-                                                <th>Rasm</th>
-                                                <th>Mahsulot</th>
-                                                <th>Narxi</th>
-                                                <th>Soni</th>
-                                                <th>Umumiy</th>
+                                                <th>@lang('public.item_id')</th>
+                                                <th>@lang('public.image')</th>
+                                                <th>@lang('public.product')</th>
+                                                <th>@lang('public.price')</th>
+                                                <th>@lang('public.miqdor')</th>
+                                                <th>@lang('public.umumiy')</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,7 +110,7 @@
                                                         {{ $orderItem->product->name }}
                                                         @if ($orderItem->productColor)
                                                             @if ($orderItem->productColor->color)
-                                                                <span>- Rangi: {{ $orderItem->productColor->color->name }}</span>
+                                                                <span>- @lang('public.rangi '): {{ $orderItem->productColor->color->name }}</span>
                                                             @endif
                                                         @endif
                                                     </td>
@@ -124,7 +124,7 @@
                                                 </tr>
                                             @endforeach
                                             <tr>
-                                                <td colspan="5" class="fw-bold">Umumiy Summa:</td>
+                                                <td colspan="5" class="fw-bold">@lang('public.umumiy'):</td>
                                                 <td colspan="1" class="fw-bold">
                                                     ${{ $totalPrice }}
                                                 </td>
