@@ -78,8 +78,8 @@ return [
     'address' => 'Manzili',
     'pincode' => 'Pin kod',
     'ordered_prod' => 'Buyurtam qilingan mahsulotlar',
-    'item_id' => 'Mahsulot identifikatori'
-
+    'item_id' => 'Mahsulot identifikatori',
+    'search_result' => "Qidiruv natijalari",
 
 
 

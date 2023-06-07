@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <h4>Qidiruv natijalari</h4>
+                        <h4>@lang('public.search_result')</h4>
                         <div class="underline mb-4"></div>
                     </div>
 
@@ -94,7 +94,7 @@
                         </div>
                     @empty
                         <div class="col-md-12 p-2">
-                            <h5>@lang('no_prod')</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     @endforelse
 

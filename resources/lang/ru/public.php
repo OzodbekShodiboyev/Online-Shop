@@ -79,7 +79,8 @@ return [
     'address' => 'Адрес',
     'pincode' => 'Пин-код',
     'ordered_prod' => 'Заказанные продукты',
-    'item_id' => 'Код товара'
+    'item_id' => 'Код товара',
+    'search_result' => "Результаты поиска",
 
 
 
