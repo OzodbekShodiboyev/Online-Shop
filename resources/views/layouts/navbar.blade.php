@@ -1,5 +1,5 @@
     <!-- Topbar Start -->
-    <div class="container-fluid sticky-top">
+    <div class="container-fluid sticky-top " >
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
                 <a href="{{ url('/') }}" class="text-decoration-none">
@@ -27,19 +27,21 @@
                     <h5 class="m-0">{{ $appSetting->phone1 ?? '' }}</h5>
                 </div>
                 <div class="btn-group ml-3">
-                    <button type="button" class="btn btn-md border rounded btn-light dropdown-toggle"
-                        data-toggle="dropdown">UZ</button>
+                    <button type="button" class="btn btn-md border rounded btn-light dropdown-toggle" data-toggle="dropdown">
+                        {{ strtoupper(Session::get('locale', 'uz')) }}
+                    </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="{{ url('locale/uz') }}" type="button">UZ</a>
                         <a class="dropdown-item" href="{{ url('locale/ru') }}" type="button">RU</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->
-    <div class="container-fluid bg-dark mb-30">
+    <div class="container-fluid bg-dark mb-3" >
         <div class="row px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn d-flex align-items-center justify-content-between bg-success w-100" data-toggle="collapse"
@@ -65,9 +67,9 @@
                         <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
                         <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
                     </a>
-                    <button type="button" class="navbar-toggler bg-success" data-toggle="collapse"
-                        data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
+                    <a type="button" class="navbar-toggler" href="/collections" style="border: none">
+                        {{-- <span class="navbar-toggler-icon"></span> --}}
+                        <ion-icon name="grid-outline" style="font-size: 25px; color:#28a745"></ion-icon>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
@@ -237,3 +239,5 @@
         </ul>
     </div>
     </nav>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

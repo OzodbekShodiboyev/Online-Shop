@@ -1,4 +1,4 @@
-<div style="min-height: 220px;">
+<div style="min-height: 414px;">
     @if ($wishlist->isEmpty())
         <div class="fs-1 fw-bold text-center" style="margin-top: 10%">@lang('public.not_found')</div>
     @else
@@ -41,7 +41,7 @@
                                                 </a>
                                             </div>
                                             <div class="col-md-2 my-auto">
-                                                <label class="price"> ${{ $wishlistItem->product->selling_price }}
+                                                <label class="price">{{ $wishlistItem->product->selling_price }} UZS
                                                 </label>
                                             </div>
                                             <div class="col-md-4 col-12 my-auto">

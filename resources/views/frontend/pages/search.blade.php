@@ -81,9 +81,9 @@
                                             @endif
                                             <div>
                                                 <span
-                                                    class="selling-price">${{ number_format($item->selling_price) }}</span>
+                                                    class="selling-price">{{ number_format($item->selling_price) }} UZS</span>
                                                 <span
-                                                    class="original-price">${{ number_format($item->original_price) }}</span>
+                                                    class="original-price">{{ number_format($item->original_price) }} UZS</span>
                                             </div>
                                             <a href="{{ url('/collections/' . $item->category->slug . '/' . $item->slug) }}"
                                                 class="btn btn-outline-primary">@lang('public.again')</a>

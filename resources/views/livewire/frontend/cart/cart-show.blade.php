@@ -1,4 +1,4 @@
-<div style="min-height: 220px;">
+<div style="min-height: 230px;">
     @forelse ($cart as $cartItem)
         <div class="py-3 py-md-5 bg-light">
             <div class="container">
@@ -56,7 +56,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-1 my-auto">
-                                            <label class="price">${{ $cartItem->product->selling_price }} </label>
+                                            <label class="price">{{ $cartItem->product->selling_price }} UZS</label>
                                         </div>
                                         <div class="col-md-2 col-7 my-auto">
                                             <div class="quantity">
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-md-1 my-auto">
                                             <label
-                                                class="price">${{ $cartItem->product->selling_price * $cartItem->quantity }}
+                                                class="price">{{ $cartItem->product->selling_price * $cartItem->quantity }} UZS
                                             </label>
                                             @php $totalPrice += $cartItem->product->selling_price * $cartItem->quantity @endphp
                                         </div>
@@ -102,20 +102,25 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-8 my-md-auto mt-3">
-                        <h5>
-                            @lang('public.taklif') <a href="{{ url('/collections') }}" class="btn btn-success"><i
-                                    class="bi bi-cart4"></i>@lang('public.h_s_o')</a>
-                        </h5>
-                    </div>
                     <div class="col-md-4 mt-3">
                         <div class="shadow-sm bg-white p-3">
                             <h4>@lang('public.umumiy'):
-                                <span class="float-end">${{ $totalPrice }}</span>
+                                <span class="float-end">{{ $totalPrice }} UZS</span>
                             </h4>
                             <hr>
                             <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">@lang('public.sotib_olish')</a>
                         </div>
+                    </div>
+                    <div class="col-md-8 my-md-auto mt-3">
+                        <div class="shadow-sm bg-white p-3">
+                            <h5>
+                                @lang('public.taklif') 
+                                <hr>
+                                <a href="{{ url('/collections') }}" class="btn btn-success w-100 mt-2"><i
+                                        class="bi bi-cart4 "></i>@lang('public.h_s_o')</a>
+                            </h5>
+                        </div>
+                        
                     </div>
                 </div>
 
