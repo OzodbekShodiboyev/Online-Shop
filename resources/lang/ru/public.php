@@ -56,6 +56,7 @@ return [
     'price'=>'Цена',
     'miqdor'=>'Количество',
     'umumiy'=>'Общий',
+    'umumiy_summa'=>'Общая сумма',
     'delete'=>'Удалить',
     'taklif'=>'Лучшие заказы и предложения',
     'sotib_olish'=>'Купить',
@@ -67,6 +68,7 @@ return [
     'order'=>'Мои заказы',
     'my_order_id'=>'Номер заказ',
     'kuzatuv'=>'Идентификационный номер',
+    'info_order' => 'Информация для заказа',
     'name_order'=>'Имя пользователя',
     'payment'=>'Способ оплаты',
     'order_time'=>'Время заказа',
@@ -98,9 +100,10 @@ return [
     "notproduct" => "В корзине нет товаров",
     "not_found" => "Ничего не найдено!",
     "added_cart" => "Mahsulot savatga qo'shildi",
-    "" => "",
-    "" => "",
-    "" => "",
+    "my_buy" => "Мои заказы",
+    "cancelled" => "Отменено",
+    "payment_mode" => "Способ оплаты",
+    
 
 
 

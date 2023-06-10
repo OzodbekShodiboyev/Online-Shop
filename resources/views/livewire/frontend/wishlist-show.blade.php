@@ -1,6 +1,6 @@
-<div style="min-height: 260px;">
+<div style="min-height: 220px;">
     @if ($wishlist->isEmpty())
-        <div class="fs-1 fw-bold text-center" style="margin-top: 15%">Hech narsa topilmadi!</div>
+        <div class="fs-1 fw-bold text-center" style="margin-top: 10%">@lang('public.not_found')</div>
     @else
         <div class="py-3 py-md-5 bg-light">
             <div class="container">
@@ -64,9 +64,8 @@
                                     </div>
                                 @endif
                             @empty
-                                <h4>@lang('puplic.not_found')</h4>
+                                <h4></h4>
                             @endforelse
-
                         </div>
                     </div>
                 </div>

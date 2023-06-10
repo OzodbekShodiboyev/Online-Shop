@@ -4,42 +4,31 @@ $primary: #FFD333;
 $secondary: #F5F5F5;
 $light: #FFFFFF;
 $dark: #3D464D;
-
-$font-family-sans-serif: 'Roboto', sans-serif;
-
+$font-family-sans-serif: 'Roboto',
+sans-serif;
 $body-bg: $secondary;
-
 $body-color: #6C757D;
-
 $headings-color: $dark;
-
 $enable-responsive-font-sizes: true;
-
 $enable-rounded: false;
-
 $btn-focus-box-shadow: none;
-
 $btn-active-box-shadow: none;
-
 $input-btn-focus-box-shadow: none;
-
 $input-placeholder-color: #999999;
-
 @import "bootstrap/scss/bootstrap";
-
 
 /********** Custom CSS ************/
 
-.h1, h2, h3 {
+.h1,
+h2,
+h3 {
     font-weight: 700 !important;
 }
 
-.h4, h5, h6 {
+.h4,
+h5,
+h6 {
     font-weight: 500 !important;
-}
-
-.mb-30 {
-    margin-bottom: 30px;
 }
 
 .pb-30 {
@@ -90,7 +79,7 @@ $input-placeholder-color: #999999;
 }
 
 @media (max-width: 991.98px) {
-    .navbar-dark .navbar-nav .nav-link  {
+    .navbar-dark .navbar-nav .nav-link {
         padding: 5px 0px;
     }
 }
@@ -248,7 +237,7 @@ $input-placeholder-color: #999999;
     transition: .3s .15s;
 }
 
-.product-item .product-img img  {
+.product-item .product-img img {
     transition: .5s;
 }
 
@@ -285,7 +274,6 @@ $input-placeholder-color: #999999;
     0% {
         transform: translateY(0);
     }
-
     100% {
         transform: translateY(-15px);
     }
@@ -295,12 +283,11 @@ $input-placeholder-color: #999999;
     0% {
         transform: translateY(0);
     }
-
     100% {
         transform: translateY(-15px);
     }
 }
 
-.hoverTextColor:hover{
+.hoverTextColor:hover {
     color: #000;
 }

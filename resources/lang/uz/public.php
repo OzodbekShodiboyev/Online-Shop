@@ -97,9 +97,14 @@ return [
     "notproduct" => "Toʻlov uchun savatda hech qanday mahsulot yoʻq",
     "not_found" => "Hech narsa topilmadi!",
     "added_cart" => "Продукт был добавлен в корзину",
-    "" => "",
-    "" => "",
-    "" => "",
+    "my_buy" => "Buyurtmalarim",
+    "cancelled" => "Bekor qilindi",
+    "payment_mode" => "To'lov usuli",
+    'info_order' => 'Buyurtma tafsilotlari',
+    'umumiy_summa'=>'Umumiy summa',
+    'add_bas' => 'Savatchaga qo\'shish',
+
+
 
 
 

@@ -78,6 +78,9 @@
                             <a class="nav-item nav-link text-white" href="{{ url('wishlist') }}">
                                 @lang('public.sorted')
                             </a>
+                            <a class="nav-item nav-link text-white" href="{{ url('orders') }}">
+                                @lang('public.my_buy')
+                            </a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="{{ url('wishlist') }}" class="login-link text-light text-decoration-none mr-1">
