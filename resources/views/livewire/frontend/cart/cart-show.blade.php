@@ -1,4 +1,4 @@
-<div>
+<div style="min-height: 400px;">
     <div class="py-3 py-md-5 bg-light">
             <div class="container">
                 <h4>@lang('public.card')</h4>

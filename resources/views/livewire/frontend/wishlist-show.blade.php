@@ -1,4 +1,4 @@
-<div>
+<div style="min-height: 260px;">
     @if ($wishlist->isEmpty())
         <div class="fs-1 fw-bold text-center" style="margin-top: 15%">Hech narsa topilmadi!</div>
     @else

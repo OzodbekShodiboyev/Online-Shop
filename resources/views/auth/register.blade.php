@@ -35,39 +35,43 @@
 </head>
 
 <body>
-    <header>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
 
-        <!-- Topbar Start -->
-        <div class="container-fluid">
+        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+            <div class="col-lg-6">
+                <a href="{{ url('/') }}" class="text-decoration-none">
+                    <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
+                    <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
+                </a>
 
-            <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-                <div class="col-lg-6">
-                    <a href="{{ url('/') }}" class="text-decoration-none">
-                        <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
-                        <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
-                    </a>
-
+            </div>
+            <div class="col-lg- d-flex col-6 d-flex" style="justify-content: flex-end;">
+                <div>
+                    <p class="m-0">Telefom raqami:</p>
+                    <h5 class="m-0">{{ $appSetting->phone1 ?? '' }}</h5>
                 </div>
-                <div class="col-lg- d-flex col-6 text-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                            data-toggle="dropdown">UZ</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ url('locale/uz') }}" type="button">UZ</a>
-                            <a class="dropdown-item" href="{{ url('locale/ru') }}" type="button">RU</a>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="m-0">Telefom raqami:</p>
-                        <h5 class="m-0">{{ $appSetting->phone1 ?? '' }}</h5>
+                <div class="btn-group ml-3">
+                    <button type="button" class="btn btn-md border rounded btn-light dropdown-toggle"
+                        data-toggle="dropdown">UZ</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ url('locale/uz') }}" type="button">UZ</a>
+                        <a class="dropdown-item" href="{{ url('locale/ru') }}" type="button">RU</a>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <div class="container">
+    </div>
+    <div class="container mt-3" style="min-height: 80vh;">
         <div class="forms-container">
             <div class="signin-signup">
+                @if ($errors->any())
+                    <div class="alert alert-danger rounded m-2">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="#" method="POST" action="{{ route('login') }}" class="sign-in-form">
                     @csrf
                     <h2 class="title text-dark">@lang('public.register')</h2>
@@ -151,9 +155,8 @@
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
-                    dolor. Rebum tempor no vero est magna amet no</p>
+                <h5 class="text-secondary text-uppercase mb-4">{{ $appSetting->website_name ?? 'Sayt Nomi' }}</h5>
+                <p class="mb-4">{{ $appSetting->page_title ?? 'Qisqa malumot' }}</p>
                 <p class="mb-2"><i
                         class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Address' }}
                 </p>
@@ -244,82 +247,3 @@
 </body>
 
 </html>
-
-
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection --}}

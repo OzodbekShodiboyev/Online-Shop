@@ -1,6 +1,6 @@
 <div>
     @if ($this->totalProductAmount != 0)
-        <div class="py-3 py-md-4 checkout" style="height: 780px; overflow: auto;">
+        <div class="py-3 py-md-4 checkout" style="height: 780px;">
             <div class="container">
                 <h4>Sotib olish</h4>
                 <hr>

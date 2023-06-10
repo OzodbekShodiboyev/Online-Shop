@@ -35,81 +35,74 @@
 </head>
 
 <body>
-    <header>
+    <!-- Topbar Start -->
 
-        <!-- Topbar Start -->
+    <div class="container-fluid">
 
-        <div class="container-fluid">
+        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+            <div class="col-lg-6">
+                <a href="{{ url('/') }}" class="text-decoration-none">
+                    <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
+                    <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
+                </a>
 
-            <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-                <div class="col-lg-6">
-                    <a href="{{ url('/') }}" class="text-decoration-none">
-                        <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
-                        <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span>
-                    </a>
-
-                </div>
-                
-                <div class="col-lg- d-flex col-6 text-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                            data-toggle="dropdown">UZ</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{url("locale/uz")}}" type="button">UZ</a>
-                            <a class="dropdown-item" href="{{url("locale/ru")}}" type="button">RU</a>
-                        </div>
-                    </div>
-                    <div>
+            </div>
+            <div class="col-lg- d-flex col-6 d-flex" style="justify-content: flex-end;">
+                <div>
                     <p class="m-0">Telefom raqami:</p>
                     <h5 class="m-0">{{ $appSetting->phone1 ?? '' }}</h5>
+                </div>
+                <div class="btn-group ml-3">
+                    <button type="button" class="btn btn-md border rounded btn-light dropdown-toggle"
+                        data-toggle="dropdown">UZ</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ url('locale/uz') }}" type="button">UZ</a>
+                        <a class="dropdown-item" href="{{ url('locale/ru') }}" type="button">RU</a>
                     </div>
                 </div>
-                
             </div>
         </div>
-    </header>
-    <div class="container">
+    </div>
+
+    <div class="container mt-3" style="min-height: 80vh;">
         <div class="forms-container">
             <div class="signin-signup">
+                @if ($errors->any())
+                    <div class="alert alert-danger rounded m-2">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="#" method="POST" action="{{ route('login') }}" class="sign-in-form">
                     @csrf
-                    <h2 class="title text-dark">@lang('public.login')</h2>
+                    <h2 class="title text-dark">Kirish</h2>
+
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input id="email" placeholder=" @lang('public.email')" type="email" @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input id="email" placeholder="Email" type="email" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" autofocus>
                     </div>
+
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input id="password" placeholder="@lang('public.password')" type="password"
-                            @error('password') is-invalid @enderror" name="password" required
+                        <input id="password" placeholder="Parol kiriting" type="password" name="password" required
                             autocomplete="current-password">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                             {{ old('remember') ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="remember">
-                            @lang('public.remember')
+                            {{ __('Remember Me') }}
                         </label>
                     </div>
-                    <input type="submit" value="@lang('public.login')" class="btnn " style="background-color: #7bb768" />
+                    <input type="submit" value="KIrish" class="btnn " style="background-color: #7bb768" />
                 </form>
 
 
             </div>
         </div>
-
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
@@ -122,19 +115,6 @@
                 </div>
                 <img src="{{ asset('assets/img/log.svg') }}" class="image" alt="" />
             </div>
-            <div class="panel right-panel">
-                <div class="content">
-                    <h3>One of us ?</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                        laboriosam ad deleniti.
-                    </p>
-                    <button class="btn transparent text-white" id="sign-in-btn">
-                        Sign in
-                    </button>
-                </div>
-                <img src="{{ asset('assets/img/log.svg') }}" class="image" alt="" />
-            </div>
         </div>
     </div>
 
@@ -143,9 +123,8 @@
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
-                    dolor. Rebum tempor no vero est magna amet no</p>
+                <h5 class="text-secondary text-uppercase mb-4">{{ $appSetting->website_name ?? 'Sayt Nomi' }}</h5>
+                <p class="mb-4">{{ $appSetting->page_title ?? 'Qisqa malumot' }}</p>
                 <p class="mb-2"><i
                         class="fa fa-map-marker-alt text-white mr-3"></i>{{ $appSetting->address ?? 'Address' }}
                 </p>
