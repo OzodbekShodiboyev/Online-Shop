@@ -30,9 +30,9 @@
                     <button type="button" class="btn btn-md border rounded btn-light dropdown-toggle" data-toggle="dropdown">
                         {{ strtoupper(Session::get('locale', 'uz')) }}
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ url('locale/uz') }}" type="button">UZ</a>
-                        <a class="dropdown-item" href="{{ url('locale/ru') }}" type="button">RU</a>
+                    <div class="dropdown-menu dropdown-menu-right" >
+                        <a class="dropdown-item btn-md" href="{{ url('locale/uz') }}" type="button">🇺🇿 uzbek</a>
+                        <a class="dropdown-item btn-md" href="{{ url('locale/ru') }}" type="button">🇷🇺 russian</a>
                     </div>
                 </div>
 

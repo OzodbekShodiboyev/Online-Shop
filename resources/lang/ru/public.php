@@ -53,6 +53,8 @@ return [
     'description'=>"О продукте",
     'card'=>'Моя корзина',
     'product'=>'Продукты',
+    'products'=>'Продукт',
+    'lar' => 'ы',
     'price'=>'Цена',
     'miqdor'=>'Количество',
     'umumiy'=>'Общий',

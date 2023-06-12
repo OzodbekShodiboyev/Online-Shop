@@ -57,8 +57,11 @@
                             </div>
                             <div class="flex-fill pl-3">
                                 <h6>{{ $categoryItem->name }}</h6>
-                                <small class="text-body">{{ $category_count }} Product
-                                    {{ $category_count != 1 ? 's' : '' }}</small>
+                                @if ($category_count > 0)
+                                    <small class="text-body">{{ $category_count }} @lang('public.products'){{ trans_choice('public.lar', $category_count) }}</small>
+                                @else
+                                    <small class="text-body">{{ $category_count }} @lang('public.products')</small>
+                                @endif
                             </div>
                         </div>
                     </a>
@@ -88,6 +91,19 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <!-- Contact Javascript File -->
+    <script src="{{ asset('assets/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('assets/mail/contact.js') }}"></script>
+    <script src="{{ asset('assets/js/shopcart2.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 
 </html>

@@ -53,6 +53,8 @@ return [
     'description' => "Mahsulot haqida",
     'card' => 'Mening Savatim',
     'product' => 'Mahsulotlar',
+    'products' => 'Mahsulot',
+    'lar' => 'lar',
     'price' => 'Narxi',
     'miqdor' => 'Miqdori',
     'umumiy' => 'Umumiy',
