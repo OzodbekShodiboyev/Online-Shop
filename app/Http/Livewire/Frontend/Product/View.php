@@ -15,9 +15,9 @@ class View extends Component
     {
         if (Auth::check()) {
             if (Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) {
-                session()->flash('message', 'Product is already in your wishlist');
+                session()->flash('message', "Product is Allaqachon istaklar ro'yxatida");
                 $this->dispatchBrowserEvent('message', [
-                    'text' => 'Already in your wishlist',
+                    'text' => 'Allaqachon istaklar ro\'yxatida',
                     'type' => 'warning',
                     'status' => 409
                 ]);
@@ -32,7 +32,7 @@ class View extends Component
                 $this->emit('wishlistAddedUpdated');
                 session()->flash('message', 'Product added to your wishlist successfully');
                 $this->dispatchBrowserEvent('message', [
-                    'text' => 'Added to wishlist successfully',
+                    'text' => 'Istaklar roʻyxatiga muvaffaqiyatli qoʻshildi',
                     'type' => 'info',
                     'status' => 200
                 ]);
@@ -75,7 +75,7 @@ class View extends Component
                             ->exists()
                         ) {
                             $this->dispatchBrowserEvent('message', [
-                                'text' => 'Product Already Added!',
+                                'text' => 'Allaqachon istaklar ro\'yxatida',
                                 'type' => 'warning',
                                 'status' => 404
                             ]);
@@ -123,7 +123,7 @@ class View extends Component
                 } else {
                     if (Cart::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) {
                         $this->dispatchBrowserEvent('message', [
-                            'text' => 'Product Already Added!',
+                            'text' => 'Allaqachon Savat ro\'yxatida',
                             'type' => 'warning',
                             'status' => 404
                         ]);

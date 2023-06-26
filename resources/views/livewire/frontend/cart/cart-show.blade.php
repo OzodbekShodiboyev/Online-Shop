@@ -1,13 +1,10 @@
 <div style="min-height: 230px;">
-    @forelse ($cart as $cartItem)
         <div class="py-3 py-md-5 bg-light">
             <div class="container">
                 <h4>@lang('public.card')</h4>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="shopping-cart">
-
                             <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -27,14 +24,12 @@
                                     </div>
                                 </div>
                             </div>
-
-
+                            @forelse($cart as $cartItem)
                             @if ($cartItem->product)
                                 <div class="cart-item">
                                     <div class="row">
                                         <div class="col-md-6 my-auto">
-                                            <a
-                                                href="{{ url('collections/' . $cartItem->product->category->slug . '/' . $cartItem->product->slug) }}">
+                                            <a href="{{ url('collections/' . $cartItem->product->category->slug . '/' . $cartItem->product->slug) }}">
                                                 <label class="product-name">
                                                     @if ($cartItem->product->productImages)
                                                         <img src="{{ asset($cartItem->product->productImages[0]->image) }}"
@@ -93,40 +88,33 @@
                                                 </button>
                                             </div>
                                         </div>
+                                      
                                     </div>
                                 </div>
                             @endif
 
+                            @empty
+
+                            <div class="fs-1 fw-bold text-center h-100" style="margin-top: 10%">@lang('public.not_found')</div> 
+
+
+                        @endforelse
+
+                        <div class="row">
+                            <div class="col-md-4 mt-3">
+                                <div class="shadow-sm bg-white p-3">
+                                    <h4>@lang('public.umumiy'):
+                                        <span class="float-end">{{ $totalPrice }} UZS</span>
+                                    </h4>
+                                    <hr>
+                                    <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">@lang('public.sotib_olish')</a>
+                                </div>
+                            </div>
+                        </div>
+
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-4 mt-3">
-                        <div class="shadow-sm bg-white p-3">
-                            <h4>@lang('public.umumiy'):
-                                <span class="float-end">{{ $totalPrice }} UZS</span>
-                            </h4>
-                            <hr>
-                            <a href="{{ url('/checkout') }}" class="btn btn-warning w-100">@lang('public.sotib_olish')</a>
-                        </div>
-                    </div>
-                    <div class="col-md-8 my-md-auto mt-3">
-                        <div class="shadow-sm bg-white p-3">
-                            <h5>
-                                @lang('public.taklif') 
-                                <hr>
-                                <a href="{{ url('/collections') }}" class="btn btn-success w-100 mt-2"><i
-                                        class="bi bi-cart4 "></i>@lang('public.h_s_o')</a>
-                            </h5>
-                        </div>
-                        
-                    </div>
-                </div>
-
             </div>
         </div>
-    @empty
-        <div class="fs-1 fw-bold text-center" style="margin-top: 10%">@lang('public.not_found')</div>
-    @endforelse
 </div>

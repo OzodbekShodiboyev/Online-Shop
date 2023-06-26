@@ -20,7 +20,7 @@ class CartShow extends Component
                 if(($productColor->quantity >= $cartData->quantity)&&($cartData->quantity > 1)){
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
-                    'text' => 'Quantity Updated',
+                    'text' => 'Miqdori yangilandi',
                     'type' => 'warning',
                     'status' => 200
                 ]);
@@ -36,7 +36,7 @@ class CartShow extends Component
                 {
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' => 'Miqdori yangilandi',
                         'type' => 'warning',
                         'status' => 200
                     ]);
@@ -69,7 +69,7 @@ class CartShow extends Component
                 if($productColor->quantity > $cartData->quantity){
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                    'text' => 'Quantity Updated',
+                    'text' => 'Miqdori yangilandi',
                     'type' => 'warning',
                     'status' => 200
                 ]);
@@ -85,7 +85,7 @@ class CartShow extends Component
                 {
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' => 'Miqdori yangilandi',
                         'type' => 'warning',
                         'status' => 200
                     ]);
@@ -116,7 +116,7 @@ class CartShow extends Component
             $cartRemoveData->delete();
             $this->emit('CartAddedUpdated');
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Cart Item Removed Successfully',
+                'text' => 'Savat elementi muvaffaqiyatli olib tashlandi',
                 'type' => 'info',
                 'status' => 200
             ]);

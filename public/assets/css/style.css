@@ -9916,7 +9916,7 @@ h6 {
 .section-title::after {
     position: absolute;
     content: "";
-    width: 100%;
+    width: 95%;
     height: 0;
     top: 50%;
     left: 0;

@@ -84,11 +84,13 @@
                                             <button wire:loading.attr="disabled" class="nav-link active fw-bold"
                                                 id="cashOnDeliveryTab-tab" data-bs-toggle="pill"
                                                 data-bs-target="#cashOnDeliveryTab" type="button" role="tab"
-                                                aria-controls="cashOnDeliveryTab" aria-selected="true">@lang('public.offline_buy')</button>
+                                                aria-controls="cashOnDeliveryTab"
+                                                aria-selected="true">@lang('public.offline_buy')</button>
                                             <button wire:loading.attr="disabled" class="nav-link fw-bold"
                                                 id="onlinePayment-tab" data-bs-toggle="pill"
                                                 data-bs-target="#onlinePayment" type="button" role="tab"
-                                                aria-controls="onlinePayment" aria-selected="false">@lang('public.online_buy')</button>
+                                                aria-controls="onlinePayment"
+                                                aria-selected="false">@lang('public.online_buy')</button>
                                         </div>
                                         <div class="tab-content col-md-9" id="v-pills-tabContent">
                                             <div class="tab-pane active show fade" id="cashOnDeliveryTab"
@@ -110,7 +112,8 @@
                                                 aria-labelledby="onlinePayment-tab" tabindex="0">
                                                 <h6>@lang('public.online_buy')</h6>
                                                 <hr />
-                                                <button type="button" class="btn btn-warning">@lang('public.now_buy')</button>
+                                                <button type="button"
+                                                    class="btn btn-warning">@lang('public.now_buy')</button>
                                             </div>
                                         </div>
                                     </div>
