@@ -6,10 +6,9 @@
                     <a class="text-body mr-3" href="#footer">About</a>
                     <a class="text-body mr-3" href="#footer">Contact</a>
                     <a class="text-body mr-3" href="#footer">Help</a>
-                    <a class="text-body mr-3" href="#footer">FAQs</a>
                 </div>
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
+            <div class="col-lg-6 text-center text-lg-right" style="display: flex; justify-content: flex-end;">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group mx-2">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">UZS</button>
@@ -25,18 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-inline-flex align-items-center d-block d-lg-none">
-                    <a href="{{ url('cart') }}" class="login-link text-dark text-decoration-none mr-4">
-                    <button type="button" class="btn position-relative">
-                        <i class="fa-solid fa-cart-shopping text-dark fa-lg"></i>
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 "
-                            style="margin-left: -15%">
-                            <livewire:frontend.cart.cart-count />
-                        </span>
-                    </button>
-                </a>
-                </div>
+                
             </div>
         </div>
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
@@ -187,7 +175,9 @@
             <li class="header_navbar_collapse_nav_item">
                 <div class="header_navbar_collapse_nav_item_pad">
                     <a class="header_navbar_collapse_nav_item_link text-dark" href="{{ url('/collections') }}">
-                        <ion-icon style="font-size: 22px; margin-top:5px;" name="grid"></ion-icon>
+                        <ion-icon style="font-size: 22px; margin-top:5px;" name="grid">
+                            
+                        </ion-icon>
                     </a>
                 </div>
             </li>

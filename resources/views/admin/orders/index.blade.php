@@ -40,7 +40,7 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con m-5">
+                            <div class="con m-1">
                                 <div class="card shadow mb-4">
                                         <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
                                             <h5 class="m-0 font-weight-bold text-white">Mening buyurtmalarim</h5>

@@ -20,7 +20,7 @@ class CartCount extends Component
         if(Auth::check()){
             return $this->cartCount = Cart::where('user_id', auth()->user()->id)->count();
         }else{
-            return $this->cartCount = 1;
+            return $this->cartCount = 0;
         }
     }
     public function incrementQuantity()

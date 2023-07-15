@@ -41,7 +41,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="col-md-12 ">
-                    <div class="card shadow m-5 mb-4">
+                    <div class="card shadow  mb-4">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3>Brend qo'shish
                                 <a href="{{ url('admin/brands/') }}" class="btn btn-outline-success text-white float-end"

@@ -41,7 +41,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="col-md-12" style="height: 500px">
-                    <div class="card m-5 mt-0 " >
+                    <div class="card m-1 mt-0 " >
                         <div style="background-color: rgb(22 163 74);" class="card-header text-white">
                             <h3>Kategoriya qo'shish
                                 <a href="{{ url('admin/category/') }}" class="btn btn-outline-success text-white float-end"

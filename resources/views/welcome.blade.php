@@ -264,6 +264,7 @@
             <div class="col-lg-2 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
+                        <label class="stock bg-success m-2 p-1 text-white rounded" style="font-size: 12px">@lang('public.new')</label>
                         @if ($productItem->productImages->count() > 0)
                             <a
                                 href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">

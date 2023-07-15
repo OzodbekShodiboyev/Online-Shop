@@ -84,7 +84,7 @@ return [
     'search_result' => "Qidiruv natijalari",
     "thank" => "Xaridiningiz uchun rahmat",
     "deleivre" => "* Mahsulotlar 3-5 kun ichida yetkazib beriladi.",
-    "total_product" => "Mahsulotning umumiy miqdori :",
+    "total_product" => "Mahsulotning umumiy miqdori:",
     "pay_soliq" => "* Soliq va boshqa to'lovlar kiritilgan?",
     "all_info" => "Umumiy ma'lumotlar",
     "enter_mail" => "E-mail manzilingizni kiriting",

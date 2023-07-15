@@ -45,7 +45,7 @@
                         <div class="container-fluid ">
 
 
-                            <div class="con m-5" style="height: 500px">
+                            <div class="con m-1" style="height: 500px">
 
                                     @if (session('message'))
                                         <div class="alert alert-success">{{ session('message') }}</div>
@@ -61,6 +61,7 @@
                                             <a href="{{ url('admin/colors/create') }}"
                                                 class="btn btn btn-md text-white float-start mb-3"
                                                 style="background-color: rgb(22 163 74) ;">🎨 Rang qo'shish</a>
+                                                <div class="table-responsive">
                                             <table class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>
@@ -91,6 +92,7 @@
 
                                                 </tbody>
                                             </table>
+                                            </div>
                                         </div>
                                     </div>
 

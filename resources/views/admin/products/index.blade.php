@@ -45,13 +45,13 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con m-5" style="height: 500px">
+                            <div class="con m-1" style="height: 500px">
 
                                 @if (session('message'))
                                     <div class="alert alert-success">{{ session('message') }}</div>
                                 @endif
 
-                                <div class="card shadow mb 4">
+                                <div class="card shadow mb-4">
                                     <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
                                         <h5 class="m-0 font-weight-bold text-white">Mahsulotlar sahifasi</h5>
                                     </div>
@@ -59,6 +59,7 @@
                                         <a href="{{ url('admin/products/create') }}"
                                             class="btn btn-md text-white mb-3 "
                                             style="background-color: rgb(22 163 74) ;">🛍️ Mahsulotlarni qo'shish</a>
+                                            <div class="table-responsive">
                                         <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
@@ -98,12 +99,13 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="7">@lang('no_prod')</td>
+                                                        <td colspan="7">@lang('public.no_prod')</td>
                                                     </tr>
                                                 @endforelse
 
                                             </tbody>
                                         </table>
+                                        </div>
                                     </div>
                                 </div>
 

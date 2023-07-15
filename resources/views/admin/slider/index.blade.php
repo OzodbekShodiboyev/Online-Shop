@@ -46,7 +46,7 @@
                         <div class="container-fluid">
 
 
-                            <div class="con m-5" style="height: 500px">
+                            <div class="con m-1" style="height: 500px">
 
 
                                 @if (session('message'))
@@ -60,7 +60,7 @@
                                     <div class="card-body">
                                         <a href="{{ url('admin/sliders/create') }}" class=" btn mb-3 text-white"
                                         style="background-color: rgb(22 163 74) ;">🎚 Slayderlar qo'shish</a>
-                                        <table class="table table-bordered table-striped">
+                                        <table class="table table-responsive table-bordered table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>

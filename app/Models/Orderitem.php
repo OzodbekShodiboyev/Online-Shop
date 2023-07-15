@@ -25,6 +25,6 @@ class Orderitem extends Model
     }
     public function productColor(): BelongsTo
     {
-        return $this->belongsTo(ProductColor::class, 'product_color_id', 'id');
+        return $this->belongsTo(productColor::class, 'product_color_id', 'id');
     }
 }

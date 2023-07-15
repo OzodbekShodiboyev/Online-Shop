@@ -78,7 +78,7 @@
                     </div>
                 @empty
                     <div class="col-md-12">
-                        <h5>{{ $category->name }} - @lang('no_prod') </h5>
+                        <h5>{{ $category->name }} - @lang('public.no_prod') </h5>
                     </div>
                 @endforelse
             </div>

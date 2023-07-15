@@ -1,6 +1,6 @@
 <div>
     @if ($this->totalProductAmount != 0)
-        <div class="py-3 py-md-4 checkout" style="height: 780px;">
+        <div class="py-3 py-md-4 checkout" style="height: 980px;">
             <div class="container">
                 <h4>Sotib olish</h4>
                 <hr>
@@ -11,9 +11,9 @@
                         <div class="shadow bg-white p-3">
                             <h4 class="text-primary">
                                 @lang('public.total_product')
-                                <span class="float-end">{{ $this->totalProductAmount }} UZS</span>
-                            </h4>
-                            <hr>
+                                <span class="float-end" >{{ $this->totalProductAmount }} UZS</span>
+                            </h4 >
+                            <hr style="margin-top: 30px;">
                             <small>@lang('public.deleivre')</small>
                             <br />
                             <small>@lang('public.pay_soliq')</small>

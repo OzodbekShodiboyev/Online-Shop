@@ -44,7 +44,7 @@
                             <div class="alert alert-success">{{ session('message') }}</div>
                         @endif
                     </div>
-                    <div class="card m-5" style="">
+                    <div class="card">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                             <h3 style="">Rang qo'shish 
                                 <a href="{{ url('admin/colors/') }}" class="btn btn-outline-success text-white float-end"

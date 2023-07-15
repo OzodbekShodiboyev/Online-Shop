@@ -75,8 +75,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="card" style="width: 10rem;" >
-                                        <img src="/Uploads/Category/{{ $category->image }}" class="card-img-top" alt="image" width="150px" height="150px">
+                                    <div class="card ml-3" style="width: 11rem;" >
+                                        <img src="/Uploads/Category/{{ $category->image }}" class="card-img-top m-1" alt="image" width="150px" height="150px">
                                         <div class="card-body">
                                             <input type="file" name="image" id="image"
                                                 class="form-control d-none">

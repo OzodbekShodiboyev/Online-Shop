@@ -11,19 +11,18 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
-    public function index(Request $request)
-    {
-        $orders = Order::when($request->date != null, function ($q) use ($request) {
-            return $q->whereDate('created_at', $request->date);
-        })
-        ->when($request->status != null, function ($q) use ($request) {
-            return $q->where('status_message', $request->status);
-        })
-        ->paginate(10);
-    
-        return view('admin.orders.index', compact('orders'));
-    }
+   public function index(Request $request)
+{
+    $orders = Order::when($request->date != null, function ($q) use ($request) {
+        return $q->whereDate('created_at', $request->date);
+    })
+    ->when($request->status != null, function ($q) use ($request) {
+        return $q->where('status_message', $request->status);
+    })
+    ->paginate(10);
 
+    return view('admin.orders.index', compact('orders'));
+}
     public function show(int $orderId)
     {
         $order = Order::where('id', $orderId)->first();

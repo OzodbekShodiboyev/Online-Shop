@@ -38,12 +38,12 @@
 </head>
 
 <body>
-    <header>
+
 
         @include('layouts.navbar')
 
 
-        <div class="py-3  pyt-md-4" style="margin-top: 12%">
+        <div class="py-3  pyt-md-4" style="margin-top: 12%; height: 140px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -58,7 +58,8 @@
                 </div>
             </div>
         </div>
-    </header>
+    
+    @include('layouts.footer')
     <script>
         window.addEventListener('message', event => {
             alertify.set('notifier', 'position', 'top-right');

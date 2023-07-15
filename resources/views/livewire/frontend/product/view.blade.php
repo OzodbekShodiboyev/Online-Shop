@@ -165,10 +165,10 @@
                                                 </a>
                                             </h5>
                                             <div class="">
-                                                <span class="selling-price fs-4">$
-                                                    {{ number_format($relatedProductItem->selling_price) }}</span>
-                                                <span class="original-price text-dark fs-6">$
-                                                    {{ number_format($relatedProductItem->original_price) }}</span>
+                                                <span class="selling-price fs-5">
+                                                    {{ number_format($relatedProductItem->selling_price) }}UZS</span>
+                                                <span class="original-price text-dark fs-6">
+                                                    {{ number_format($relatedProductItem->original_price) }}UZS</span>
                                             </div>
                                         </div>
                                     </div>
@@ -226,10 +226,10 @@
                                                     </a>
                                                 </h5>
                                                 <div>
-                                                    <span class="selling-price ">$
-                                                        {{ number_format($relatedProductItem->selling_price) }}</span>
-                                                    <span class="original-price text-dark fs-6">$
-                                                        {{ number_format($relatedProductItem->original_price) }}</span>
+                                                    <span class="selling-price"> 
+                                                        {{ number_format($relatedProductItem->selling_price) }}UZS</span>
+                                                    <span class="original-price text-dark">
+                                                        {{ number_format($relatedProductItem->original_price) }}UZS</span>
                                                 </div>
                                             </div>
                                         </div>

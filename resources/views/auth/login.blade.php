@@ -16,7 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -32,6 +31,31 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezgZDJ0kSOi1T+M2kz7P8WqL7pqR0ZQOeXta8zfl6iPhNIyXsl5F0bG7/4jOoG3K" crossorigin="anonymous">
+        
+    @livewireStyles
+    
+    
+    <!-- other links -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    <style>
+        @media (max-width: 870px) {
+            .signin-signup {
+                width: 100%;
+                top: 80%;
+                transform: translate(-50%, -100%);
+                transition: 1s 0.8s ease-in-out;
+            }
+        }
+    </style>
+    
+    
 </head>
 
 <body>
@@ -64,7 +88,7 @@
         </div>
     </div>
 
-    <div class="container mt-3" style="min-height: 80vh;">
+    <div class="container" style="min-height: 80vh;">
         <div class="forms-container">
             <div class="signin-signup">
                 @if ($errors->any())
@@ -125,7 +149,90 @@
     <!-- Footer End -->
 
     <a href="#" class="btn btn-success back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<div class="header_navbar_collapse off-nav" style="display: block;">
+        <ul class="header_navbar_collapse_nav mt-2" style="min-height: 40px;">
+            <li class="header_navbar_collapse_nav_item">
+                <div class="header_navbar_collapse_nav_item_pad">
+                    <a class="header_navbar_collapse_nav_item_link active text-dark" href="{{ url('/') }}">
+                        <span class="fas fa-home fa-lg"></span>
+                    </a>
+                </div>
+            </li>
 
+            <li class="header_navbar_collapse_nav_item">
+                <div class="header_navbar_collapse_nav_item_pad">
+                    <a class="header_navbar_collapse_nav_item_link text-dark" href="{{ url('/collections') }}">
+                        <ion-icon style="font-size: 22px; margin-top:5px;" name="grid">
+                            
+                        </ion-icon>
+                    </a>
+                </div>
+            </li>
+
+            <li class="header_navbar_collapse_nav_item">
+                <div class="header_navbar_collapse_nav_item_pad">
+                    <a class="header_navbar_collapse_nav_item_link text-dark btn position-relative"
+                        href="{{ url('wishlist') }}">
+                        <span class="fas fa-solid fa-heart fa-lg" aria-hidden="true"></span>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 "
+                            style="margin-left: -15%">
+                            <livewire:frontend.wishlist-count />    
+                        </span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="header_navbar_collapse_nav_item">
+                <div class="header_navbar_collapse_nav_item_pad">
+                    <a class="header_navbar_collapse_nav_item_link text-dark btn position-relative"
+                        href="{{ url('cart') }}">
+                        <span class="fas fa-shopping-cart fa-lg" aria-hidden="true"></span>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 "
+                            style="margin-left: -15%">
+                            <livewire:frontend.cart.cart-count />
+                        </span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="header_navbar_collapse_nav_item">
+                <div class="header_navbar_collapse_nav_item_pad ">
+                    @if (Route::has('login'))
+                        @auth
+                            <a class="header_navbar_collapse_nav_item_link" href="#" id="userDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="position-relative d-flex justify-content-center icon-notifications">
+                                    <span class="fas fa-user fa-lg text-dark"></span>
+                                </span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                style="margin-top: -26%" aria-labelledby="userDropdown">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" href="route('logout')"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        {{ __('Chiqish') }}
+                                    </a>
+                                </form>
+                            </div>
+                        @else
+                            <a href="{{ route('login') }}" class="header_navbar_collapse_nav_item_link ">
+                                <span class="position-relative d-flex justify-content-center icon-notifications">
+                                    <span class="fas fa-user fa-lg text-dark"></span>
+                                </span>
+
+                            </a>
+                        @endauth
+                    @endif
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -140,6 +247,8 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

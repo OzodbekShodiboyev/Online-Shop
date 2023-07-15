@@ -35,13 +35,17 @@
                                                         <img src="{{ asset($cartItem->product->productImages[0]->image) }}"
                                                             style="width: 50px; height: 50px" alt="">
                                                     @else
-                                                        <img src="" style="width: 50px; height: 50px" alt="">
+                                                        <img src="" style="width: 50px; height: 50px"
+                                                            alt="">
                                                     @endif
-                
+
                                                     {{ $cartItem->product->name }}
-                
-                                                    @if ($cartItem->productColor && $cartItem->productColor->color)
-                                                        <span>- @lang('public.rangi'): {{ $cartItem->productColor->color->name }}</span>
+
+                                                    @if ($cartItem->productColor)
+                                                        @if ($cartItem->productColor->color)
+                                                            <span>- @lang('public.rangi'):
+                                                                {{ $cartItem->productColor->color->name }}</span>
+                                                        @endif
                                                     @endif
                                                 </label>
                                             </a>
@@ -51,17 +55,6 @@
                                         </div>
                                         <div class="col-md-2 col-7 my-auto">
                                             <div class="quantity">
-                                                {{-- <div class="input-group">
-                                                    <button type="button" wire:loading.attr="disabled"
-                                                        wire:click="decrementQuantity({{ $cartItem->id }})" class="btn btn1">
-                                                        <i class="fa fa-minus"></i>
-                                                    </button>
-                                                    <input type="text" value="{{ $cartItem->quantity }}" class="input-quantity" />
-                                                    <button type="button" wire:loading.attr="disabled"
-                                                        wire:click="incrementQuantity({{ $cartItem->id }})" class="btn btn1">
-                                                        <i class="fa fa-plus"></i>
-                                                    </button>
-                                                </div> --}}
                                                 <div class="input-group">
                                                     <span class="btn btn1" wire:click="decrementQuantity({{ $cartItem->id }})"><i class="fa fa-minus"></i></span>
                                                     <input type="text" value="{{ $cartItem->quantity }}" class="input-quantity" />
@@ -70,27 +63,36 @@
                                             </div>
                                         </div>
                                         <div class="col-md-1 my-auto">
-                                            <label class="price">{{ $cartItem->product->selling_price * $cartItem->quantity }} UZS</label>
+                                            <label
+                                                class="price">{{ $cartItem->product->selling_price * $cartItem->quantity }} UZS
+                                            </label>
                                             @php $totalPrice += $cartItem->product->selling_price * $cartItem->quantity @endphp
                                         </div>
                                         <div class="col-md-2 col-5 my-auto">
                                             <div class="remove">
                                                 <button type="button" wire:click="removeCartItem({{ $cartItem->id }})"
                                                     class="btn btn-danger btn-sm">
-                                                    <span wire:loading.remove wire:target="removeCartItem({{ $cartItem->id }})">
+                                                    <span wire:loading.remove
+                                                        wire:target="removeCartItem({{ $cartItem->id }})">
                                                         <i class="fa fa-trash"></i> @lang('public.delete')
                                                     </span>
-                                                    <span wire:loading wire:target="removeCartItem({{ $cartItem->id }})">
+                                                    <span wire:loading
+                                                        wire:target="removeCartItem({{ $cartItem->id }})">
                                                         <i class="fa fa-trash"></i> @lang('public.deleting')
                                                     </span>
                                                 </button>
                                             </div>
                                         </div>
+                                      
                                     </div>
                                 </div>
                             @endif
-                        @empty
-                            <div class="fs-1 fw-bold text-center h-100">@lang('public.not_found')</div>
+
+                            @empty
+
+                            <div class="fs-1 fw-bold text-center h-100" style="margin-top: 10%">@lang('public.not_found')</div> 
+
+
                         @endforelse
 
                         <div class="row">

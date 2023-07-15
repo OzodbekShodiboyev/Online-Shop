@@ -45,7 +45,7 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con m-5">
+                            <div class="con m-1">
 
                                 @if (session('message'))
                                     <div class="alert alert-success">{{ session('message') }}</div>
@@ -58,6 +58,7 @@
                                     <div class="card-body">
                                         <a href="{{ url('admin/users/create') }}" class="btn btn-md text-white mb-3 "
                                             style="background-color: rgb(22 163 74) ;">👨‍💻 Add User</a>
+                                            <div class="table-responsive">
                                         <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
@@ -100,6 +101,7 @@
 
                                             </tbody>
                                         </table>
+                                        </div>
                                         <div>
                                             {{$users->links()}}
                                         </div>

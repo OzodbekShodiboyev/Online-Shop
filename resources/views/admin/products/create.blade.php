@@ -45,7 +45,7 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con card shadow m-5">
+                            <div class="con card shadow">
                                 <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                                 <h3 style="">Mahsulotlarni qo'shish
                                     <a href="{{ url('admin/products') }}"
@@ -179,21 +179,21 @@
                                                 role="tabpanel" aria-labelledby="details-tab" tabindex="0">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <div class="mb-3 col-md-11">
+                                                        <div class="mb-3 col-md-12">
                                                             <label for="">Asl narxi</label>
                                                             <input type="text" name="original_price"
                                                                 class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="mb-3 col-md-11">
+                                                        <div class="mb-3 col-md-12">
                                                             <label for="">Sotish narxi</label>
                                                             <input type="text" name="selling_price"
                                                                 class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="mb-3">
+                                                        <div class="mb-3 col-md-12">
                                                             <label for="">Miqdori</label>
                                                             <input type="number" name="quantity"
                                                                 class="form-control">
@@ -213,11 +213,11 @@
                                                             <label for="">Tavsiya etilgan</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3 ml-2">
+                                                    <div class="col-md-3 ml-3">
                                                         <div class="col-md-0 mb-2 mt-2 " style="font-size:16px">
                                                             <input type="checkbox" name="status"
                                                                 style="width: 18px; height:18px">
-                                                            <label for="" class="ml-2">Holat</label>
+                                                            <label for="">Holat</label>
 
                                                         </div>
                                                     </div>

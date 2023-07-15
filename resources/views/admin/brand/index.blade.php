@@ -40,13 +40,13 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con m-5">
+                            <div class="con m-1">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3" style="background-color: rgb(22 163 74) ;">
                                         <h5 class="m-0 font-weight-bold text-white">Brendlar</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive">
+                                        <div>
                                             <a href="{{ url('admin/brands/create') }}" style="background-color: rgb(22 163 74) ;">
                                                 <button type="button" class="btn mb-2 btn text-white" style="background-color: rgb(22 163 74) ;">
                                                     🏘 Brend qo'shish
@@ -55,6 +55,7 @@
                                             @if ($data->isEmpty())
                                                 <p class="text-center h3">No brand</p>
                                             @else
+                                                <div class="table-responsive">
                                                 <table class="table table-bordered table-striped" id="dataTable" width="100%"
                                                     cellspacing="0">
                                                     <thead>
@@ -99,6 +100,7 @@
                                                         @endforeach
                                                     </tbody>
                                                 </table>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>

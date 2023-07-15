@@ -31,12 +31,12 @@
             <!-- Dropdown - Messages -->
             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <form action="{{ route('searching') }}" method="GET" role="search" class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Qidiruv..."
+                        <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Qidiruv..."
                             aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="button">
+                            <button class="btn" style="background-color: rgb(22 163 74) ;" type="submit">
                                 <i class="fas fa-search fa-fw" style="color: white;"></i>
                             </button>
                         </div>

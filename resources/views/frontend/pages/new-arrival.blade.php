@@ -81,7 +81,7 @@
                         </div>
                     @empty
                         <div class="col-md-12 p-2">
-                            <h5>@lang('no_prod')</h5>
+                            <h5>@lang('public.no_prod')</h5>
                         </div>
                     @endforelse
 
@@ -92,6 +92,8 @@
 
 
     </header>
+    
+    @include('layouts.footer')
 
     <a href="#" class="btn btn-success back-to-top"><i class="fa fa-angle-double-up"></i></a>
 

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Product;
-use App\Models\ProductColor;
+use App\Models\productColor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,6 +33,6 @@ class Cart extends Model
 
     public function productColor(): BelongsTo
     {
-        return $this->belongsTo(ProductColor::class, 'product_color_id', 'id');
+        return $this->belongsTo(productColor::class, 'product_color_id', 'id');
     }
 }

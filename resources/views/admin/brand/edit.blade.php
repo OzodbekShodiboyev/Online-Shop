@@ -38,11 +38,11 @@
 
                 <!-- Begin Page Content -->
                 <div class="col-md-12 ">
-                    <div class="card m-5">
+                    <div class="card m-1">
                         <div class="card-header text-white" style="background-color: rgb(22 163 74)">
                             <h3>Brendni tahrirlash
                                 <a href="{{ url('admin/brands') }}"
-                                class="btn btn-outline-success text-white float-end"
+                                class="btn btn-outline-success text-white float-end m-1"
                                         style="font-size:12px">
                                         Qaytish
                                     </a>

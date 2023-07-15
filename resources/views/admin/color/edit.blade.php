@@ -46,10 +46,10 @@
 
                     
                 
-                <div class="card m-5" style="">
+                <div class="card">
                     <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                         <h3 style="">Rangni yangilash
-                            <a href="{{ url('admin/colors/') }}" class="btn btn-outline-success text-white float-end"
+                            <a href="{{ url('admin/colors/') }}" class="btn btn-outline-success mt-3 text-white float-end"
                             style="font-size:12px">
                             Qaytish
                         </a>

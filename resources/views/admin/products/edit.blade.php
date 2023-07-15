@@ -44,7 +44,7 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <div class="con card shadow m-5">
+                            <div class="con card shadow">
                                 <div class="card-header text-white" style="background-color: rgb(22 163 74) ;">
                                     <h3 style="">Mahsulotni yangilash
                                         <a href="{{ url('admin/products') }}"

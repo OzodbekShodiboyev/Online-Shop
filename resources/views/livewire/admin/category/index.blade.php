@@ -23,15 +23,15 @@
 
     <div class="container-fluid">
         <a style="margin-left:1%" href="{{ url('admin/category/create') }}">
-            <button type="button" class="btn ml-5 text-white shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74);">
+            <button type="button" class="btn ml-1 text-white shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(22 163 74);">
                 📂 Kategoriya qo'shish
             </button>
         </a>
 
-        <div class="con ml-5 shadow">
+        <div class="con shadow">
             @foreach ($categories as $category)
                 <a class="text-decoration-none text-center" href="{{ url('admin/category/' . $category->id . '/edit') }}">
-                    <div class="card m-3 float-left shadow" style="width: 17rem; height:380px">
+                    <div class="card m-3 float-left shadow" style="width: auto; height:367px;">
                         <img src="{{ asset('Uploads/Category/' . $category->image) }}" class="card-img-top"
                             width="230px" height="230px" alt="{{ $category->name }}">
                         <div class="card-body">
