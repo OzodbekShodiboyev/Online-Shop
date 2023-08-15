@@ -1,5 +1,5 @@
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="container-fluid bg-dark text-secondary mt-5 pt-5" id="footer">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <h5 class="text-secondary text-uppercase mb-4">{{ $appSetting->website_name ?? 'Sayt Nomi' }}</h5>
@@ -25,12 +25,6 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-5 float-end">
-
-                        @if ($appSetting->telegram)
-                            {{-- <a class="btn text-light" style="width: 600px; background-color:#229ED9; "
-                            href="{{ $appSetting->telegram }}" target="_blank"><i class="fab fa-telegram">
-                                Telegram</i></a> --}}
-                        @endif
 
                         <h6 class="text-secondary text-uppercase mb-3">@lang('public.join_us')</h6>
 

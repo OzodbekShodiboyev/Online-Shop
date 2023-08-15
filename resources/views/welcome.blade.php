@@ -298,7 +298,7 @@
     </div>
     <!-- Products End -->
 
-    <div id="#footer">
+    <div id="footer">
         @include('layouts.footer')
 
     </div>

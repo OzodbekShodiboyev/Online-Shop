@@ -22,7 +22,7 @@ return [
     'pop_prod' => 'Ommabop mahsulotlar',
     'new_prod' => 'Yangi mahsulotlar',
     'sorted_prod' => 'Saralangan mahsulotlar',
-    'new' => 'yangi',
+    'new' => 'Yangi',
     'again' => 'Yana',
     'no_prod' => 'Mahsulot mavjud emas',
     'no' => 'Mavjud emas',
