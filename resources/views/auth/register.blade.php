@@ -87,7 +87,7 @@
             <div class="row align-items-center bg-dark py-3 px-xl-5 d-none d-lg-flex">
                 <div class="col-lg-4">
                     <a href="{{ url('/') }}" class="text-decoration-none bg p-0 m-0">
-                        <img src="./globus-removebg-preview.png" alt="" class="bg-dark m-0 p-0 col-md-3" height="35">
+                        <img src="./globus-removebg-preview.png" alt="" class="bg-dark m-0 p-0 col-md-2" height="35">
                         {{-- <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
                     <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span> --}}
                     </a>
@@ -113,7 +113,7 @@
         </div>
         <!-- Topbar End -->
         <!-- Navbar Start -->
-        <div class="container-fluid bg-dark mb-30">
+        {{-- <div class="container-fluid bg-dark mb-30">
             <div class="row px-xl-5">
                 <div class="col-lg-3 d-none d-lg-block">
                     <a class="btn d-flex align-items-center justify-content-between bg-success w-100"
@@ -137,8 +137,6 @@
                         <a href="{{ url('/') }} " class="text-decoration-none d-block d-lg-none">
                             <img src="{{ asset('globus-removebg-preview.png') }}" alt=""
                                 class="bg-dark m-0 p-0" height="35">
-                            {{-- <span class="h1 text-uppercase text-success bg-dark px-2">Badomm</span>
-                        <span class="h1 text-uppercase text-dark bg-success px-2 ml-n1">Shop</span> --}}
                         </a>
                         <button type="button" class="navbar-toggler bg-success" data-toggle="collapse"
                             data-target="#navbarCollapse">
@@ -209,13 +207,13 @@
                     </nav>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Navbar End -->
 
 
 
         <div class="header_navbar_collapse off-nav" style="display: block;">
-            <ul class="header_navbar_collapse_nav mt-2" style="min-height: 40px;">
+            <ul class="header_navbar_collapse_nav" style="min-height: 40px;">
                 <li class="header_navbar_collapse_nav_item">
                     <div class="header_navbar_collapse_nav_item_pad">
                         <a class="header_navbar_collapse_nav_item_link active text-dark" href="{{ url('/') }}">
