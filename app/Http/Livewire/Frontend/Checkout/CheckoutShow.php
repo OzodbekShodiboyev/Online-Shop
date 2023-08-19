@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Frontend\Checkout;
 
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\OrderItem;
+use App\Models\Orderitem;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -21,7 +21,7 @@ class CheckoutShow extends Component
         return [
             'fullname' => 'required | string | max:121',
             'email' => 'required | email | max:121',
-            'phone' => 'required | string | max:13 |min:13',
+            'phone' => 'required | max:13 |min:9',
             'pincode' => 'required | string | max:6 | min:6',
             'address' => 'required | string | max:500'
         ];
@@ -44,7 +44,7 @@ class CheckoutShow extends Component
         ]);
 
         foreach ($this->carts as $cartItem) {
-            $orderItems = OrderItem::create([
+            $orderItems = Orderitem::create([
                 'order_id' => $order->id,
                 'product_id' => $cartItem->product_id,
                 'product_color_id' => $cartItem->product_color_id,

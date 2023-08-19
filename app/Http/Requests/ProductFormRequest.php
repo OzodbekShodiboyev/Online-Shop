@@ -53,8 +53,7 @@ class ProductFormRequest extends FormRequest
                 'integer'
             ],
             'selling_price' => [
-                'required',
-                'integer'
+                'nullable',
             ],
             'quantity' => [
                 'required',

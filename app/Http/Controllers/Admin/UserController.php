@@ -46,19 +46,27 @@ class UserController extends Controller
 
     public function update(Request $request, int $userId)
     {
+        $user = User::findOrFail($userId);
+    
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'role_as' => ['required', 'integer'],
         ]);
-
-        User::findOrFail($userId)->update([
-            'name' => $request->name,
-            'password' => Hash::make($request->password),
-            'role_as' => $request->role_as,
-        ]);
-
+    
+        // Update name and role_as fields
+        $user->name = $request->name;
+        $user->role_as = $request->role_as;
+    
+        // Check if a new password is provided
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+    
+        $user->save();
+    
         return redirect('admin/users')->with('message', "Foydalanuvchi ma'lumotlari o'zgartirildi");
     }
+
 
     public function destroy(int $userId)
     {

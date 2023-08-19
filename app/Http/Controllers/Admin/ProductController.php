@@ -36,11 +36,10 @@ class ProductController extends Controller
             'category_id' => 'required',
             'name' => 'required',
             'slug' => 'required',
-            'brand' => 'required',
             'small_description' => 'required',
             'description' => 'required',
             'original_price' => 'required',
-            'selling_price' => 'required',
+            'original_price' => 'nullable',
             'quantity' => 'required',
             'meta_title' => 'required',
             'meta_keyword' => 'required',
@@ -59,7 +58,7 @@ class ProductController extends Controller
         $small_description = $request->small_description;
         $description = $request->description;
         $original_price = $request->original_price;
-        $selling_price = $request->selling_price;
+        $selling_price = $request->has('selling_price') ? $request->selling_price : null; 
         $quantity = $request->quantity;
         $trending = $request->trending == true ? '1' : '0';
         $featured = $request->featured == true ? '1' : '0';
@@ -140,7 +139,7 @@ class ProductController extends Controller
         $product->small_description = $validatedData['small_description'];
         $product->description = $validatedData['description'];
         $product->original_price = $validatedData['original_price'];
-        $product->selling_price = $validatedData['selling_price'];
+        $product->selling_price = $validatedData['selling_price'] ?? 0;
         $product->quantity = $validatedData['quantity'];
         $product->trending = $request->trending == true ? '1' : '0';
         $product->featured = $request->featured == true ? '1' : '0';

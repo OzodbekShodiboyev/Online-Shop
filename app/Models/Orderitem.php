@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ProductColor;
 
 class Orderitem extends Model
 {
@@ -25,6 +26,6 @@ class Orderitem extends Model
     }
     public function productColor(): BelongsTo
     {
-        return $this->belongsTo(productColor::class, 'product_color_id', 'id');
+        return $this->belongsTo(ProductColor::class, 'product_color_id', 'id');
     }
 }

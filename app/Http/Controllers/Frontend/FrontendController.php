@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -18,12 +19,13 @@ class FrontendController extends Controller
     }
     public function index()
     {
+        $users = User::get();
         $categories = Category::get();
         $slider = Slider::where('status', '0')->get();
         $trendingProducts = Product::where('trending', '1')->latest()->take(15)->get();
         $newArrivalsProducts = Product::latest()->take(14)->get();
         $featuredProducts = Product::where('featured', '1')->latest()->take(14)->get();
-        return view('welcome', compact('slider', 'categories', 'trendingProducts', 'newArrivalsProducts', 'featuredProducts'));
+        return view('welcome', compact('slider', 'categories', 'trendingProducts', 'newArrivalsProducts', 'featuredProducts', 'users'));
     }
 
     public function searchProducts(Request $request)
