@@ -243,13 +243,21 @@
                                                 <div>
                                                     @if ($product->productImages)
                                                         <div class="row">
-                                                            @foreach ($product->productImages as $image)
+                                                            @foreach ($product->productImages as $media)
                                                                 <div class="card m-2" style="width: 18rem;">
-                                                                    <img src="{{ asset($image->image) }}"
-                                                                        class="card-img-top" alt="...">
+                                                                    @if (in_array(strtolower(pathinfo($media->image, PATHINFO_EXTENSION)), ['png', 'jpeg', 'jpg']))
+                                                                        <!-- This is an image -->
+                                                                        <img src="{{ asset($media->image) }}" class="card-img-top" alt="...">
+                                                                    @elseif (in_array(strtolower(pathinfo($media->image, PATHINFO_EXTENSION)), ['mp4', 'webm', 'ogx', 'oga']))
+                                                                        <!-- This is a video -->
+                                                                        <video controls class="card-img-top">
+                                                                            <source src="{{ asset($media->image) }}" type="video/mp4">
+                                                                            Your browser does not support the video tag.
+                                                                        </video>
+                                                                    @endif
                                                                     <div class="card-body">
                                                                         <a class="d-block btn btn-outline-danger"
-                                                                            href="{{ url('admin/product-image/' . $image->id . '/delete') }}"><i
+                                                                            href="{{ url('admin/product-image/' . $media->id . '/delete') }}"><i
                                                                                 class="fa fa-solid fa-trash"></i></a>
                                                                     </div>
                                                                 </div>
@@ -259,6 +267,7 @@
                                                         <h5>Rasm topilmadi!</h5>
                                                     @endif
                                                 </div>
+                                                
                                             </div>
                                             <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel"
                                                 aria-labelledby="color-tab" tabindex="0">

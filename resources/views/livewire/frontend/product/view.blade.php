@@ -4,31 +4,41 @@
             <div class="row">
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
-                        @if ($product->productImages)
-                            {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
-                            <div class="exzoom" id="exzoom">
-                                <div class="exzoom_img_box">
-                                    <ul class='exzoom_img_ul'>
-                                        @foreach ($product->productImages as $itemImg)
-                                            <li>
-                                                <img src="{{ asset($itemImg->image) }}"
-                                                    style="margin-top: 50.8817px; width: 328px; height: 100%" />
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                        @if (!empty($product->productImages))
+                                <div class="exzoom" id="exzoom">
+                                    <div class="exzoom_img_box">
+                                        <ul class='exzoom_img_ul'>
+                                            @foreach ($product->productImages as $itemMedia)
+                                                <li>
+                                                    @if (in_array(pathinfo($itemMedia->image, PATHINFO_EXTENSION), ['mp4', 'webm', 'oga', 'ogx']))
+                                                        <video controls class="w-100" alt="Video">
+                                                            <source src="{{ asset( $itemMedia->image) }}" type="video/mp4">
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                    @else
+                                                        <img src="{{ asset($itemMedia->image) }}"
+                                                            style="margin-top: 50.8817px; width: 328px; height: 100%" />
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <p class="exzoom_btn">
+                                        <a href="javascript:void(0);" class="exzoom_prev_btn">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                        <a href="javascript:void(0);" class="exzoom_next_btn">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </p>
                                 </div>
-                                <div class="exzoom_nav"></div>
-                                <p class="exzoom_btn" >
-                                    <a href="javascript:void(0);" class="exzoom_prev_btn">
-                                        <i class="fa fa-angle-left"></i> </a>
-                                            <a href="javascript:void(0);" class="exzoom_next_btn"> <i class="fa fa-angle-right" ></i> </a>
-                                </p>
-                            </div>
                         @else
                             @lang('image_no')
                         @endif
                     </div>
                 </div>
+                             
+                
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
                         <h4 class="product-name">

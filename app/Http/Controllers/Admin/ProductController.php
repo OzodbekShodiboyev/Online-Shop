@@ -44,7 +44,7 @@ class ProductController extends Controller
             'meta_title' => 'required',
             'meta_keyword' => 'required',
             'meta_description' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image.*' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4,ogx,oga,ogv,ogg,webm|max:10240',
         ]);
 
         if ($validator->fails()) {
@@ -86,20 +86,26 @@ class ProductController extends Controller
         $product->save();
 
         if ($request->hasFile('image')) {
-            $uploadPath = 'uploads/products/';
-            $i = 1;
-            foreach ($request->file('image') as $imageFile) {
-                $extension = $imageFile->getClientOriginalExtension();
-                $filename = time() . $i++ . '.' . $extension;
-                $imageFile->move($uploadPath, $filename);
-                $finalImagePathName = $uploadPath . $filename;
-
-                $product->productImages()->create([
-                    'product_id' => $product->id,
-                    'image' => $finalImagePathName,
-                ]);
-            }
+    $uploadPath = 'uploads/products/';
+    $i = 1;
+    foreach ($request->file('image') as $file) {
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . $i++ . '.' . $extension;
+        $file->move($uploadPath, $filename);
+        $finalFilePath = $uploadPath . $filename;
+        if (in_array($extension, ['jpeg', 'png', 'jpg', 'gif', 'svg'])) {
+            // This is an image
+            $product->productImages()->create([
+                'product_id' => $product->id,
+                'image' => $finalFilePath,
+            ]);
+        } elseif (in_array($extension, ['mp4', 'ogx', 'oga', 'ogv', 'ogg', 'webm'])) {
+            $product->video_path = $finalFilePath;
+            $product->save();
         }
+    }
+}
+
 
         if ($request->colors) {
             foreach ($request->colors as $key => $color) {
