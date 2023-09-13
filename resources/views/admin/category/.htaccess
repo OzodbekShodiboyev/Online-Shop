@@ -1,6 +1,0 @@
-
-# Beget FileManager Auth rules
-AuthName "Protected area, need authorization"
-AuthType Basic
-AuthUserFile /home/j/java1706/topesexpress.uz/resources/views/admin/category/.htpasswd
-require valid-user
